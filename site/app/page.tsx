@@ -7,7 +7,7 @@ import {
   Check,
   Code2,
   Command,
-  Github,
+  GitFork,
   Layers3,
   Palette,
   Sparkles,
@@ -191,7 +191,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-2">
             <Button href="https://github.com/sumittt4/Glyph-Skill" variant="secondary">
-              <Github size={16} />
+              <GitFork size={16} />
               <span className="hidden sm:inline">GitHub</span>
             </Button>
             <Button href="#install">Install</Button>
@@ -365,7 +365,7 @@ export default function Home() {
           </code>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Button href="https://github.com/sumittt4/Glyph-Skill" variant="secondary">
-              <Github size={16} />
+              <GitFork size={16} />
               View GitHub
             </Button>
             <Button href="https://github.com/sumittt4/Glyph-Skill/blob/main/SKILL.md" variant="ghost">

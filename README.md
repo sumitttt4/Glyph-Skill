@@ -1,108 +1,77 @@
 # Glyph Skill
 
 A brand and design skill for AI-built products.
-
-Glyph helps Claude Code, Cursor, Codex, and other AI coding assistants create stronger brand identity, cleaner interfaces, better typography, better color systems, and less generic AI-generated design.
+Gives Claude Code, Cursor, and Codex better design taste before they build.
 
 ## Install
 
 ```bash
-npx skills add sumitttt4/Glyph-Skill
+npx skills add sumittt4/Glyph-Skill
 ```
-
-## Use
-
-```txt
-/glyph brand a fintech SaaS called Nova
-```
-
-```txt
-/glyph design a premium landing page for an AI product
-```
-
-```txt
-/glyph audit this homepage
-```
-
-```txt
-/glyph kit for a founder analytics app
-```
-
-```txt
-/glyph vibe for a clean AI dashboard
-```
-
-## What It Does
-
-* Brand identity
-* Logo direction
-* Color systems
-* Typography
-* Landing pages
-* SaaS UI
-* Dashboards
-* Product taste
-* Anti-generic design rules
-* AI builder prompts
 
 ## Commands
 
-| Command | Use it for |
-| --- | --- |
-| `/glyph brand` | Brand identity, positioning, logo direction, colors, typography, voice, and do / don't rules. |
-| `/glyph design` | Landing pages, SaaS UI, dashboards, sections, spacing, cards, buttons, hierarchy, and responsive direction. |
-| `/glyph audit` | Finding what feels generic, what weakens trust, what breaks hierarchy, and what to fix first. |
-| `/glyph kit` | A complete brand + UI kit with tokens, component rules, landing page rules, and an AI builder prompt. |
-| `/glyph vibe` | A Vibe Coding Prompt for Claude Code, Cursor, Codex, or another AI coding assistant. |
-| `/glyph prompt` | A clean reusable prompt for Cursor, Claude Code, Codex, or Glyph. |
+| Command | What it does |
+|---|---|
+| /glyph brand | Create brand identity direction |
+| /glyph design | Create UI design direction |
+| /glyph audit | Audit an existing product |
+| /glyph kit | Generate full brand + UI kit |
+| /glyph vibe | Create a Vibe Coding Prompt |
+| /glyph landing | Design a landing page |
+| /glyph prompt | Generate a clean AI builder prompt |
 
-## Examples
+## What's inside the skill
 
-```txt
-/glyph brand a fintech SaaS called Nova
-```
+The skill does not force one visual style onto every product.
+It teaches how to choose the right design direction based on the product.
 
-```txt
-/glyph design a premium landing page for an AI product
-```
+- **Brand rules** — positioning, personality, logo direction, voice, do/don't per category
+- **Color system rules** — color by product category, token format, palette construction
+- **Typography rules** — font pairing by personality, size scale, weight and tracking rules
+- **Logo direction rules** — wordmark vs symbol vs monogram, construction logic
+- **Background and surface rules** — white, warm white, dark, grid, glassmorphism — when and why
+- **UI and layout rules** — landing page structure, SaaS UI, dashboard, components, responsive
+- **Anti-slop rules** — 32 specific AI design anti-patterns with fixes
+- **Vibe Coding prompt format** — 10-step process and copy-paste prompt template for AI builders
+- **CSS token system** — copy-paste ready color, spacing, type, shadow, and motion tokens
 
-```txt
-/glyph audit this homepage
-```
-
-```txt
-/glyph kit for a founder analytics app
-```
-
-```txt
-/glyph vibe for a clean AI dashboard
-```
-
-## Landing Page
-
-The marketing landing page is built with Next.js at the repo root.
-
-Run it locally:
+## The skill adapts to every product type
 
 ```bash
-npm install
-npm run dev
+/glyph brand a premium fintech SaaS
 ```
+→ Deep navy palette, IBM Plex Sans, restrained cobalt accent, institutional trust signals
 
-Deploy the repo to Vercel with the standard Next.js preset.
+```bash
+/glyph brand a playful creator tool
+```
+→ Warm coral accent, Plus Jakarta Sans, expressive warmth, high personality
 
-## Open Source
+```bash
+/glyph design a dark AI infrastructure dashboard
+```
+→ Near-black bg, electric blue accent, Geist Mono, surface hierarchy, semantic chart colors
 
-Glyph Skill is open source under the MIT License. The skill is free to use, fork, improve, and install in AI coding assistants. The hosted Glyph product at glyph.software is separate and provides full brand kit generation, exports, and advanced visual systems.
+```bash
+/glyph vibe for a warm founder storytelling platform
+```
+→ Editorial serif headline, warm off-white bg, earthy tones, human copy tone
 
-## Connection to Glyph
+## What this skill does not do
 
-Use the skill for direction.
+- It does not apply orange, warm white, and Geist to every product
+- It does not give generic advice like "use modern, clean design"
+- It does not leave visual decisions up to the AI builder
+- It does not include any private Glyph product logic or internal generation system
 
-Use Glyph for the full brand kit:
+Every visual decision Glyph makes must be explained by the product category, audience, and trust signal.
 
-[https://glyph.software](https://glyph.software)
+## Works with
 
-## License
+Claude Code · Cursor · Codex · Windsurf · Aider
 
-MIT
+## Full brand kit
+
+Generate the full brand kit at [glyph.software](https://glyph.software/generate?source=glyph-skill&type=brand) →
+https://glyph.software/generate?source=glyph-skill&type=brand

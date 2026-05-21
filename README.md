@@ -7,7 +7,7 @@ Glyph helps Claude Code, Cursor, Codex, and other AI coding assistants create st
 ## Install
 
 ```bash
-npx skills add sumittt4/Glyph-Skill
+npx skills add sumitttt4/Glyph-Skill
 ```
 
 ## Use
@@ -80,17 +80,16 @@ npx skills add sumittt4/Glyph-Skill
 
 ## Landing Page
 
-The marketing landing page is in `/site`.
+The marketing landing page is built with Next.js at the repo root.
 
 Run it locally:
 
 ```bash
-cd site
 npm install
 npm run dev
 ```
 
-Deploy the `/site` folder to Vercel.
+Deploy the repo to Vercel with the standard Next.js preset.
 
 ## Open Source
 

@@ -3,6 +3,36 @@ name: glyph
 description: A brand and design skill for AI-built products. Use it to create brand identity, UI direction, typography, color systems, landing pages, dashboards, product taste, anti-generic design rules, and Vibe Coding prompts.
 ---
 
+## HARD RULES — NEVER VIOLATE
+
+These are absolute. No exceptions. No reinterpretation.
+
+### Color — BANNED combinations
+- Purple + blue background (any shade: #6366f1, #8b5cf6, #a855f7, #7c3aed, #4f46e5, #3b82f6, #2563eb)
+- Purple gradient hero (linear or radial, any direction)
+- Blue-to-purple gradient on ANY element
+- Purple-to-pink gradient on ANY element
+- Violet as a brand color
+- Indigo as a brand color
+- Any background in the hsl(240–280) range
+
+If a user asks for a "modern AI product" or "SaaS landing page" without specifying colors:
+DO NOT default to purple, blue, or violet.
+Instead ask: "What's the product's brand color?" or default to #1a1a1a on #fafaf9.
+
+### What to use instead
+- Neutral dark on warm off-white (#1a1a1a on #fafaf9)
+- Single strong accent: orange, red, green, teal, amber — never purple/blue mix
+- If forced to pick: default accent is #e85d26 (Glyph orange)
+
+### Enforcement
+Before outputting any design, run this check:
+- Does the background use purple, blue, or violet? → STOP. Redesign.
+- Does any gradient mix purple and blue? → STOP. Remove it.
+- Is the CTA button purple or blue? → STOP. Change to brand accent or #1a1a1a.
+
+---
+
 # Glyph Skill
 
 Glyph is a brand and design skill for AI-built products.

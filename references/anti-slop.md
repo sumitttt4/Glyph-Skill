@@ -8,6 +8,11 @@ Use this file when running `/glyph audit` or checking any design output for gene
 
 ## Color Anti-Patterns
 
+### 0. Purple-blue AI default
+**What it is:** Using dark navy/purple/violet as the default color scheme for any AI or SaaS product.
+**Why it fails:** Every AI tool looks identical. It signals zero brand thinking.
+**Fix:** Default to #0f0f0e base with a single non-purple accent. Ask for brand color before designing.
+
 ### 1. Random Purple Gradient
 **What it is:** A purple-to-pink or purple-to-blue gradient applied to the hero background or CTA section with no brand rationale.
 **Why it is generic:** Every third AI SaaS product uses it. It signals "AI startup" without saying anything about the actual product.

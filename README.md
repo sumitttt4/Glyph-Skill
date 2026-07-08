@@ -1,77 +1,70 @@
 # Glyph Skill
 
-A brand and design skill for AI-built products.
-Gives Claude Code, Cursor, and Codex better design taste before they build.
+> Give Claude Code, Cursor, and Codex better design taste before they build your product.
 
-## Install
+Glyph is a brand and design skill that installs directly into your repository, injecting strict visual rules and design frameworks into your AI coding assistant. It prevents common AI design issues by enforcing functional layouts, strict color consistency locks, grid alignments, and high-quality typography.
 
+## Installation
+
+Install Glyph directly into your project root using the CLI:
+
+### 1. Default Bundle (Recommended)
+Pulls the core skill plus all 10 detailed design reference rule files:
 ```bash
-npx skills add sumittt4/Glyph-Skill
+npx skills add sumitttt4/Glyph-Skill
 ```
 
-## Commands
-
-| Command | What it does |
-|---|---|
-| /glyph brand | Create brand identity direction |
-| /glyph design | Create UI design direction |
-| /glyph audit | Audit an existing product |
-| /glyph kit | Generate full brand + UI kit |
-| /glyph vibe | Create a Vibe Coding Prompt |
-| /glyph landing | Design a landing page |
-| /glyph prompt | Generate a clean AI builder prompt |
-
-## What's inside the skill
-
-The skill does not force one visual style onto every product.
-It teaches how to choose the right design direction based on the product.
-
-- **Brand rules** — positioning, personality, logo direction, voice, do/don't per category
-- **Color system rules** — color by product category, token format, palette construction
-- **Typography rules** — font pairing by personality, size scale, weight and tracking rules
-- **Logo direction rules** — wordmark vs symbol vs monogram, construction logic
-- **Background and surface rules** — white, warm white, dark, grid, glassmorphism — when and why
-- **UI and layout rules** — landing page structure, SaaS UI, dashboard, components, responsive
-- **Anti-slop rules** — 32 specific AI design anti-patterns with fixes
-- **Vibe Coding prompt format** — 10-step process and copy-paste prompt template for AI builders
-- **CSS token system** — copy-paste ready color, spacing, type, shadow, and motion tokens
-
-## The skill adapts to every product type
-
+### 2. Specific Rule Add
+Install only a single specific design reference file:
 ```bash
-/glyph brand a premium fintech SaaS
+npx skills add sumitttt4/Glyph-Skill --skill "design-rules"
 ```
-→ Deep navy palette, IBM Plex Sans, restrained cobalt accent, institutional trust signals
 
+### 3. Codex Installation
+Install the full skill bundle directly into your global Codex skills directory:
 ```bash
-/glyph brand a playful creator tool
+npx skills add sumitttt4/Glyph-Skill -a codex
 ```
-→ Warm coral accent, Plus Jakarta Sans, expressive warmth, high personality
 
-```bash
-/glyph design a dark AI infrastructure dashboard
-```
-→ Near-black bg, electric blue accent, Geist Mono, surface hierarchy, semantic chart colors
+## How it works
 
-```bash
-/glyph vibe for a warm founder storytelling platform
-```
-→ Editorial serif headline, warm off-white bg, earthy tones, human copy tone
+Once installed, your AI coding agent reads `SKILL.md` and the reference rules. The rules guide the agent's behavior during code generation, auditing, and design tasks. 
 
-## What this skill does not do
+There is no connection to any external API or background service. The skill works entirely locally within your AI agent's context.
 
-- It does not apply orange, warm white, and Geist to every product
-- It does not give generic advice like "use modern, clean design"
-- It does not leave visual decisions up to the AI builder
-- It does not include any private Glyph product logic or internal generation system
+## Inside the Bundle
 
-Every visual decision Glyph makes must be explained by the product category, audience, and trust signal.
+Glyph installs a unified main entrypoint in your root directory and 10 detailed design rule sheets inside the `references/` folder:
 
-## Works with
+* SKILL.md — Main entrypoint skill file containing slash commands, category taste rules, and instructions.
+* core-color-rules.md — Tone consistency locks, surface rules, max text shades, and accessible contrast ratios.
+* typography-rules.md — Font pairings by brand personality, tracking adjustments, and 65-character line length limits.
+* layout-rules.md — Spacing scales (4px grid), section padding constraints, and max container widths (720px/1080px/1280px).
+* component-rules.md — Structural layout specs for 22 interface components (inputs, modals, tables, navbars).
+* motion-rules.md — Easing curves (cubic-bezier), animation duration limits (400ms max), and click scaling rules.
+* accessibility-rules.md — Keyboard navigation tab indexes, focus indicators, outline spacing, and aria labels.
+* responsive-rules.md — Breakpoints, grid folding, mobile padding values, and overflow scroll rules.
+* anti-slop-rules.md — 32 specific banned AI design patterns (purple mesh blobs, sparkle icons, default Poppins).
+* framework-rules.md — Tailwind naming conventions, React component cleanliness, and Next.js integration rules.
+* background-rules.md — Background pattern constraints, gradient overlay masking, and backdrop blur limits.
 
-Claude Code · Cursor · Codex · Windsurf · Aider
+## Smart Style Adaptability
 
-## Full brand kit
+Glyph does not force a single visual theme. It teaches your agent how to adapt its styling choices based on the product category, target audience, and trust signals:
 
-Generate the full brand kit at [glyph.software](https://glyph.software/generate?source=glyph-skill&type=brand) →
-https://glyph.software/generate?source=glyph-skill&type=brand
+* Fintech SaaS: Deep navy background, IBM Plex Sans, electric cobalt accent, institutional trust signals.
+* Creator Tool: Warm coral accent, Jakarta Sans typography, light card borders, high visual warmth.
+* DevOps Terminal: Near-black theme, neon green terminal indicators, Geist Mono typeface, layout density.
+* Founder Blog: Soft off-white canvas, editorial serif headline, warm gray text, high line height.
+
+## Supported Agents
+
+Glyph works natively with any AI assistant that supports markdown skill references:
+
+Claude Code · Cursor · Codex · Gemini CLI · Aider · Windsurf
+
+## Links & Resources
+
+* Documentation: https://glyph.software
+* Creator Portfolio: https://sumitsharmaa.me
+* X (Twitter): https://x.com/sumitdotme

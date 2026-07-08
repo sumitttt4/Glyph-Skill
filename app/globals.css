@@ -3,20 +3,53 @@
 @tailwind utilities;
 
 :root {
-  color: #111111;
-  background: #ffffff;
-  font-family:
-    Geist,
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  color-scheme: light;
+
+  /* Colors */
+  --glyph-orange: #072ca8;
+  --glyph-orange-hover: #051d70;
+  --glyph-orange-soft: #eff0ff;
+  --glyph-text: #111111;
+  --glyph-muted: #666666;
+  --glyph-border: #EAE7E2;
+  --glyph-border-soft: rgba(0, 0, 0, 0.05);
+  --glyph-surface: #FCFAF8;
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 96px;
+
+  /* Radius Tiers */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadow Tiers */
+  --shadow-flat: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-rest: 0 2px 8px rgba(17, 17, 17, 0.04);
+  --shadow-hover: 0 16px 48px rgba(17, 17, 17, 0.08);
+  --shadow-active: 0 4px 12px rgba(17, 17, 17, 0.06);
+
+  /* Easing */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.75, 0, 0.85, 1);
+
+  /* Font family */
+  font-family: var(--font-space), 'Space Grotesk', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  color: var(--glyph-text);
+  background: var(--glyph-surface);
 }
 
 * {
@@ -25,13 +58,13 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    linear-gradient(180deg, #ffffff 0%, #ffffff 34%, #fcfaf8 100%);
+  background: var(--glyph-surface);
 }
 
 a {
@@ -40,5 +73,61 @@ a {
 
 ::selection {
   color: #ffffff;
-  background: #ff5a1f;
+  background: var(--glyph-orange);
 }
+
+/* Custom CSS Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseOpacity {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 400ms var(--ease-entrance) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 350ms var(--ease-standard) forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulseOpacity 1.5s var(--ease-standard) infinite;
+}
+
+/* Micro-interaction transitions */
+.transition-glyph {
+  transition: all 200ms var(--ease-standard);
+}
+
+/* Class active states */
+.active-press {
+  transition: transform 100ms var(--ease-standard);
+}
+.active-press:active {
+  transform: scale(0.98) !important;
+}
+

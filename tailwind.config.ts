@@ -6,8 +6,8 @@ const config: Config = {
     extend: {
       colors: {
         glyph: {
-          orange: "#FF5A1F",
-          soft: "#FFF4EE",
+          orange: "#072ca8",
+          soft: "#eff0ff",
           text: "#111111",
           muted: "#666666",
           border: "#EAE7E2",
@@ -19,8 +19,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "Geist",
-          "Inter",
+          "var(--font-space)",
+          "Space Grotesk",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",

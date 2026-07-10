@@ -4,6 +4,17 @@
 
 Glyph is a brand and design skill that installs directly into your repository, injecting strict visual rules and design frameworks into your AI coding assistant. It prevents common AI design issues by enforcing functional layouts, strict color consistency locks, grid alignments, and high-quality typography.
 
+## Who Is This For?
+
+Use Glyph if you're building with AI coding assistants and want the output to look like a real product — not a template.
+
+* **SaaS dashboards** — You're scaffolding an analytics dashboard with Cursor and don't want the default purple-gradient AI slop.
+* **Founder portfolios** — You're building your personal site with Claude Code and want it to feel like a designed brand, not a tutorial project.
+* **DevTools landing pages** — You're shipping a CLI tool's marketing page with Codex and need fintech-grade visual consistency.
+* **Startup MVPs** — You're prototyping fast but still want consistent spacing, real typography, and accessible contrast from day one.
+
+If your AI assistant has ever generated a purple mesh gradient hero with Poppins font and a "Supercharge your workflow" headline — Glyph exists to prevent that.
+
 ## Installation
 
 Install Glyph directly into your project root using the CLI:
@@ -26,11 +37,49 @@ Install the full skill bundle directly into your global Codex skills directory:
 npx skills add sumitttt4/Glyph-Skill -a codex
 ```
 
+### Pinning a Version
+
+To lock your project to a specific Glyph release, use the tag:
+```bash
+npx skills add sumitttt4/Glyph-Skill@v1.0.0
+```
+
 ## How it works
 
 Once installed, your AI coding agent reads `SKILL.md` and the reference rules. The rules guide the agent's behavior during code generation, auditing, and design tasks. 
 
 There is no connection to any external API or background service. The skill works entirely locally within your AI agent's context.
+
+## Before & After
+
+Here's what changes when Glyph is installed. Same prompt, different output.
+
+**Prompt:** *"Build a SaaS dashboard landing page with a hero section, feature grid, and pricing table."*
+
+### ❌ Without Glyph (typical AI output)
+```
+- Background: linear-gradient(135deg, #6366F1, #EC4899)
+- Font: Poppins 400/600
+- Hero headline: "Supercharge Your Workflow Today"
+- Floating purple orbs behind hero text
+- All buttons: bg-purple-600 with no hover state
+- Spacing: inconsistent (padding-6 next to padding-12)
+- No focus indicators on interactive elements
+```
+
+### ✅ With Glyph installed
+```
+- Background: #FAFAF9 (warm neutral surface)
+- Font: Inter 400 / Geist Sans 600 (paired by product category)
+- Hero headline: "Track deployment metrics across 40 regions in one view."
+- Clean background, no decorative blobs
+- Buttons: bg-[#072CA8] with hover:bg-[#051E7A] hover:-translate-y-0.5 transition-all duration-150
+- Spacing: 4px grid system, consistent section padding (64px / 48px / 32px)
+- Focus outlines: 2px offset ring on all interactive elements
+- Contrast: all text passes WCAG AA (4.5:1 minimum)
+```
+
+The difference is structural, not cosmetic. Glyph doesn't pick a "nicer" color — it enforces layout grids, typography pairing logic, interaction feedback, and accessibility compliance.
 
 ## Inside the Bundle
 
@@ -62,6 +111,45 @@ Glyph does not force a single visual theme. It teaches your agent how to adapt i
 Glyph works natively with any AI assistant that supports markdown skill references:
 
 Claude Code · Cursor · Codex · Gemini CLI · Aider · Windsurf
+
+## Contributing
+
+Glyph is built to grow with the community. If you've spotted an AI design anti-pattern that should be a rule, or want to refine an existing one — contributions are welcome.
+
+**Quick start:**
+
+1. **Propose first** — Open an issue describing the anti-pattern or rule gap before writing code.
+2. **One category per PR** — Keep pull requests focused on a single rule file or section.
+3. **Follow the format** — Every rule needs: Confidence Level, Purpose, Reasoning, Constraint, Example (Bad/Good), and Exceptions. See any file in `references/` for the structure.
+4. **Test locally** — Install the skill in a test project, run a prompt that triggers your rule, and verify the AI respects it.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full contributor guide.
+
+## Versioning
+
+Glyph uses [semantic versioning](https://semver.org/). Releases are tagged so you can pin a stable version in your project.
+
+* **Current release:** `v1.0.0`
+* **Tag format:** `v{major}.{minor}.{patch}`
+* **How to pin:** `npx skills add sumitttt4/Glyph-Skill@v1.0.0`
+
+Watch the [Releases](https://github.com/sumitttt4/Glyph-Skill/releases) page to get notified when new rule categories or refinements ship.
+
+## Roadmap
+
+Here's what's coming next. Star the repo to follow progress.
+
+* 🎨 **Dark mode rules** — Dedicated constraints for dark-theme surfaces, elevation layers, and text contrast on dark backgrounds.
+* 📊 **Data visualization rules** — Chart color sequences, axis labeling, tooltip formatting, and dashboard density constraints.
+* 🖼️ **Illustration & iconography rules** — Icon sizing scales, stroke consistency, illustration style matching by product category.
+* 🏷️ **Per-brand profiles** — Pre-built rule overrides for specific brand categories (fintech, healthtech, dev tools, e-commerce) that auto-apply on `/glyph vibe`.
+* 🗳️ **Community-voted priorities** — GitHub Discussions for proposing and voting on the next rule categories.
+
+Have an idea for a rule category? [Open an issue](https://github.com/sumitttt4/Glyph-Skill/issues/new?template=new-rule-category.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Links & Resources
 

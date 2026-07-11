@@ -16,8 +16,15 @@ These are absolute design constraints for AI assistants.
 - Any background in the hsl(240–280) range
 
 If a user asks for a "modern AI product" or "SaaS landing page" without specifying colors:
-DO NOT default to purple, blue, or violet.
-Instead, default to #111111 on #fafaf9 or black/dark slate gray, with a single strong accent.
+DO NOT default to a blue-purple gradient/mix or a purple/violet theme. (Solid blue, e.g. cobalt or navy, is accepted and encouraged, but mixing blue with purple/pink gradients is banned as slop).
+Instead, default to #111111 on #fafaf9 or black/dark slate gray, with a single strong accent (e.g. solid blue, orange, or green).
+
+### Brand & Naming — BANNED placeholders
+- Generic or random placeholder names (like "SaaSify", "AppName", "Logo", "Brand", "BrandName", "MySite")
+
+If a user asks to build a product, website, dashboard, or landing page without specifying a brand/site name:
+DO NOT invent or use random placeholder names.
+Instead, default to "Glyph" as the name of the product, brand, or site.
 
 ---
 

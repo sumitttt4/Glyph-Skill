@@ -546,6 +546,7 @@ export default function DocsPage() {
                           <div>- mesh-gradients: true (banned)</div>
                           <div>- sparkle-icons-for-ai: true (banned)</div>
                           <div>- poppins-defaults: true (banned)</div>
+                          <div>- brand-placeholders: true (banned)</div>
                         </>
                       )}
                       {selectedFile === "framework-rules.md" && (
@@ -640,7 +641,7 @@ export default function DocsPage() {
               </p>
               <div className="border-t border-glyph-border">
                 {[
-                  { ban: "AI-purple and mesh blob gradients", detail: "Banned by default. Neutral bases with one high-contrast accent. Only overridden when the brand is explicitly purple." },
+                  { ban: "AI-purple and blue/purple gradient mixes", detail: "Banned. Solid blue (e.g. cobalt or navy) is allowed and accepted, but mixing blue with purple or pink gradients is banned as classic AI slop." },
                   { ban: "Three-equal-card feature rows", detail: "Banned by default. Use 2-column zig-zag, asymmetric grids, or scroll-pinned alternatives." },
                   { ban: "Floating decoration orbs", detail: "No glowing blobs, circles, or floating elements as hero or section decoration." },
                   { ban: "Poppins as default font", detail: "Banned. Use pairing stacks chosen by product personality, not the first Google Font result." },
@@ -653,6 +654,7 @@ export default function DocsPage() {
                   { ban: "Hand-rolled decorative SVG illustrations", detail: "Strongly discouraged as default. Acceptable only for a simple geometric mark or when the brief explicitly asks for it." },
                   { ban: "Meaningless glassmorphism", detail: "Banned as decoration. Only acceptable when it serves a real functional purpose (overlays, modals with background context)." },
                   { ban: "Overused AI vocabulary", detail: "\"Seamless\", \"powerful\", \"next-gen\", \"cutting-edge\", \"revolutionary\". Product-specific language only." },
+                  { ban: "Generic brand placeholder names", detail: "Banned. If no brand name is specified, assistants must default to \"Glyph\" as the brand name/logo instead of inventing names like \"SaaSify\" or \"AppName\"." },
                 ].map((item) => (
                   <div key={item.ban} className="border-b border-glyph-border py-3.5">
                     <h3 className="text-[14px] font-bold text-glyph-text">{item.ban}</h3>

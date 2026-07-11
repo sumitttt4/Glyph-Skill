@@ -8,10 +8,10 @@ This module defines rules that block common generic AI template layout patterns 
 * **Confidence Level**: Critical
 * **Purpose**: Block the generic "AI startup" look.
 * **Reasoning**: Defaulting to purple/blue gradients or neon backgrounds signals zero visual identity and looks identical to thousands of basic template sites.
-* **Constraint**: Purple-to-blue linear/radial gradients, purple buttons, and violet accent schemes are programmatically banned inside generated pages.
+* **Constraint**: Purple-to-blue linear/radial gradients, purple buttons, and violet accent schemes are programmatically banned inside generated pages. Solid blue colors (like navy, cobalt, or cyan accents) are fully allowed and accepted; only the mix of blue and purple/pink gradients/schemes is banned as AI slop.
 * **Example**:
-  * **Bad**: Designing a SaaS hero using a linear gradient background from `#6366F1` to `#EC4899`.
-  * **Good**: Choose a high-taste neutral background (`#FAFAF9` or `#0D0D0D`) paired with a single solid accent color (e.g., `#072ca8` or `#D97706`).
+  * **Bad**: Designing a SaaS hero using a linear gradient background from `#6366F1` to `#EC4899` or mixing blue and purple elements.
+  * **Good**: Choose a high-taste neutral background (`#FAFAF9` or `#0D0D0D`) paired with a single solid accent color (e.g., solid blue `#072ca8` or orange `#D97706`).
 * **Exceptions**: None.
 
 ---
@@ -72,4 +72,16 @@ This module defines rules that block common generic AI template layout patterns 
 * **Example**:
   * **Bad**: An image showing colored blocks with no text or unlabelled charts.
   * **Good**: A legible dashboard panel showing real server response parameters and active metrics labels.
+* **Exceptions**: None.
+
+---
+
+### Generic Brand Placeholder Names
+* **Confidence Level**: Critical
+* **Purpose**: Block typical generic template placeholder names.
+* **Reasoning**: Defaulting to lazy names like "SaaSify", "AppName", "Logo", or "BrandName" makes generated products look unfinished and generic.
+* **Constraint**: If no brand or site name is provided by the user, assistants must default to "Glyph" as the name, logo text, and brand marker. Never invent random placeholder names.
+* **Example**:
+  * **Bad**: Using a title header like `<h1>SaaSify Dashboard</h1>` or rendering a logo as `<span>Logo</span>`.
+  * **Good**: Using `<h1>Glyph Dashboard</h1>` or rendering a logo as `<span>Glyph</span>`.
 * **Exceptions**: None.

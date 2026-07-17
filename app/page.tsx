@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -13,6 +13,7 @@ import {
   Copy,
   GitFork,
   Layers3,
+  Menu,
   Palette,
   Sparkles,
   Terminal,
@@ -21,6 +22,7 @@ import {
   Smartphone,
   Image,
   ExternalLink,
+  X,
 } from "lucide-react";
 
 const installCommand = "npx skills add sumitttt4/Glyph-Skill";
@@ -29,14 +31,14 @@ function Wordmark() {
   return (
     <a href="#" className="inline-flex items-center gap-2 font-semibold tracking-tight text-glyph-text active-press">
       <svg className="h-6 w-6" viewBox="22 22 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M36.9 24.4L40.9 28.2C42.4 29.6 43.2 31.5 43.2 33.6C43.2 35.6 44 37.5 45.4 38.9L45.9 39.4L50.5 24.5" fill="#1e40af"/>
-        <path d="M23.3 37.7L28.8 37.5C30.8 37.4 32.8 38.2 34.2 39.6C35.6 41 37.5 41.7 39.5 41.7H40.2L32.8 28" fill="#1e40af"/>
-        <path d="M23.3 56.7L27 52.7C28.4 51.2 30.3 50.3 32.3 50.3C34.3 50.3 36.1 49.4 37.5 48L38 47.5L23 43.2" fill="#1e40af"/>
-        <path d="M36.9 69.9L36.6 64.4C36.5 62.4 37.2 60.4 38.6 58.9C39.9 57.5 40.7 55.5 40.6 53.6V52.9L27 60.6" fill="#1e40af"/>
-        <path d="M55.9 69.5L51.8 65.9C50.3 64.6 49.4 62.7 49.3 60.6C49.2 58.6 48.3 56.8 46.9 55.4L46.4 54.9L42.4 70" fill="#1e40af"/>
-        <path d="M68.9 55.6L63.4 56C61.4 56.2 59.4 55.5 57.9 54.1C56.4 52.8 54.5 52.1 52.5 52.2H51.8L59.8 65.6" fill="#1e40af"/>
-        <path d="M68 36.7L64.5 40.9C63.2 42.4 61.3 43.4 59.3 43.5C57.3 43.6 55.5 44.5 54.2 46L53.8 46.5L69 50.1" fill="#1e40af"/>
-        <path d="M53.9 24L54.4 29.5C54.6 31.5 54 33.5 52.6 35.1C51.3 36.6 50.7 38.5 50.8 40.5L50.9 41.2L64.1 32.9" fill="#1e40af"/>
+        <path d="M36.9 24.4L40.9 28.2C42.4 29.6 43.2 31.5 43.2 33.6C43.2 35.6 44 37.5 45.4 38.9L45.9 39.4L50.5 24.5" fill="#1e40af" />
+        <path d="M23.3 37.7L28.8 37.5C30.8 37.4 32.8 38.2 34.2 39.6C35.6 41 37.5 41.7 39.5 41.7H40.2L32.8 28" fill="#1e40af" />
+        <path d="M23.3 56.7L27 52.7C28.4 51.2 30.3 50.3 32.3 50.3C34.3 50.3 36.1 49.4 37.5 48L38 47.5L23 43.2" fill="#1e40af" />
+        <path d="M36.9 69.9L36.6 64.4C36.5 62.4 37.2 60.4 38.6 58.9C39.9 57.5 40.7 55.5 40.6 53.6V52.9L27 60.6" fill="#1e40af" />
+        <path d="M55.9 69.5L51.8 65.9C50.3 64.6 49.4 62.7 49.3 60.6C49.2 58.6 48.3 56.8 46.9 55.4L46.4 54.9L42.4 70" fill="#1e40af" />
+        <path d="M68.9 55.6L63.4 56C61.4 56.2 59.4 55.5 57.9 54.1C56.4 52.8 54.5 52.1 52.5 52.2H51.8L59.8 65.6" fill="#1e40af" />
+        <path d="M68 36.7L64.5 40.9C63.2 42.4 61.3 43.4 59.3 43.5C57.3 43.6 55.5 44.5 54.2 46L53.8 46.5L69 50.1" fill="#1e40af" />
+        <path d="M53.9 24L54.4 29.5C54.6 31.5 54 33.5 52.6 35.1C51.3 36.6 50.7 38.5 50.8 40.5L50.9 41.2L64.1 32.9" fill="#1e40af" />
       </svg>
       Glyph Skill
     </a>
@@ -64,7 +66,7 @@ function Button({
   return (
     <a
       href={href}
-      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-5 text-sm font-semibold transition-glyph active-press ${fullWidth ? "w-full" : ""} ${variants[variant]}`}
+      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-5 text-sm font-semibold transition-glyph active-press focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none ${fullWidth ? "w-full" : ""} ${variants[variant]}`}
     >
       {children}
     </a>
@@ -165,48 +167,48 @@ function BackgroundCode() {
 
   const style1 = isHovering
     ? {
-        transform: `translate3d(${mousePos.x - 240}px, ${mousePos.y - 120}px, 0)`,
-        left: 0,
-        top: 0,
-        position: 'absolute' as const,
-        transition: 'transform 800ms cubic-bezier(0.16, 1, 0.3, 1)',
-      }
+      transform: `translate3d(${mousePos.x - 240}px, ${mousePos.y - 120}px, 0)`,
+      left: 0,
+      top: 0,
+      position: 'absolute' as const,
+      transition: 'transform 800ms cubic-bezier(0.16, 1, 0.3, 1)',
+    }
     : {
-        left: '8%',
-        top: '20%',
-        position: 'absolute' as const,
-        transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
-      };
+      left: '8%',
+      top: '20%',
+      position: 'absolute' as const,
+      transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+    };
 
   const style2 = isHovering
     ? {
-        transform: `translate3d(${mousePos.x - 60}px, ${mousePos.y + 40}px, 0)`,
-        left: 0,
-        top: 0,
-        position: 'absolute' as const,
-        transition: 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
-      }
+      transform: `translate3d(${mousePos.x - 60}px, ${mousePos.y + 40}px, 0)`,
+      left: 0,
+      top: 0,
+      position: 'absolute' as const,
+      transition: 'transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+    }
     : {
-        left: '42%',
-        top: '45%',
-        position: 'absolute' as const,
-        transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
-      };
+      left: '42%',
+      top: '45%',
+      position: 'absolute' as const,
+      transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+    };
 
   const style3 = isHovering
     ? {
-        transform: `translate3d(${mousePos.x + 140}px, ${mousePos.y - 100}px, 0)`,
-        left: 0,
-        top: 0,
-        position: 'absolute' as const,
-        transition: 'transform 1600ms cubic-bezier(0.16, 1, 0.3, 1)',
-      }
+      transform: `translate3d(${mousePos.x + 140}px, ${mousePos.y - 100}px, 0)`,
+      left: 0,
+      top: 0,
+      position: 'absolute' as const,
+      transition: 'transform 1600ms cubic-bezier(0.16, 1, 0.3, 1)',
+    }
     : {
-        left: '75%',
-        top: '15%',
-        position: 'absolute' as const,
-        transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
-      };
+      left: '75%',
+      top: '15%',
+      position: 'absolute' as const,
+      transition: 'all 1200ms cubic-bezier(0.16, 1, 0.3, 1)',
+    };
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden opacity-[0.045] select-none pointer-events-none font-mono text-[9px] leading-relaxed text-glyph-text p-6">
@@ -217,10 +219,184 @@ function BackgroundCode() {
   );
 }
 
+/* ── Tabbed Terminal Widget ── */
+function TabbedTerminal({ copiedText, onCopy }: { copiedText: string | null; onCopy: (text: string, id: string) => void }) {
+  const [activeTab, setActiveTab] = useState<"install" | "design" | "audit">("install");
+
+  const tabs = [
+    { id: "install" as const, label: "Install" },
+    { id: "design" as const, label: "Design" },
+    { id: "audit" as const, label: "Audit" },
+  ];
+
+  const installContent = (
+    <code className="flex-1 break-all pr-4">
+      <span className="text-glyph-orange font-bold mr-2">$</span>
+      <span className="text-[#072ca8] font-semibold">npx</span> <span className="text-slate-700">skills</span> <span className="text-[#ee4811]">add</span> <span className="text-glyph-text font-semibold">sumitttt4/Glyph-Skill</span>
+    </code>
+  );
+
+  const designContent = (
+    <code className="flex-1 text-[11px] leading-relaxed">
+      <span className="text-glyph-orange font-bold">$</span> <span className="text-[#072ca8] font-semibold">/glyph</span> <span className="text-[#ee4811]">design</span>{"\n"}
+      <span className="text-glyph-muted">{'// → Generated theme config'}</span>{"\n"}
+      <span className="text-slate-700">{'{'}</span>{"\n"}
+      <span className="text-glyph-muted">{'  '}primary:</span> <span className="text-[#072ca8] font-semibold">{`"#072ca8"`}</span>{"\n"}
+      <span className="text-glyph-muted">{'  '}surface:</span> <span className="text-[#072ca8] font-semibold">{`"#FAFAF9"`}</span>{"\n"}
+      <span className="text-glyph-muted">{'  '}tracking:</span> <span className="text-[#ee4811]">{`"-0.03em"`}</span>{"\n"}
+      <span className="text-slate-700">{'}'}</span>
+    </code>
+  );
+
+  const auditContent = (
+    <code className="flex-1 text-[11px] leading-relaxed">
+      <span className="text-glyph-orange font-bold">$</span> <span className="text-[#072ca8] font-semibold">/glyph</span> <span className="text-[#ee4811]">audit</span>{"\n"}
+      <span className="text-rose-500">{'✕ '}</span><span className="text-glyph-muted line-through">bg-gradient-to-r from-purple-500</span>{"\n"}
+      <span className="text-rose-500">{'✕ '}</span><span className="text-glyph-muted line-through">font-family: Poppins</span>{"\n"}
+      <span className="text-emerald-600">{'✓ '}</span><span className="text-glyph-text">bg-[#FAFAF9] text-[#111]</span>{"\n"}
+      <span className="text-emerald-600">{'✓ '}</span><span className="text-glyph-text">font-family: Space Grotesk</span>
+    </code>
+  );
+
+  return (
+    <div className="mt-8 w-full max-w-lg overflow-hidden rounded-xl border border-glyph-border bg-white text-left shadow-rest transition-glyph hover:border-glyph-orange/30">
+      <div className="flex items-center gap-2 border-b border-glyph-border px-4 py-2.5 bg-glyph-surface">
+        <span className="h-2 w-2 rounded-full bg-glyph-orange" />
+        <span className="h-2 w-2 rounded-full bg-slate-200" />
+        <span className="h-2 w-2 rounded-full bg-slate-200" />
+        <div className="ml-auto flex items-center gap-0.5">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-2.5 py-1 rounded-md font-mono text-[9px] uppercase tracking-wider transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-1 focus-visible:outline-none ${activeTab === tab.id
+                  ? "bg-white text-glyph-text shadow-sm border border-glyph-border font-bold"
+                  : "text-glyph-muted/60 hover:text-glyph-muted"
+                }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="relative min-h-[72px]">
+        <div className={`flex items-center justify-between px-5 py-4 font-mono text-xs text-glyph-text overflow-x-auto transition-opacity duration-300 ${activeTab === "install" ? "opacity-100" : "opacity-0 absolute inset-0 pointer-events-none"}`}>
+          {installContent}
+          <button
+            onClick={() => onCopy(installCommand, "hero")}
+            className="shrink-0 min-h-11 min-w-11 inline-flex items-center justify-center gap-1.5 rounded-lg border border-glyph-border bg-glyph-surface px-2.5 py-1.5 hover:bg-glyph-border-soft text-glyph-muted hover:text-glyph-text transition-glyph active-press text-[11px] font-bold uppercase tracking-wider focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
+            title="Copy install command"
+          >
+            {copiedText === "hero" ? (
+              <>
+                <Check size={12} className="text-emerald-600 animate-scale-up" />
+                <span className="text-[10px] text-emerald-600 font-mono">Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy size={12} />
+                <span className="text-[10px] font-mono">Copy</span>
+              </>
+            )}
+          </button>
+        </div>
+        <div className={`px-5 py-4 font-mono text-xs text-glyph-text whitespace-pre transition-opacity duration-300 ${activeTab === "design" ? "opacity-100" : "opacity-0 absolute inset-0 pointer-events-none"}`}>
+          {designContent}
+        </div>
+        <div className={`px-5 py-4 font-mono text-xs text-glyph-text whitespace-pre transition-opacity duration-300 ${activeTab === "audit" ? "opacity-100" : "opacity-0 absolute inset-0 pointer-events-none"}`}>
+          {auditContent}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Animated Features Section Header ── */
+function FeaturesSectionHeader() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [count, setCount] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    const target = 10;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [isVisible]);
+
+  return (
+    <div ref={sectionRef} className="mb-16 max-w-2xl">
+      {/* Animated pill badge */}
+      <div
+        className={`inline-flex items-center gap-2 rounded-full border border-glyph-orange/20 bg-glyph-soft px-3 py-1.5 mb-5 transition-all duration-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+        }`}
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange">
+          {count} Rule Categories
+        </span>
+      </div>
+
+      {/* Heading with highlighted words */}
+      <h2
+        className={`text-3xl sm:text-4xl font-extrabold tracking-tight text-glyph-text leading-tight transition-all duration-700 delay-100 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        <span className="text-glyph-orange">Design rules</span> your coding assistant can implement.
+      </h2>
+
+      {/* Animated accent bar */}
+      <div className="mt-4 h-[3px] rounded-full bg-glyph-border overflow-hidden">
+        <div
+          className={`h-full rounded-full bg-gradient-to-r from-glyph-orange to-[#072ca8] transition-all duration-1000 ease-out delay-300 ${
+            isVisible ? "w-1/3" : "w-0"
+          }`}
+        />
+      </div>
+
+      {/* Subtitle */}
+      <p
+        className={`mt-5 text-base text-glyph-muted max-w-[65ch] transition-all duration-700 delay-200 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+        }`}
+      >
+        Glyph converts abstract design taste into structured prompt instructions, tokens, grids, and boundaries.
+      </p>
+    </div>
+  );
+}
+
 export default function Home() {
   const [stars, setStars] = useState<number | null>(null);
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -243,7 +419,7 @@ export default function Home() {
       .then((data) => {
         if (data.stargazers_count !== undefined) setStars(data.stargazers_count);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const features = [
@@ -312,54 +488,106 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[var(--glyph-surface)]">
       {/* Sticky Header */}
-      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${
-        isScrolled 
-          ? "border-glyph-border/80 bg-white/90 backdrop-blur-xl shadow-sm" 
-          : "border-transparent bg-white/0"
-      }`}>
+      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${isScrolled
+        ? "border-glyph-border/80 bg-white/90 backdrop-blur-xl shadow-sm"
+        : "border-transparent bg-white/0"
+        }`}>
         <div className="mx-auto flex min-h-[72px] max-w-5xl items-center justify-between px-4 sm:px-6">
           <Wordmark />
           <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-wider text-glyph-muted md:flex">
-            <a href="#features" className="transition-glyph hover:text-glyph-text">Rules</a>
-            <a href="/docs" className="transition-glyph hover:text-glyph-text">Docs</a>
+            <a href="#features" className="transition-glyph hover:text-glyph-text focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none rounded-md px-1 py-0.5">Rules</a>
+            <a href="/docs" className="transition-glyph hover:text-glyph-text focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none rounded-md px-1 py-0.5">Docs</a>
           </nav>
           <div className="flex items-center gap-3">
             <a
               href="https://github.com/sumitttt4/Glyph-Skill"
-              className="inline-flex items-center gap-0 rounded-full border border-glyph-border bg-white text-sm font-semibold shadow-rest hover:shadow-hover transition-glyph active-press overflow-hidden"
+              className="inline-flex items-center gap-0 rounded-full border border-glyph-border bg-white text-sm font-semibold shadow-rest hover:shadow-hover transition-glyph active-press overflow-hidden focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               <span className="inline-flex items-center gap-1.5 px-3.5 py-2 border-r border-glyph-border">
                 <GitFork size={14} />
                 <span className="hidden sm:inline">GitHub</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#111111] text-white font-mono text-xs">
-                <svg className="h-3.5 w-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg className="h-3.5 w-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 {stars !== null ? stars.toLocaleString() : "\u2014"}
               </span>
             </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMobileOpen(true)}
+              className="inline-flex items-center justify-center h-11 w-11 rounded-xl border border-glyph-border bg-white text-glyph-text md:hidden transition-glyph active-press hover:bg-glyph-surface focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
+              aria-label="Open navigation menu"
+            >
+              <Menu size={18} />
+            </button>
           </div>
         </div>
       </header>
 
+      {/* Mobile Navigation Drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 animate-fade-in"
+            onClick={() => setMobileOpen(false)}
+            onKeyDown={(e) => { if (e.key === 'Escape') setMobileOpen(false); }}
+          />
+          {/* Drawer panel */}
+          <nav className="absolute right-0 top-0 h-full w-72 bg-white border-l border-glyph-border shadow-2xl p-6 flex flex-col gap-6 animate-fade-in">
+            <div className="flex items-center justify-between">
+              <Wordmark />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex items-center justify-center h-11 w-11 rounded-xl border border-glyph-border text-glyph-muted hover:text-glyph-text transition-glyph active-press focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
+                aria-label="Close navigation menu"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="flex flex-col gap-2 mt-4">
+              {[{ label: "Rules", href: "#features" }, { label: "Docs", href: "/docs" }, { label: "Install", href: "/docs#install" }].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="py-3 px-4 rounded-xl text-sm font-semibold uppercase tracking-wider text-glyph-text hover:bg-glyph-surface transition-glyph focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <a
+              href="https://github.com/sumitttt4/Glyph-Skill"
+              className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl border border-glyph-border bg-glyph-surface px-5 py-3 text-sm font-semibold text-glyph-text hover:bg-white transition-glyph active-press focus-visible:ring-2 focus-visible:ring-[#072ca8] focus-visible:ring-offset-2 focus-visible:outline-none"
+            >
+              <GitFork size={14} />
+              View on GitHub
+            </a>
+          </nav>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <section 
+      <section
         id="interactive-container"
         className="relative border-b border-glyph-border pb-20 sm:pb-24 isolate overflow-hidden bg-cover bg-center bg-no-repeat pt-[136px] sm:pt-[152px]"
         style={{ backgroundImage: "url('/hero-bg.jpg')" }}
       >
-        {/* Soft premium radial gradient overlay for perfect readability of dark text */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,250,248,0.45)_0%,rgba(252,250,248,0.15)_60%,transparent_100%)] backdrop-blur-[1.5px] -z-10" />
-        
+        <BackgroundCode />
+
         {/* Subtle grid pattern blended over the image */}
         <div className="absolute inset-0 bg-blueprint-grid opacity-60 -z-10" />
 
         <div className="guideline-y left-4 sm:left-6 md:left-[8%]" />
         <div className="guideline-y right-4 sm:right-6 md:right-[8%]" />
-        <BackgroundCode />
-        
+
+        {/* Soft premium radial gradient overlay for perfect readability of dark text */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,250,248,0.92)_0%,rgba(252,250,248,0.65)_40%,rgba(252,250,248,0.15)_80%,transparent_100%)] backdrop-blur-sm -z-10" />
+
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center py-12 md:py-16 flex flex-col items-center justify-center animate-fade-in-up">
           <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange mb-3 animate-fade-in-up">
-            [SYS.FOUNDATION_01]
+
           </span>
           <h1 className="text-[40px] sm:text-5xl lg:text-[56px] font-extrabold leading-[1.05] tracking-[-0.04em] text-glyph-text max-w-2xl">
             Design websites and products with taste, not just with AI slop.
@@ -372,40 +600,11 @@ export default function Home() {
             <Button href="/docs" variant="secondary">Read Documentation</Button>
           </div>
 
-          {/* High-Fidelity Terminal Widget (Light Mode) */}
-          <div className="mt-8 w-full max-w-lg overflow-hidden rounded-xl border border-glyph-border bg-white text-left shadow-rest transition-glyph hover:border-glyph-orange/30">
-            <div className="flex items-center gap-2 border-b border-glyph-border px-4 py-2.5 bg-glyph-surface">
-              <span className="h-2 w-2 rounded-full bg-glyph-orange" />
-              <span className="h-2 w-2 rounded-full bg-slate-200" />
-              <span className="h-2 w-2 rounded-full bg-slate-200" />
-              <span className="ml-auto font-mono text-[9px] uppercase tracking-wider text-glyph-muted/60">terminal</span>
-            </div>
-            <div className="flex items-center justify-between px-5 py-4 font-mono text-xs text-glyph-text overflow-x-auto">
-              <code className="flex-1 break-all pr-4">
-                <span className="text-glyph-orange font-bold mr-2">$</span>
-                <span className="text-[#072ca8] font-semibold">npx</span> <span className="text-slate-700">skills</span> <span className="text-[#ee4811]">add</span> <span className="text-glyph-text font-semibold">sumitttt4/Glyph-Skill</span>
-              </code>
-              <button
-                onClick={() => handleCopy(installCommand, "hero")}
-                className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-glyph-border bg-glyph-surface px-2.5 py-1.5 hover:bg-glyph-border-soft text-glyph-muted hover:text-glyph-text transition-glyph active-press text-[11px] font-bold uppercase tracking-wider"
-                title="Copy install command"
-              >
-                {copiedText === "hero" ? (
-                  <>
-                    <Check size={12} className="text-emerald-600 animate-scale-up" />
-                    <span className="text-[10px] text-emerald-600 font-mono">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={12} />
-                    <span className="text-[10px] font-mono">Copy</span>
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
+          {/* Tabbed Terminal Widget */}
+          <TabbedTerminal copiedText={copiedText} onCopy={handleCopy} />
 
-          <div className="mt-12 w-full">
+
+          <div className="mt-10 w-full">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-glyph-muted/60 mb-3">Compatible coding agents</p>
             <div className="flex flex-wrap justify-center gap-2">
               {["Codex", "Claude Code", "Cursor", "Gemini CLI", "AI Studio", "v0", "Lovable", "Windsurf", "Copilot"].map((name) => (
@@ -482,28 +681,25 @@ export default function Home() {
       <section id="features" className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-24 sm:py-32 relative">
         <div className="guideline-y left-4 sm:left-6 md:left-[8%]" />
         <div className="guideline-y right-4 sm:right-6 md:right-[8%]" />
-        <div className="mb-16 max-w-2xl animate-fade-in-up">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange mb-3 inline-block">
-            [SYS.FOUNDATION_02]
-          </span>
-          <h2 className="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight text-glyph-text leading-tight">
-            Design rules your coding assistant can implement.
-          </h2>
-          <p className="mt-4 text-base text-glyph-muted max-w-[65ch]">
-            Glyph converts abstract design taste into structured prompt instructions, tokens, grids, and boundaries.
-          </p>
-        </div>
+        <FeaturesSectionHeader />
+
 
         <div className="space-y-16">
           {/* Group 1: Foundational Aesthetics */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
-              Foundational Aesthetics
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-glyph-orange/20 bg-glyph-soft px-3 py-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange">Group 01</span>
+              </div>
+              <div className="flex-1 h-px bg-gradient-to-r from-glyph-orange/20 to-transparent" />
+            </div>
+            <h3 className="text-lg font-extrabold tracking-tight text-glyph-text">
+              <span className="text-glyph-orange">Foundational</span> Aesthetics
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Card 1: Core Color Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">01</span>
@@ -516,7 +712,7 @@ export default function Home() {
                     Accent consistency locks, max text colors per surface, contrast requirements, and industry-standard palettes.
                   </p>
                 </div>
-                
+
                 {/* Color preview widget */}
                 <div className="mt-5 rounded-lg border border-glyph-border bg-glyph-surface p-3 space-y-2">
                   <div className="flex items-center justify-between text-[10px] font-mono font-semibold text-glyph-muted">
@@ -532,7 +728,7 @@ export default function Home() {
               </div>
 
               {/* Card 3: Typography Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">02</span>
@@ -556,7 +752,7 @@ export default function Home() {
               </div>
 
               {/* Layout Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">03</span>
@@ -579,13 +775,19 @@ export default function Home() {
 
           {/* Group 2: Clean Engineering */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
-              Clean Engineering & Quality Locks
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-glyph-orange/20 bg-glyph-soft px-3 py-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange">Group 02</span>
+              </div>
+              <div className="flex-1 h-px bg-gradient-to-r from-glyph-orange/20 to-transparent" />
+            </div>
+            <h3 className="text-lg font-extrabold tracking-tight text-glyph-text">
+              <span className="text-glyph-orange">Clean Engineering</span> & Quality Locks
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Card 4: Component Rules (col-span-1 md:col-span-2) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 md:col-span-2">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 md:col-span-2 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">04</span>
@@ -612,7 +814,7 @@ export default function Home() {
               </div>
 
               {/* Card 2: Anti-Slop Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">08</span>
@@ -642,7 +844,7 @@ export default function Home() {
               </div>
 
               {/* Framework Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">09</span>
@@ -658,7 +860,7 @@ export default function Home() {
               </div>
 
               {/* Background Rules (col-span-1) */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">10</span>
@@ -677,13 +879,19 @@ export default function Home() {
 
           {/* Group 3: Responsive & UX Dynamics */}
           <div className="space-y-6">
-            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
-              Responsive & UX Dynamics
+            <div className="flex items-center gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-glyph-orange/20 bg-glyph-soft px-3 py-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange">Group 03</span>
+              </div>
+              <div className="flex-1 h-px bg-gradient-to-r from-glyph-orange/20 to-transparent" />
+            </div>
+            <h3 className="text-lg font-extrabold tracking-tight text-glyph-text">
+              <span className="text-glyph-orange">Responsive</span> & UX Dynamics
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Motion Rules */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">05</span>
@@ -699,7 +907,7 @@ export default function Home() {
               </div>
 
               {/* Accessibility Rules */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">06</span>
@@ -715,7 +923,7 @@ export default function Home() {
               </div>
 
               {/* Responsive Rules */}
-              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 cursor-pointer active-press">
                 <div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">07</span>
@@ -737,7 +945,7 @@ export default function Home() {
 
       {/* Install Section */}
       <section id="install" className="mx-auto max-w-5xl px-4 sm:px-6 pb-20">
-        <div 
+        <div
           className="rounded-2xl bg-cover bg-center bg-no-repeat p-6 sm:p-16 text-center shadow-panel text-white relative overflow-hidden"
           style={{ backgroundImage: "url('/landscape-bg.jpg')" }}
         >
@@ -758,7 +966,7 @@ export default function Home() {
 
           {/* Centered glassmorphic card wrapping terminal & buttons */}
           <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-white/10 bg-[#072ca8]/75 p-6 sm:p-8 shadow-2xl backdrop-blur-md text-center flex flex-col items-center">
-            
+
             {/* Integrated supported tools */}
             <div className="flex flex-wrap justify-center items-center gap-2 mb-4 text-[10px] font-mono text-blue-200/90 select-none">
               <span className="opacity-60">Compatible Assistants:</span>
@@ -841,7 +1049,7 @@ export default function Home() {
             <a href="/docs" className="hover:text-glyph-text transition-glyph">Docs</a>
             <a href="/docs#install" className="hover:text-glyph-text transition-glyph">Install</a>
             <a href="https://x.com/sumitdotme" className="inline-flex items-center gap-1.5 hover:text-glyph-text transition-glyph">
-              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
               @sumitdotme
             </a>
           </div>

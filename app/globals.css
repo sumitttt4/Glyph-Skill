@@ -187,3 +187,32 @@ a {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
 
+/* Scale-up entrance animation for copy checkmark */
+@keyframes scaleUp {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-scale-up {
+  animation: scaleUp 200ms var(--ease-entrance) forwards;
+}
+
+/* Slop demo: pulsing orb animation */
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8px, -6px) scale(1.08); }
+}
+
+/* Reduced motion override (Accessibility Rules) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-pulse-slow,
+  .animate-cursor-blink,
+  .animate-scale-up {
+    animation: none !important;
+  }
+  .transition-glyph,
+  .active-press {
+    transition: none !important;
+  }
+}

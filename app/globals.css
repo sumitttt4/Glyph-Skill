@@ -155,3 +155,35 @@ a {
   background-size: 8px 1px;
 }
 
+/* Animated cursors and smooth animations */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.animate-cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes floatBg {
+  0% { background-position: 50% 50%; }
+  50% { background-position: 50% 53%; }
+  100% { background-position: 50% 50%; }
+}
+.animate-float-bg {
+  background-size: cover;
+  animation: floatBg 25s ease-in-out infinite;
+}
+
+/* Custom premium shadows & elevation (shadcn style) */
+.shadow-premium-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.shadow-premium-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+.shadow-premium-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+.shadow-premium-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+

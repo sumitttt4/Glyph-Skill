@@ -16,17 +16,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Glyph Skill",
+  title: "Glyph Skill – Design System for Cursor, Claude Code & AI Coding Assistants",
   description:
-    "A brand and design skill for AI-built products. Give Claude Code, Cursor, and Codex better taste before they design your product.",
+    "An enforceable brand, layout, and UI system skill for your AI coding assistant. Import strict layout constraints, typography locks, and color rules to build high-quality frontends.",
   metadataBase: new URL("https://glyph.software"),
   openGraph: {
-    title: "Glyph Skill",
+    title: "Glyph Skill – Design System for Cursor, Claude Code & AI Coding Assistants",
     description:
-      "A brand and design skill for AI-built products.",
+      "An enforceable brand, layout, and UI system skill for your AI coding assistant.",
     url: "https://glyph.software",
     siteName: "Glyph Skill",
     type: "website",
+    images: [
+      {
+        url: "/showcase-glyph.png",
+        width: 1200,
+        height: 630,
+        alt: "Glyph Skill Design System Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Glyph Skill – Design System for Cursor, Claude Code & AI Coding Assistants",
+    description:
+      "An enforceable brand, layout, and UI system skill for your AI coding assistant.",
+    images: ["/showcase-glyph.png"],
+    creator: "@sumitdotme",
   },
 };
 

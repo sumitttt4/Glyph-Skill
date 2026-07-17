@@ -20,6 +20,7 @@ import {
   Activity,
   Smartphone,
   Image,
+  ExternalLink,
 } from "lucide-react";
 
 const installCommand = "npx skills add sumitttt4/Glyph-Skill";
@@ -219,6 +220,15 @@ function BackgroundCode() {
 export default function Home() {
   const [stars, setStars] = useState<number | null>(null);
   const [copiedText, setCopiedText] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -302,7 +312,11 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[var(--glyph-surface)]">
       {/* Sticky Header */}
-      <header className="sticky top-0 z-40 border-b border-glyph-border/80 bg-white/95 backdrop-blur-xl">
+      <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${
+        isScrolled 
+          ? "border-glyph-border/80 bg-white/90 backdrop-blur-xl shadow-sm" 
+          : "border-transparent bg-white/0"
+      }`}>
         <div className="mx-auto flex min-h-[72px] max-w-5xl items-center justify-between px-4 sm:px-6">
           <Wordmark />
           <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-wider text-glyph-muted md:flex">
@@ -330,8 +344,15 @@ export default function Home() {
       {/* Hero Section */}
       <section 
         id="interactive-container"
-        className="relative border-b border-glyph-border pt-16 pb-20 sm:pt-20 sm:pb-24 isolate bg-blueprint-grid overflow-hidden"
+        className="relative border-b border-glyph-border pb-20 sm:pb-24 isolate overflow-hidden bg-cover bg-center bg-no-repeat pt-[136px] sm:pt-[152px]"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
       >
+        {/* Soft premium radial gradient overlay for perfect readability of dark text */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(252,250,248,0.45)_0%,rgba(252,250,248,0.15)_60%,transparent_100%)] backdrop-blur-[1.5px] -z-10" />
+        
+        {/* Subtle grid pattern blended over the image */}
+        <div className="absolute inset-0 bg-blueprint-grid opacity-60 -z-10" />
+
         <div className="guideline-y left-4 sm:left-6 md:left-[8%]" />
         <div className="guideline-y right-4 sm:right-6 md:right-[8%]" />
         <BackgroundCode />
@@ -398,17 +419,17 @@ export default function Home() {
       </section>
 
       {/* Built with Glyph Skill Section */}
-      <section className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-16 border-b border-glyph-border">
-        <div className="text-center mb-10">
+      <section className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-24 sm:py-32 border-b border-glyph-border">
+        <div className="text-center mb-16 animate-fade-in-up">
           <p className="text-xs font-bold uppercase tracking-wider text-glyph-orange mb-2">Designed with Taste</p>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-glyph-text">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-glyph-text">
             Built with Glyph Skill
           </h2>
-          <p className="mt-2 text-sm text-glyph-muted max-w-[60ch] mx-auto">
+          <p className="mt-4 text-base text-glyph-muted max-w-[60ch] mx-auto">
             Real landing pages and web applications generated using AI assistants equipped with Glyph system constraints.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: "Glyph Site Generator",
@@ -431,21 +452,21 @@ export default function Home() {
           ].map((item) => (
             <article
               key={item.title}
-              className="group overflow-hidden rounded-xl border border-glyph-border bg-white shadow-rest transition-all duration-200 hover:border-glyph-orange/20 hover:shadow-hover"
+              className="group overflow-hidden rounded-2xl border border-glyph-border bg-white shadow-premium-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-premium-xl hover:border-glyph-orange/25"
             >
-              <div className="aspect-[16/9] w-full overflow-hidden border-b border-glyph-border bg-slate-50 relative">
+              <div className="aspect-[16/10] w-full overflow-hidden border-b border-glyph-border bg-slate-50 relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.img}
-                  alt={item.title}
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  alt={`Screenshot of ${item.title} showcasing high-fidelity developer UI layout.`}
+                  className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
-              <div className="p-5">
-                <span className="inline-block rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-glyph-muted">
+              <div className="p-6">
+                <span className="inline-block rounded-md bg-glyph-soft px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-glyph-orange">
                   {item.tag}
                 </span>
-                <h3 className="mt-3 text-sm font-bold tracking-tight text-glyph-text">
+                <h3 className="mt-3 text-base font-bold tracking-tight text-glyph-text group-hover:text-glyph-orange transition-colors duration-200">
                   {item.title}
                 </h3>
                 <p className="mt-1.5 text-xs leading-relaxed text-glyph-muted">
@@ -458,202 +479,352 @@ export default function Home() {
       </section>
 
       {/* Feature List Section */}
-      <section id="features" className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-20 relative">
+      <section id="features" className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-24 sm:py-32 relative">
         <div className="guideline-y left-4 sm:left-6 md:left-[8%]" />
         <div className="guideline-y right-4 sm:right-6 md:right-[8%]" />
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-16 max-w-2xl animate-fade-in-up">
           <span className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-glyph-orange mb-3 inline-block">
             [SYS.FOUNDATION_02]
           </span>
-          <h2 className="mt-1 text-3xl sm:text-4xl font-bold tracking-tight text-glyph-text leading-tight">
+          <h2 className="mt-1 text-3xl sm:text-4xl font-extrabold tracking-tight text-glyph-text leading-tight">
             Design rules your coding assistant can implement.
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-glyph-muted max-w-[65ch]">
+          <p className="mt-4 text-base text-glyph-muted max-w-[65ch]">
             Glyph converts abstract design taste into structured prompt instructions, tokens, grids, and boundaries.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-glyph-border pt-8">
-          {/* Card 1: Core Color Rules (col-span-1) */}
-          <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-200 hover:border-glyph-orange/30 hover:shadow-rest col-span-1">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">01</span>
-                <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 transition-glyph">
-                  <Palette size={15} />
-                </div>
-                <h3 className="text-sm font-bold tracking-tight text-glyph-text">Core Color Rules</h3>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
-                Accent consistency locks, max text colors per surface, contrast requirements, and industry-standard palettes.
-              </p>
-            </div>
-            
-            {/* Color preview widget */}
-            <div className="mt-5 rounded-lg border border-glyph-border bg-glyph-surface p-3 space-y-2">
-              <div className="flex items-center justify-between text-[10px] font-mono font-semibold text-glyph-muted">
-                <span>contrast lock</span>
-                <span className="text-[#072ca8]">4.5:1 (AA)</span>
-              </div>
-              <div className="flex gap-1.5 h-6">
-                <div className="flex-1 bg-[#072ca8] rounded-md" title="Cobalt Accent" />
-                <div className="flex-1 bg-[#FCFAF8] border border-glyph-border rounded-md" title="Surface Base" />
-                <div className="flex-1 bg-[#111111] rounded-md" title="Primary Text" />
-              </div>
-            </div>
-          </div>
 
-          {/* Card 2: Anti-Slop Rules (col-span-1 md:col-span-2) */}
-          <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-200 hover:border-glyph-orange/30 hover:shadow-rest col-span-1 md:col-span-2">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">08</span>
-                <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 transition-glyph">
-                  <Brush size={15} />
-                </div>
-                <h3 className="text-sm font-bold tracking-tight text-glyph-text">Anti-Slop Rules</h3>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
-                Active bans on mesh blobs, Poppins defaults, floating decoration orbs, AI sparkle icons, and vague copywriting.
-              </p>
-            </div>
-
-            {/* Anti-slop checklist preview */}
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono text-glyph-muted">
-              {[
-                "Poppins Default Font",
-                "Purple-to-Pink Gradients",
-                "Floating Decoration Orbs",
-                "AI Sparkle Icons",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2 rounded-lg border border-glyph-border/50 bg-glyph-surface px-3 py-1.5 line-through decoration-rose-500/80 text-glyph-muted/60">
-                  <span className="text-rose-500 font-bold font-sans">✕</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Card 3: Typography Rules (col-span-1) */}
-          <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-200 hover:border-glyph-orange/30 hover:shadow-rest col-span-1">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">02</span>
-                <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 transition-glyph">
-                  <Type size={15} />
-                </div>
-                <h3 className="text-sm font-bold tracking-tight text-glyph-text">Typography Rules</h3>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
-                Font pairing stacks, negative heading tracking, weight limits, and strict 65-character line length locks.
-              </p>
-            </div>
-
-            {/* Typography preview */}
-            <div className="mt-5 rounded-lg border border-glyph-border bg-glyph-surface p-3 text-left">
-              <div className="text-[10px] font-mono font-semibold text-glyph-muted mb-1.5">heading tracking</div>
-              <div className="text-[18px] font-extrabold tracking-[-0.04em] text-glyph-text leading-tight">
-                -0.04em Letter Spacing
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4: Component Rules (col-span-1 md:col-span-2) */}
-          <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-200 hover:border-glyph-orange/30 hover:shadow-rest col-span-1 md:col-span-2">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">04</span>
-                <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 transition-glyph">
-                  <Blocks size={15} />
-                </div>
-                <h3 className="text-sm font-bold tracking-tight text-glyph-text">Component Rules</h3>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
-                Detailed design specifications for 22 interface component types, including forms, navbars, tables, and modal elements.
-              </p>
-            </div>
-
-            {/* Navigation wireframe preview */}
-            <div className="mt-5 rounded-lg border border-dashed border-glyph-border bg-glyph-surface p-2.5 flex items-center justify-between text-[9px] font-mono font-bold text-glyph-muted select-none">
-              <span className="border border-glyph-border rounded bg-white px-2 py-1">[LOGO]</span>
-              <div className="flex gap-2">
-                <span>rules</span>
-                <span>docs</span>
-                <span>install</span>
-              </div>
-              <span className="border border-glyph-border rounded bg-white px-2 py-1 text-glyph-orange">[CTA]</span>
-            </div>
-          </div>
-
-          {/* Render remaining 6 standard cards mapping from features array */}
-          {features
-            .filter((f) => !["01", "02", "04", "08"].includes(f.num))
-            .map(({ icon: Icon, num, title, copy }) => (
-              <article
-                key={title}
-                className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-200 hover:border-glyph-orange/30 hover:shadow-rest col-span-1"
-              >
+        <div className="space-y-16">
+          {/* Group 1: Foundational Aesthetics */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+              Foundational Aesthetics
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Card 1: Core Color Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="shrink-0 font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">{num}</span>
-                    <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 transition-glyph">
-                      <Icon size={15} />
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">01</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Palette size={15} />
                     </div>
-                    <h3 className="text-sm font-bold tracking-tight text-glyph-text">{title}</h3>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Core Color Rules</h4>
                   </div>
-                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">{copy}</p>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Accent consistency locks, max text colors per surface, contrast requirements, and industry-standard palettes.
+                  </p>
                 </div>
-              </article>
-            ))}
+                
+                {/* Color preview widget */}
+                <div className="mt-5 rounded-lg border border-glyph-border bg-glyph-surface p-3 space-y-2">
+                  <div className="flex items-center justify-between text-[10px] font-mono font-semibold text-glyph-muted">
+                    <span>contrast lock</span>
+                    <span className="text-[#072ca8]">4.5:1 (AA)</span>
+                  </div>
+                  <div className="flex gap-1.5 h-6">
+                    <div className="flex-1 bg-[#072ca8] rounded-md" title="Cobalt Accent" />
+                    <div className="flex-1 bg-[#FCFAF8] border border-glyph-border rounded-md" title="Surface Base" />
+                    <div className="flex-1 bg-[#111111] rounded-md" title="Primary Text" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Typography Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">02</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Type size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Typography Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Font pairing stacks, negative heading tracking, weight limits, and strict 65-character line length locks.
+                  </p>
+                </div>
+
+                {/* Typography preview */}
+                <div className="mt-5 rounded-lg border border-glyph-border bg-glyph-surface p-3 text-left">
+                  <div className="text-[10px] font-mono font-semibold text-glyph-muted mb-1.5">heading tracking</div>
+                  <div className="text-[18px] font-extrabold tracking-[-0.04em] text-glyph-text leading-tight">
+                    -0.04em Letter Spacing
+                  </div>
+                </div>
+              </div>
+
+              {/* Layout Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">03</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Layers3 size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Layout Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    A locked 4px grid system, standard container widths (720/1080/1280px), and unified padding parameters.
+                  </p>
+                </div>
+                <div className="mt-5 rounded-lg border border-dashed border-glyph-border bg-glyph-surface p-3 flex items-center justify-between text-[10px] font-mono font-bold text-glyph-muted select-none">
+                  <span>Standard</span>
+                  <span className="border-l border-glyph-border pl-2">1080px</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Group 2: Clean Engineering */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+              Clean Engineering & Quality Locks
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Card 4: Component Rules (col-span-1 md:col-span-2) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1 md:col-span-2">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">04</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Blocks size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Component Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Detailed design specifications for 22 interface component types, including forms, navbars, tables, and modal elements.
+                  </p>
+                </div>
+
+                {/* Navigation wireframe preview */}
+                <div className="mt-5 rounded-lg border border-dashed border-glyph-border bg-glyph-surface p-2.5 flex items-center justify-between text-[9px] font-mono font-bold text-glyph-muted select-none">
+                  <span className="border border-glyph-border rounded bg-white px-2 py-1">[LOGO]</span>
+                  <div className="flex gap-2">
+                    <span>rules</span>
+                    <span>docs</span>
+                    <span>install</span>
+                  </div>
+                  <span className="border border-glyph-border rounded bg-white px-2 py-1 text-glyph-orange">[CTA]</span>
+                </div>
+              </div>
+
+              {/* Card 2: Anti-Slop Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">08</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Brush size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Anti-Slop Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Active bans on mesh blobs, Poppins defaults, floating decoration orbs, AI sparkle icons, and vague copywriting.
+                  </p>
+                </div>
+
+                {/* Anti-slop checklist preview */}
+                <div className="mt-5 grid grid-cols-1 gap-1.5 text-[10px] font-mono text-glyph-muted">
+                  {[
+                    "Poppins Default Font",
+                    "Purple-to-Pink Gradients",
+                    "Floating Decoration Orbs",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-1.5 rounded bg-glyph-surface px-2 py-1 line-through decoration-rose-500/80 text-glyph-muted/60">
+                      <span className="text-rose-500 font-bold font-sans">✕</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Framework Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">09</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Code2 size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Framework Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Clean implementation constraints for React, Next.js, Svelte, Tailwind, and custom styled templates.
+                  </p>
+                </div>
+              </div>
+
+              {/* Background Rules (col-span-1) */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">10</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Image size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Background Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Limits on visual background patterns, gradient overlay masks, filters, and backdrop blur variables.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Group 3: Responsive & UX Dynamics */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold text-glyph-orange uppercase tracking-[0.15em] flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-glyph-orange animate-pulse" />
+              Responsive & UX Dynamics
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Motion Rules */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">05</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Activity size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Motion Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Animation caps (400ms max), cubic-bezier easing curves, active press scaling, and transition constraints.
+                  </p>
+                </div>
+              </div>
+
+              {/* Accessibility Rules */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">06</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <BadgeCheck size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Accessibility Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Visible focus outlines, keyboard navigation paths, touch target minimums, and ARIA landmark constraints.
+                  </p>
+                </div>
+              </div>
+
+              {/* Responsive Rules */}
+              <div className="group flex flex-col justify-between rounded-xl border border-glyph-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-glyph-orange/20 hover:shadow-premium-md col-span-1">
+                <div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-glyph-muted/60 tabular-nums">07</span>
+                    <div className="grid h-8 w-8 place-items-center rounded-lg border border-glyph-border bg-white text-glyph-text group-hover:border-glyph-orange/30 group-hover:text-glyph-orange transition-all duration-300">
+                      <Smartphone size={15} />
+                    </div>
+                    <h4 className="text-sm font-bold tracking-tight text-glyph-text">Responsive Rules</h4>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-glyph-muted">
+                    Folding breakpoint triggers, custom mobile spacing metrics, container collapse rules, and overflow control.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
 
       {/* Install Section */}
       <section id="install" className="mx-auto max-w-5xl px-4 sm:px-6 pb-20">
-        <div className="rounded-2xl bg-[#072ca8] p-8 text-center shadow-panel sm:p-12 text-white">
+        <div 
+          className="rounded-2xl bg-cover bg-center bg-no-repeat p-6 sm:p-16 text-center shadow-panel text-white relative overflow-hidden"
+          style={{ backgroundImage: "url('/landscape-bg.jpg')" }}
+        >
+          {/* Subtle dark overlay to ground the background image */}
+          <div className="absolute inset-0 bg-black/10 -z-10" />
+
+          {/* Icon, badge, title, and description directly on the sky background */}
           <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl border border-white/20 bg-white/10 text-white animate-pulse-slow">
             <Blocks size={20} />
           </div>
           <p className="mt-5 text-xs font-bold uppercase tracking-wider text-blue-200">Install</p>
-          <h2 className="mx-auto mt-3 max-w-xl text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="mx-auto mt-3 max-w-xl text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Add Glyph Skill to your AI coding workflow.
           </h2>
-          <p className="mx-auto mt-2 max-w-lg text-xs text-blue-100/80">
+          <p className="mx-auto mt-2 max-w-lg text-xs sm:text-sm text-blue-100/80">
             The repository includes SKILL.md plus generated layout rules, typography locks, color systems, and animation guidelines.
           </p>
-          <div className="mx-auto mt-8 max-w-xl overflow-hidden rounded-xl border border-white/10 bg-[#111111] text-left shadow-panel">
-            <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5 bg-black/35">
-              <span className="h-2 w-2 rounded-full bg-[#ee4811]" />
-              <span className="h-2 w-2 rounded-full bg-white/25" />
-              <span className="h-2 w-2 rounded-full bg-white/25" />
-              <span className="ml-auto font-mono text-[10px] uppercase tracking-wider text-white/45">terminal</span>
+
+          {/* Centered glassmorphic card wrapping terminal & buttons */}
+          <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-white/10 bg-[#072ca8]/75 p-6 sm:p-8 shadow-2xl backdrop-blur-md text-center flex flex-col items-center">
+            
+            {/* Integrated supported tools */}
+            <div className="flex flex-wrap justify-center items-center gap-2 mb-4 text-[10px] font-mono text-blue-200/90 select-none">
+              <span className="opacity-60">Compatible Assistants:</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded">Cursor</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded">Claude Code</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded">Windsurf</span>
+              <span className="bg-white/10 px-2 py-0.5 rounded">VS Code</span>
             </div>
-            <code className="flex break-all px-5 py-4 font-mono text-xs text-white">
-              <span className="mr-3 text-[#ee4811] font-bold">$</span>
-              {installCommand}
-            </code>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="https://github.com/sumitttt4/Glyph-Skill"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white/20 transition-glyph active-press px-5 text-sm font-semibold"
-            >
-              <GitFork size={14} />
-              View GitHub Repo
-            </a>
-            <a
-              href="https://github.com/sumitttt4/Glyph-Skill/blob/main/SKILL.md"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-glyph active-press px-5 text-sm font-semibold"
-            >
-              <BookOpen size={14} />
-              Read SKILL.md
-            </a>
-            <a
-              href="https://glyph.software"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white bg-white text-[#072ca8] shadow-rest hover:bg-blue-50 transition-glyph active-press px-5 text-sm font-semibold"
-            >
-              Open Glyph Software
-            </a>
+
+            {/* Interactive Terminal Widget (matching header widget but larger and syntax highlighted) */}
+            <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-[#111111]/95 text-left shadow-2xl">
+              <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5 bg-black/35">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
+                <span className="ml-auto font-mono text-[9px] uppercase tracking-wider text-white/45">terminal</span>
+              </div>
+              <div className="flex items-center justify-between px-6 py-5 font-mono text-sm text-white overflow-x-auto">
+                <code className="flex-1 break-all pr-4">
+                  <span className="text-[#ee4811] font-bold mr-2">$</span>
+                  <span className="text-white font-semibold">npx</span> <span className="text-[#38bdf8]">skills</span> <span className="text-[#f43f5e] font-semibold">add</span> <span className="text-emerald-400 font-bold">sumitttt4/Glyph-Skill</span><span className="ml-1 inline-block w-1.5 h-3.5 bg-white align-middle animate-cursor-blink" />
+                </code>
+                <button
+                  onClick={() => handleCopy(installCommand, "install")}
+                  className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 hover:bg-white/10 text-white transition-glyph active-press text-[11px] font-bold uppercase tracking-wider"
+                  title="Copy install command"
+                >
+                  {copiedText === "install" ? (
+                    <>
+                      <Check size={12} className="text-emerald-400 animate-scale-up" />
+                      <span className="text-[10px] text-emerald-400 font-mono">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={12} />
+                      <span className="text-[10px] font-mono">Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Premium Button Actions */}
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-4 w-full">
+              <a
+                href="https://github.com/sumitttt4/Glyph-Skill"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/10 bg-blue-700/60 text-white hover:bg-blue-700/80 transition-all duration-300 active-press px-5 text-sm font-semibold shadow-md"
+              >
+                <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" /></svg>
+                View GitHub Repo
+              </a>
+              <a
+                href="https://github.com/sumitttt4/Glyph-Skill/blob/main/SKILL.md"
+                className="inline-flex min-h-11 items-center justify-center gap-2 text-white/80 hover:text-white transition-colors duration-200 active-press px-5 text-sm font-semibold"
+              >
+                <BookOpen size={14} />
+                Read SKILL.md
+              </a>
+              <a
+                href="https://glyph.software"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-white text-[#072ca8] shadow-md hover:bg-blue-50 transition-all duration-300 active-press px-5 text-sm font-semibold"
+              >
+                Open Glyph Software
+                <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         </div>
       </section>

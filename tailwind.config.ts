@@ -6,12 +6,12 @@ const config: Config = {
     extend: {
       colors: {
         glyph: {
-          orange: "#072ca8",
-          soft: "#eff0ff",
-          text: "#111111",
-          muted: "#666666",
-          border: "#EAE7E2",
-          surface: "#FCFAF8",
+          orange: "#1a1a17",
+          soft: "#dfdad0",
+          text: "#171714",
+          muted: "#6b6a65",
+          border: "#dfdad0",
+          surface: "#f4f0e8",
         },
       },
       boxShadow: {
@@ -19,13 +19,20 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "var(--font-space)",
-          "Space Grotesk",
+          "var(--font-inter)",
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
+          "sans-serif",
+        ],
+        display: [
+          "var(--font-host)",
+          "Host Grotesk",
+          "ui-sans-serif",
+          "system-ui",
           "sans-serif",
         ],
         mono: [

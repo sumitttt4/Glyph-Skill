@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Host_Grotesk, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-space",
+  variable: "--font-host",
 });
 
 const inter = Inter({
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${spaceGrotesk.className}`}>
+    <html lang="en" className={`${hostGrotesk.variable} ${inter.variable} ${inter.className}`}>
       <body>
         {children}
         <Analytics />

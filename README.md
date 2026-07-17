@@ -69,11 +69,11 @@ Here's what changes when Glyph is installed. Same prompt, different output.
 
 ### ✅ With Glyph installed
 ```
-- Background: #FAFAF9 (warm neutral surface)
+- Background: #f4f0e8 (warm paper background)
 - Font: Inter 400 / Geist Sans 600 (paired by product category)
 - Hero headline: "Track deployment metrics across 40 regions in one view."
 - Clean background, no decorative blobs
-- Buttons: bg-[#072CA8] with hover:bg-[#051E7A] hover:-translate-y-0.5 transition-all duration-150
+- Buttons: bg-[#1a1a17] with hover:bg-[#000000] hover:-translate-y-0.5 transition-all duration-150
 - Spacing: 4px grid system, consistent section padding (64px / 48px / 32px)
 - Focus outlines: 2px offset ring on all interactive elements
 - Contrast: all text passes WCAG AA (4.5:1 minimum)

@@ -20,12 +20,12 @@ function BackgroundCode() {
     'const config = {',
     '  theme: "developer-taste",',
     '  color: {',
-    '    primary: "#072ca8",',
-    '    background: "#fafaf9",',
+    '    primary: "#1a1a17",',
+    '    background: "#f4f0e8",',
     '    border: "rgba(0,0,0,0.08)"',
     '  },',
     '  typography: {',
-    '    headings: "Space",',
+    '    headings: "Host",',
     '    body: "Inter",',
     '    tracking: "-0.03em"',
     '  }',
@@ -263,7 +263,7 @@ export default function DocsPage() {
                   onClick={(e) => scrollToSection(sec.id, e)}
                   className={`py-2 text-[12px] font-semibold uppercase tracking-wider transition-glyph border-l-2 pl-3 -ml-3 ${
                     activeSection === sec.id
-                      ? "text-glyph-text border-[#072ca8]"
+                      ? "text-glyph-text border-glyph-orange"
                       : "text-glyph-muted border-transparent hover:text-glyph-text"
                   }`}
                 >
@@ -466,7 +466,7 @@ export default function DocsPage() {
                       <h3 className="font-mono text-sm font-bold text-glyph-text">
                         {selectedFile}
                       </h3>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider bg-blue-50 text-[#072ca8] px-2 py-0.5 rounded border border-blue-100">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider bg-glyph-soft text-glyph-orange px-2 py-0.5 rounded border border-glyph-border">
                         active config
                       </span>
                     </div>
@@ -683,8 +683,8 @@ export default function DocsPage() {
 {`# In SKILL.md or a custom rules file
 
 - colors:
-    primary-accent: "#072ca8"
-    surface: "#FFFFFF"
+    primary-accent: "#1a1a17"
+    surface: "#f4f0e8"
 - layout:
     max-width: "1280px"
     spacing-grid: "8px"

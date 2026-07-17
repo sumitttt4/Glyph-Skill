@@ -6,14 +6,19 @@
   color-scheme: light;
 
   /* Colors */
-  --glyph-orange: #072ca8;
-  --glyph-orange-hover: #051d70;
-  --glyph-orange-soft: #eff0ff;
-  --glyph-text: #111111;
-  --glyph-muted: #666666;
-  --glyph-border: #EAE7E2;
-  --glyph-border-soft: rgba(0, 0, 0, 0.05);
-  --glyph-surface: #FCFAF8;
+  --page: #f4f0e8;         /* warm paper */
+  --ink: #171714;          /* soft black */
+  --button: #1a1a17;       /* near-black */
+  --button-text: #f4f0e8;
+
+  --glyph-orange: var(--button);
+  --glyph-orange-hover: #000000;
+  --glyph-orange-soft: #dfdad0;
+  --glyph-text: var(--ink);
+  --glyph-muted: #6b6a65;
+  --glyph-border: #dfdad0;
+  --glyph-border-soft: rgba(23, 23, 20, 0.08);
+  --glyph-surface: var(--page);
 
   /* Spacing Scale */
   --space-xs: 4px;
@@ -44,12 +49,16 @@
   --ease-exit: cubic-bezier(0.75, 0, 0.85, 1);
 
   /* Font family */
-  font-family: var(--font-space), 'Space Grotesk', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: var(--glyph-text);
   background: var(--glyph-surface);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-host), 'Host Grotesk', sans-serif;
 }
 
 * {
@@ -59,6 +68,12 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 body {
@@ -67,12 +82,39 @@ body {
   background: var(--glyph-surface);
 }
 
+@keyframes grainAnimation {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-1%, -1%) }
+  20% { transform:translate(-2%, 1%) }
+  30% { transform:translate(1%, -2%) }
+  40% { transform:translate(-1%, 3%) }
+  50% { transform:translate(-2%, 1%) }
+  60% { transform:translate(3%, -1%) }
+  70% { transform:translate(2%, 1%) }
+  80% { transform:translate(-3%, -2%) }
+  90% { transform:translate(1%, 2%) }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: grainAnimation 1s steps(10) infinite;
+}
+
 a {
   text-decoration: none;
 }
 
 ::selection {
-  color: #ffffff;
+  color: var(--button-text);
   background: var(--glyph-orange);
 }
 
@@ -133,8 +175,13 @@ a {
 
 /* Blueprint canvas design assets */
 .bg-blueprint-grid {
-  background-image: radial-gradient(rgba(7, 44, 168, 0.055) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(23, 23, 20, 0.06) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
+}
+
+.bg-dot-grid-sm {
+  background-image: radial-gradient(rgba(23, 23, 20, 0.045) 0.8px, transparent 0.8px);
+  background-size: 8px 8px;
 }
 
 .guideline-y {
@@ -142,7 +189,7 @@ a {
   top: 0;
   bottom: 0;
   width: 1px;
-  background-image: linear-gradient(to bottom, rgba(7, 44, 168, 0.04) 50%, transparent 50%);
+  background-image: linear-gradient(to bottom, rgba(23, 23, 20, 0.04) 50%, transparent 50%);
   background-size: 1px 8px;
 }
 
@@ -151,7 +198,7 @@ a {
   left: 0;
   right: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(7, 44, 168, 0.04) 50%, transparent 50%);
+  background-image: linear-gradient(to right, rgba(23, 23, 20, 0.04) 50%, transparent 50%);
   background-size: 8px 1px;
 }
 
@@ -209,6 +256,9 @@ a {
   .animate-pulse-slow,
   .animate-cursor-blink,
   .animate-scale-up {
+    animation: none !important;
+  }
+  body::before {
     animation: none !important;
   }
   .transition-glyph,

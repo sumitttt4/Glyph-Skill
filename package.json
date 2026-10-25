@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "tsc --noEmit",
+    "prebuild": "node scripts/prepare-docs.mjs",
+    "predev": "node scripts/prepare-docs.mjs",
+    "check:references": "python3 scripts/check-references.py"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

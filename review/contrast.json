@@ -1,0 +1,234 @@
+[
+  {
+    "theme": "light",
+    "fg": "#171717",
+    "bg": "#ffffff",
+    "ratio": 17.93,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#545454",
+    "bg": "#ffffff",
+    "ratio": 7.57,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#545454",
+    "bg": "#f6f6f6",
+    "ratio": 7.01,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#244d7a",
+    "bg": "#e7f1ff",
+    "ratio": 7.62,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#142e50",
+    "bg": "#b5d5ff",
+    "ratio": 9.06,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#3a2b52",
+    "bg": "#eee7fa",
+    "ratio": 10.59,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#213e5e",
+    "bg": "#e5f1ff",
+    "ratio": 9.58,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#172f4b",
+    "bg": "#e9f2ff",
+    "ratio": 12.05,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#3b2c53",
+    "bg": "#eee8fa",
+    "ratio": 10.51,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#234737",
+    "bg": "#e4f2ec",
+    "ratio": 8.98,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#a62535",
+    "bg": "#ffffff",
+    "ratio": 7.15,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#f4f4f4",
+    "bg": "#000000",
+    "ratio": 19.09,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#b9b9b9",
+    "bg": "#000000",
+    "ratio": 10.7,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#b9b9b9",
+    "bg": "#191919",
+    "ratio": 8.96,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#c2dcff",
+    "bg": "#182b43",
+    "ratio": 10.22,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#142e50",
+    "bg": "#b5d5ff",
+    "ratio": 9.06,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#e8dbfc",
+    "bg": "#291f3d",
+    "ratio": 11.76,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#daeaff",
+    "bg": "#172c45",
+    "ratio": 11.6,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#d7e8ff",
+    "bg": "#122237",
+    "ratio": 12.89,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#e5d9fa",
+    "bg": "#241b35",
+    "ratio": 12.19,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#d0eddd",
+    "bg": "#12291f",
+    "ratio": 12.36,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#ffb6c5",
+    "bg": "#111111",
+    "ratio": 11.46,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "fixture",
+    "fg": "#49291f",
+    "bg": "#f1e5d5",
+    "ratio": 10.44,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "fixture",
+    "fg": "#6c4939",
+    "bg": "#f1e5d5",
+    "ratio": 6.38,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "fixture",
+    "fg": "#6c4939",
+    "bg": "#fffbf4",
+    "ratio": 7.68,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "focus",
+    "fg": "#234bd6",
+    "bg": "#ffffff",
+    "ratio": 6.89,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "theme": "focus",
+    "fg": "#234bd6",
+    "bg": "#f6f6f6",
+    "ratio": 6.37,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "theme": "focus",
+    "fg": "#b5caff",
+    "bg": "#000000",
+    "ratio": 12.86,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "theme": "focus",
+    "fg": "#b5caff",
+    "bg": "#191919",
+    "ratio": 10.76,
+    "threshold": 3,
+    "pass": true
+  }
+]

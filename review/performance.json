@@ -1,0 +1,7 @@
+{
+  "condition": "Cloud browser, local static export, 1280x900 iframe, unthrottled, one navigation",
+  "domContentLoadedMs": 119,
+  "loadEventMs": 190,
+  "paintEntries": [],
+  "limits": "No field or throttled CWV; no LCP, CLS, INP or fast claim. Paint entries unavailable in harness."
+}

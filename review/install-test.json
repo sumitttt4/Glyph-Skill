@@ -1,0 +1,8 @@
+{
+  "installer": "skills@1.7.4",
+  "mode": "local source, copy, codex, non-interactive, telemetry disabled, npm lifecycle scripts disabled",
+  "discovered_skills": 1,
+  "installed_files": 18,
+  "includes_website": false,
+  "reference_errors": []
+}

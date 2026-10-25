@@ -3,3 +3,8 @@ dist/
 .next/
 out/
 *.log
+
+# Local review output
+out/
+review/preview/
+*.tsbuildinfo

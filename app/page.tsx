@@ -19,7 +19,7 @@ import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
 const facts = [
   ["1", "entry point", "SKILL.md routes the work"],
-  ["16", "focused references", "loaded only when relevant"],
+  ["19", "focused references", "loaded only when relevant"],
   ["4", "request modes", "design, audit, vibe, prompt"],
   ["0", "API keys or services", "plain Markdown files"],
 ];
@@ -29,13 +29,13 @@ const stages = [
     Icon: Compass,
     title: "Understand & choose",
     text: "Inspect the existing UI, find the primary task and compare meaningfully different compositions.",
-    files: ["direction-composition-assets", "landing-composition", "landing-page-research"],
+    files: ["category-playbook", "style-directions", "landing-composition"],
   },
   {
     Icon: LayoutGrid,
     title: "Compose & express",
     text: "Resolve hierarchy, density and type with real content. Decide what carries the personality.",
-    files: ["visual-craft", "layout-rules", "typography-rules", "core-color-rules"],
+    files: ["visual-craft", "starter-kit", "layout-rules", "typography-rules"],
   },
   {
     Icon: Hammer,
@@ -170,6 +170,13 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <Link className="show-more" href="/examples/directions">
+            <span>
+              <b>One kit, thirteen directions.</b> The same starter kit as a bakery,
+              festival, clinic, jeweller, dev tool and more.
+            </span>
+            <ArrowRight size={16} />
+          </Link>
           <p className="fineprint">
             Fictional products and sample data, designed and built with the Glyph
             skill for this site.
@@ -281,7 +288,12 @@ export default function Home() {
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
                 <code>references/</code>
-                <span>16 files</span>
+                <span>19 files</span>
+              </div>
+              <div className="tree-file">
+                <Folder size={15} aria-hidden="true" />
+                <code>assets/starter.css</code>
+                <span>13 directions</span>
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />

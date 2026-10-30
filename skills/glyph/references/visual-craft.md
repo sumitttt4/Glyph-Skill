@@ -1,6 +1,6 @@
 # Visual craft baseline
 
-Load for any marketing page, landing page, portfolio or product screen where visual quality matters, and whenever the project has no established design system. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load for any marketing page, landing page, portfolio or product screen where visual quality matters, and whenever the project has no established design system. Ready-made tokens and components implementing this baseline live in the [starter kit](starter-kit.md). Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 This is a quality floor, not a house style. An existing brand, design system or user instruction wins. When none exists, build to these specs instead of improvising. The values come from measuring well-regarded commercial site templates (Framer and Figma community) and describe how polished pages are actually built: one calm type family, small precise controls, generous space and one high-fidelity visual.
 
@@ -23,7 +23,7 @@ This is a quality floor, not a house style. An existing brand, design system or 
 | Mono | Geist Mono, JetBrains Mono, IBM Plex Mono | Code, figures, small labels |
 | License-check first | Satoshi, General Sans, Cabinet Grotesk (Fontshare licence) | Only after confirming terms |
 
-Do not set display text in condensed all-caps, script, or decorative faces unless the brand already does. Do not mix two grotesks.
+These are the defaults for the Clean product direction. Expressive directions (editorial, luxury, bold, playful, retro and others) have their own vetted lists in [style directions](style-directions.md); use those when that direction is chosen. Never pick a font that appears in neither place unless the brand supplies it. Do not mix two grotesks, and keep condensed all-caps display for the Bold expressive direction.
 
 ### Use the type scale
 * **Confidence Level**: Pattern

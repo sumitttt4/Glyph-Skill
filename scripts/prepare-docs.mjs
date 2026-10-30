@@ -6,9 +6,13 @@ const base = "skills/glyph";
 const refs = (await readdir(path.join(root, base, "references")))
   .filter((x) => x.endsWith(".md"))
   .sort();
+const assets = (await readdir(path.join(root, base, "assets")))
+  .filter((x) => x.endsWith(".css"))
+  .sort();
 const names = [
   `${base}/SKILL.md`,
   ...refs.map((x) => `${base}/references/${x}`),
+  ...assets.map((x) => `${base}/assets/${x}`),
   `${base}/THIRD_PARTY_NOTICES.md`,
 ];
 const files = await Promise.all(

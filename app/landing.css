@@ -631,6 +631,32 @@ body:has(.landing) .theme-toggle {
 .show-links a:hover {
   text-decoration: underline;
 }
+.show-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: border-color 160ms ease-out;
+}
+.show-more b {
+  color: var(--ink);
+  font-weight: 500;
+}
+.show-more:hover {
+  border-color: var(--strong-line);
+}
+.show-more svg {
+  flex-shrink: 0;
+  color: var(--signal);
+}
 #examples .fineprint {
   max-width: none;
   text-align: center;

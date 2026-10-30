@@ -1,6 +1,6 @@
 # Landing page composition
 
-Load when building or redesigning a landing, marketing, launch or waitlist page. Pair with the [visual craft baseline](visual-craft.md) and [landing-page research](landing-page-research.md). Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when building or redesigning a landing, marketing, launch or waitlist page. Start from the [category playbook](category-playbook.md), then pair with a [style direction](style-directions.md), the [visual craft baseline](visual-craft.md) and [landing-page research](landing-page-research.md). Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 Order sections by the visitor's questions: what is it, is it for me, how does it work, can I trust it, what does it cost, what do I do now. The library below covers those questions; choose and order what the product needs rather than using every section.
 

@@ -2,6 +2,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  FileText,
+  Folder,
   Layers,
   ScanLine,
   Waypoints,
@@ -9,6 +11,19 @@ import {
 import { Header, Footer } from "./components/shell";
 import { CopyCode } from "./components/controls";
 import { Walkthrough } from "./components/walkthrough";
+const requests = [
+  ["/glyph design", "Compare directions and return implementation-ready decisions."],
+  ["/glyph audit", "Inspect the rendered UI and report concrete, observed fixes."],
+  ["/glyph vibe", "Write one complete implementation prompt for the build."],
+  ["/glyph prompt", "Turn approved decisions into reusable project rules."],
+];
+// Grouped by the workflow stage that loads them; tones match the design path.
+const references = [
+  { stage: "Choose", tone: "s1", files: ["direction-composition-assets", "landing-page-research"] },
+  { stage: "Compose", tone: "s2", files: ["layout-rules", "typography-rules", "core-color-rules", "background-rules"] },
+  { stage: "Build", tone: "s3", files: ["implementation", "framework-rules", "component-rules", "motion-rules"] },
+  { stage: "Verify", tone: "s4", files: ["accessibility-rules", "responsive-rules", "anti-slop-rules", "verification"] },
+];
 export default function Home() {
   return (
     <>
@@ -29,13 +44,7 @@ export default function Home() {
                     y={Math.floor(y / 16) * 16}
                     width={i % 4 === 0 ? 32 : 16}
                     height="16"
-                    fill={
-                      i % 5 === 0
-                        ? "#c3b3f1"
-                        : i % 3 === 0
-                          ? "#a6daca"
-                          : "#a9cbff"
-                    }
+                    className={i % 5 === 0 ? "p2" : i % 3 === 0 ? "p3" : "p1"}
                     opacity={0.25 + edge * 0.55}
                   />
                 );
@@ -116,7 +125,7 @@ export default function Home() {
             <span key={x}>
               <i />
               {x}
-              {i < 3 && <b aria-hidden="true">↗</b>}
+              {i < 3 && <b aria-hidden="true">→</b>}
             </span>
           ))}
         </div>
@@ -174,6 +183,69 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section id="inside" className="inside-section page-width">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">What you get</span>
+              <h2>
+                One entry point.
+                <br />
+                Fourteen focused references.
+              </h2>
+            </div>
+            <p>
+              Plain Markdown your assistant reads on demand: the workflow first,
+              then only the references the task needs.
+            </p>
+          </div>
+          <div className="inside-grid">
+            <div className="inside-card">
+              <span className="eyebrow">Ask for it</span>
+              <ul className="request-list">
+                {requests.map(([name, text]) => (
+                  <li key={name}>
+                    <code>{name}</code>
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+              <small>
+                Request conventions, not CLI commands. Plain language works
+                too.
+              </small>
+            </div>
+            <div className="inside-card tree-card">
+              <div className="tree-root">
+                <Folder size={16} /> skills/glyph/
+              </div>
+              <div className="tree-entry">
+                <FileText size={15} />
+                <code>SKILL.md</code>
+                <span>Workflow and routing</span>
+              </div>
+              <div className="tree-groups">
+                {references.map(({ stage, tone, files }) => (
+                  <div key={stage} className={`tree-group ${tone}`}>
+                    <span className="tree-stage">
+                      <i />
+                      {stage}
+                    </span>
+                    <ul>
+                      {files.map((f) => (
+                        <li key={f}>
+                          <code>{f}.md</code>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              <Link className="tree-link" href="/docs/skill-files">
+                Read every file in the docs <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+        </section>
         <section id="install" className="install-section page-width">
           <div>
             <span className="eyebrow">One skill. One install.</span>
@@ -201,8 +273,15 @@ export default function Home() {
               <span>
                 Skill name <code>glyph</code>
               </span>
-              <span>Plain Markdown + references</span>
-              <span>Agent support depends on your installer</span>
+              <span>
+                Format <b>Markdown, 15 files</b>
+              </span>
+              <span>
+                API key or service <b>None</b>
+              </span>
+              <span>
+                Agent support <b>Depends on your installer</b>
+              </span>
             </div>
           </div>
         </section>

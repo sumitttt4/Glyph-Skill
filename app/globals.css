@@ -31,22 +31,44 @@
   --focus: #234bd6;
   --warning: #a62535;
   --example: #f2f6fc;
+  --primary-edge: #739dce;
+  --primary-border: #8bb5e9;
+  --primary-glow: #88b9fa25;
+  --code-edge: #8aadd9;
+  --pix-1: #a9cbff;
+  --pix-2: #c3b3f1;
+  --pix-3: #a6daca;
+  --step-1: #8ebcff;
+  --step-2: #b4a0e2;
+  --step-3: #84c5b2;
+  --step-4: #e3af73;
   --display: "Source Serif 4", Georgia, serif;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #000;
-  --surface: #111;
-  --raised: #191919;
-  --ink: #f4f4f4;
-  --muted: #b9b9b9;
-  --line: #303030;
-  --strong-line: #686868;
-  --accent-soft: #182b43;
+  --bg: #0b0c0e;
+  --surface: #121418;
+  --raised: #1a1d22;
+  --ink: #f2f3f5;
+  --muted: #b3b8c0;
+  --line: #2a2e35;
+  --strong-line: #646b76;
+  --accent-soft: #15253a;
   --accent-ink: #c2dcff;
   --focus: #b5caff;
   --warning: #ffb6c5;
-  --example: #172538;
+  --example: #131f30;
+  --primary-edge: #4d76a6;
+  --primary-border: #8bb5e9;
+  --primary-glow: #00000000;
+  --code-edge: #3f5f86;
+  --pix-1: #3b5f8c;
+  --pix-2: #5b4a86;
+  --pix-3: #2f6b5a;
+  --step-1: #6fa4f0;
+  --step-2: #9d86d6;
+  --step-3: #5fb39a;
+  --step-4: #d89e5c;
 }
 * {
   box-sizing: border-box;
@@ -329,12 +351,16 @@ td code {
   background: var(--accent);
   color: var(--on-accent);
   box-shadow:
-    0 4px 0 #739dce,
-    0 8px 18px #88b9fa25;
-  border: 1px solid #8bb5e9;
+    0 4px 0 var(--primary-edge),
+    0 8px 18px var(--primary-glow);
+  border: 1px solid var(--primary-border);
 }
 .primary:hover {
   filter: brightness(0.96);
+}
+.primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--primary-edge);
 }
 .text-link {
   display: inline-flex;
@@ -353,7 +379,7 @@ td code {
   text-align: left;
 }
 .hero-install-command .code-block {
-  border-color: #8aadd9;
+  border-color: var(--code-edge);
   box-shadow: 0 12px 35px #4175b315;
 }
 .hero-install-command .code-heading {
@@ -388,6 +414,15 @@ td code {
   inset: 0;
   width: 100%;
   height: 100%;
+}
+.pixel-field .p1 {
+  fill: var(--pix-1);
+}
+.pixel-field .p2 {
+  fill: var(--pix-2);
+}
+.pixel-field .p3 {
+  fill: var(--pix-3);
 }
 .hero-note {
   position: absolute;
@@ -469,17 +504,17 @@ td code {
 .design-path i {
   width: 11px;
   height: 11px;
-  background: #8ebcff;
-  box-shadow: 3px -3px 0 #dceaff;
+  background: var(--step-1);
+  box-shadow: 3px -3px 0 var(--accent-soft);
 }
 .design-path span:nth-child(2) i {
-  background: #b4a0e2;
+  background: var(--step-2);
 }
 .design-path span:nth-child(3) i {
-  background: #84c5b2;
+  background: var(--step-3);
 }
 .design-path span:nth-child(4) i {
-  background: #e3af73;
+  background: var(--step-4);
 }
 .design-path b {
   font-weight: 400;
@@ -771,7 +806,7 @@ td code {
   min-width: 0;
 }
 .install-section .code-block {
-  border-color: #8aadd9;
+  border-color: var(--code-edge);
   box-shadow: 6px 6px 0 var(--accent-soft);
 }
 .install-section .install-note {
@@ -790,6 +825,145 @@ td code {
 .install-facts span {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
+}
+.install-facts b {
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+}
+.inside-section {
+  padding-block: 70px 80px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 105px;
+}
+.inside-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+}
+.inside-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 28px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.inside-card > small {
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.request-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.request-list li {
+  display: grid;
+  gap: 6px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.request-list code {
+  justify-self: start;
+  font-size: 0.82rem;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.request-list span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.tree-card {
+  background: var(--raised);
+  font-size: 0.8rem;
+}
+.tree-root,
+.tree-entry {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.tree-root {
+  font: 500 0.82rem ui-monospace, SFMono-Regular, Consolas, monospace;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.tree-root svg,
+.tree-entry svg {
+  color: var(--muted);
+}
+.tree-entry {
+  padding: 14px 0 6px 14px;
+}
+.tree-entry span {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.tree-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+  padding: 16px 0 0 14px;
+}
+.tree-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tree-stage i {
+  width: 9px;
+  height: 9px;
+  background: var(--step-1);
+}
+.s2 .tree-stage i {
+  background: var(--step-2);
+}
+.s3 .tree-stage i {
+  background: var(--step-3);
+}
+.s4 .tree-stage i {
+  background: var(--step-4);
+}
+.tree-group ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0 0 0 4px;
+  border-left: 1px solid var(--line);
+}
+.tree-group li {
+  padding: 3px 0 3px 12px;
+  overflow-wrap: anywhere;
+}
+.tree-group code {
+  font-size: 0.76rem;
+}
+.tree-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: start;
+  margin-top: auto;
+  padding-top: 22px;
+  min-height: 44px;
+  font-size: 0.85rem;
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+.tree-link:hover {
+  text-decoration: underline;
 }
 .code-block {
   background: var(--surface);
@@ -1666,6 +1840,22 @@ td code {
     grid-template-columns: 1fr;
     gap: 25px;
     padding-block: 50px;
+  }
+  .inside-section {
+    padding-block: 45px 50px;
+  }
+  .inside-grid {
+    grid-template-columns: 1fr;
+  }
+  .inside-card {
+    padding: 20px;
+  }
+  .tree-entry {
+    padding-left: 0;
+  }
+  .tree-groups {
+    grid-template-columns: 1fr;
+    padding-left: 0;
   }
   .site-footer {
     padding: 30px 18px;

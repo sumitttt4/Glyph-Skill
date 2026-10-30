@@ -26,6 +26,14 @@
   {
     "theme": "light",
     "fg": "#244d7a",
+    "bg": "#ffffff",
+    "ratio": 8.69,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#244d7a",
     "bg": "#e7f1ff",
     "ratio": 7.62,
     "threshold": 4.5,
@@ -89,33 +97,41 @@
   },
   {
     "theme": "dark",
-    "fg": "#f4f4f4",
-    "bg": "#000000",
-    "ratio": 19.09,
+    "fg": "#f2f3f5",
+    "bg": "#0b0c0e",
+    "ratio": 17.62,
     "threshold": 4.5,
     "pass": true
   },
   {
     "theme": "dark",
-    "fg": "#b9b9b9",
-    "bg": "#000000",
-    "ratio": 10.7,
+    "fg": "#b3b8c0",
+    "bg": "#0b0c0e",
+    "ratio": 9.82,
     "threshold": 4.5,
     "pass": true
   },
   {
     "theme": "dark",
-    "fg": "#b9b9b9",
-    "bg": "#191919",
-    "ratio": 8.96,
+    "fg": "#b3b8c0",
+    "bg": "#1a1d22",
+    "ratio": 8.48,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#b3b8c0",
+    "bg": "#121418",
+    "ratio": 9.25,
     "threshold": 4.5,
     "pass": true
   },
   {
     "theme": "dark",
     "fg": "#c2dcff",
-    "bg": "#182b43",
-    "ratio": 10.22,
+    "bg": "#15253a",
+    "ratio": 11.03,
     "threshold": 4.5,
     "pass": true
   },
@@ -170,8 +186,8 @@
   {
     "theme": "dark",
     "fg": "#ffb6c5",
-    "bg": "#111111",
-    "ratio": 11.46,
+    "bg": "#121418",
+    "ratio": 11.19,
     "threshold": 4.5,
     "pass": true
   },
@@ -218,16 +234,16 @@
   {
     "theme": "focus",
     "fg": "#b5caff",
-    "bg": "#000000",
-    "ratio": 12.86,
+    "bg": "#0b0c0e",
+    "ratio": 11.98,
     "threshold": 3,
     "pass": true
   },
   {
     "theme": "focus",
     "fg": "#b5caff",
-    "bg": "#191919",
-    "ratio": 10.76,
+    "bg": "#1a1d22",
+    "ratio": 10.35,
     "threshold": 3,
     "pass": true
   }

@@ -129,10 +129,11 @@ export default function Home() {
         <section id="examples" className="block wrap">
           <div className="block-head">
             <Tag>Built with Glyph</Tag>
-            <h2>Three briefs. Three very different pages.</h2>
+            <h2>Three products. One craft baseline.</h2>
             <p>
-              Each example followed the Glyph workflow from brief to verified
-              page. Open one to see the decisions behind it.
+              Each page followed the Glyph workflow and its visual craft
+              reference, from brief to verified render. Open one to see the
+              decisions behind it.
             </p>
           </div>
           <div className="showcase">

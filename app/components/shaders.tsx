@@ -84,3 +84,28 @@ export function CtaShader() {
     />
   );
 }
+// A configurable mesh field for example pages with their own palettes.
+export function Mesh({
+  colors,
+  distortion = 0.8,
+  swirl = 0.4,
+  grain = 0.06,
+}: {
+  colors: string[];
+  distortion?: number;
+  swirl?: number;
+  grain?: number;
+}) {
+  const { still } = useScene();
+  return (
+    <MeshGradient
+      className="shader"
+      style={fill}
+      colors={colors}
+      distortion={distortion}
+      swirl={swirl}
+      grainOverlay={grain}
+      speed={still ? 0 : 0.18}
+    />
+  );
+}

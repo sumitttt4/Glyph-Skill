@@ -1,101 +1,87 @@
 // Each example records the Glyph workflow behind it: the brief, the
-// directions compared, what carries the personality and what was checked.
+// directions compared, the hero pattern and craft baseline applied, and checks.
 export type Example = {
   slug: string;
   name: string;
   kind: string;
   brief: string;
-  audience: string;
   task: string;
   chosen: string;
   rejected: string[];
-  carrier: string;
+  pattern: string;
   type: string;
   color: string;
-  interaction: string;
+  visual: string;
   checks: string[];
   references: string[];
 };
+const baseRefs = ["visual-craft.md", "landing-composition.md"];
 export const examples: Example[] = [
   {
     slug: "ledgerline",
     name: "Ledgerline",
     kind: "B2B finance software",
-    brief:
-      "Introduce a month-end close tool to controllers at 20–200 person companies.",
-    audience: "Controllers and finance leads who distrust marketing claims.",
-    task: "See how the product handles unmatched transactions, then book a walkthrough.",
-    chosen:
-      "Product as the hero: a working exceptions table with sample data, calm and dense.",
+    brief: "Introduce a month-end close tool to controllers at 20–200 person companies.",
+    task: "See how the product handles unmatched transactions, then book a demo.",
+    chosen: "Show the real product first: a working close view, calm and dense.",
     rejected: [
-      "Editorial ROI story: hides the product behind claims we cannot prove.",
-      "Integration-logo wall: says nothing about the close itself.",
+      "Editorial ROI story: leans on claims a new product cannot prove.",
+      "Logo wall up top: there are no real customers to show.",
     ],
-    carrier: "The product UI and its numbers.",
-    type: "IBM Plex Sans for UI, Plex Mono with tabular numerals for amounts.",
-    color: "Neutral paper; green only for matched, amber only for exceptions.",
-    interaction: "Filter the sample ledger between all items and exceptions.",
+    pattern: "A · Centered headline with a large framed product UI over a mesh field.",
+    type: "Inter only. Display 70px weight 500 at −0.045em; UI 14px; tabular figures for amounts.",
+    color: "White and warm grey neutrals, black primary button, green only for matched, amber only for exceptions.",
+    visual: "The close view built in code with sample data, plus mini UI fragments in every feature card.",
     checks: [
-      "Filter works by keyboard and announces the result count",
-      "Amounts align in tabular figures",
-      "Table scrolls inside its frame at 320px",
+      "One family, one button style, one radius family",
+      "Filter works by keyboard and announces the count",
+      "Table scrolls inside its window at 390px",
     ],
-    references: ["layout-rules.md", "core-color-rules.md", "component-rules.md"],
+    references: [...baseRefs, "component-rules.md"],
   },
   {
-    slug: "morrow",
-    name: "Morrow Clay Studio",
-    kind: "Local ceramics workshop",
-    brief:
-      "Help first-time visitors pick a beginner class at a neighborhood ceramics studio.",
-    audience: "Curious adults who have never touched a wheel.",
-    task: "Find a beginner class with open seats and reserve a spot.",
-    chosen:
-      "Warm editorial page with the class schedule as the main module, not a footer link.",
+    slug: "halo",
+    name: "Halo",
+    kind: "AI meeting notes",
+    brief: "Launch an assistant that turns meetings into decisions and action items.",
+    task: "Understand what Halo produces after a call, then start a free trial.",
+    chosen: "Lead with the output: a finished meeting summary, not a chatbot promise.",
     rejected: [
-      "Photo-led hero: no photography with clear rights was available.",
-      "Three-card features grid: buries the schedule beneath generic benefits.",
+      "Abstract AI orb hero: says nothing about the result.",
+      "Feature list first: hides the summary people actually want.",
     ],
-    carrier: "Soft serif typography and original drawn vessel shapes.",
-    type: "Fraunces with a soft optical size for display, Plus Jakarta Sans for text.",
-    color: "Clay, oat and glaze green taken from the craft itself.",
-    interaction: "Filter classes by level and reserve with a visible, honest confirmation.",
+    pattern: "B · Split hero: copy left, summary window right over a dark mesh field.",
+    type: "Geist for everything; Geist Mono only for timestamps and owners.",
+    color: "Pure black, near-black cards, one violet accent for the primary action and live state.",
+    visual: "A meeting summary window with decisions, owners and timestamps.",
     checks: [
-      "Sold-out classes are labeled, not only greyed out",
-      "Reserve shows a sample confirmation, never a fake payment",
-      "Schedule reflows to one column on small screens",
+      "Dark text pairs pass contrast",
+      "Shader freezes under reduced motion",
+      "Split hero stacks with copy first on mobile",
     ],
-    references: [
-      "direction-composition-assets.md",
-      "typography-rules.md",
-      "component-rules.md",
-    ],
+    references: [...baseRefs, "core-color-rules.md"],
   },
   {
-    slug: "night-shift",
-    name: "Night Shift 10K",
-    kind: "City night run",
-    brief:
-      "Launch a 10K run through the city at night and get runners to register.",
-    audience: "Runners from 20 to 40 who want an event, not just a race.",
-    task: "Check date, route and pace, then register.",
-    chosen:
-      "Expressive poster: oversized type, an animated track-light shader, practical facts up front.",
+    slug: "lumen",
+    name: "Lumen",
+    kind: "Consumer savings app",
+    brief: "Build a waitlist for a savings app that rounds up spending into goals.",
+    task: "Grasp the idea in one screen and join the waitlist.",
+    chosen: "A calm waitlist page around the app itself, shown in a phone.",
     rejected: [
-      "Map-first page: accurate but flat for an event people choose on feeling.",
-      "Community photo grid: no event photography exists yet.",
+      "Stock lifestyle photography: no licensed images and it hides the app.",
+      "Dense fintech dashboard look: wrong mood for personal saving.",
     ],
-    carrier: "Oversized condensed type and motion that reads as streetlights.",
-    type: "Bricolage Grotesque, narrow and heavy for display, normal width for facts.",
-    color: "Night black with one signal lime; pink only for the register action.",
-    interaction: "A pace calculator that turns a target time into pace per kilometre.",
+    pattern: "E · Waitlist: centered headline, inline email form, phone mockup below.",
+    type: "Inter for UI and text; Instrument Serif for one accent phrase only.",
+    color: "Warm off-white, ink text, one deep green accent for the action and progress.",
+    visual: "A phone built in code showing goals and round-ups over a soft mesh field.",
     checks: [
-      "Shader freezes with reduced motion",
-      "Calculator validates input and explains errors",
-      "Lime on black passes text contrast",
+      "Email field validates and confirms without pretending to send",
+      "Serif used once, never for body",
+      "Phone mockup scales without overflow at 390px",
     ],
-    references: ["motion-rules.md", "anti-slop-rules.md", "accessibility-rules.md"],
+    references: [...baseRefs, "typography-rules.md"],
   },
 ];
-export const getExample = (slug: string) =>
-  examples.find((e) => e.slug === slug)!;
+export const getExample = (slug: string) => examples.find((e) => e.slug === slug)!;

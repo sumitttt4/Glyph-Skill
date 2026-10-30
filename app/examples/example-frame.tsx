@@ -20,13 +20,12 @@ export function DesignNotes({ slug }: { slug: string }) {
   const e = getExample(slug);
   const rows: [string, string][] = [
     ["Brief", e.brief],
-    ["Audience", e.audience],
     ["Primary task", e.task],
     ["Direction", e.chosen],
-    ["Personality", e.carrier],
+    ["Hero pattern", e.pattern],
     ["Type", e.type],
     ["Color", e.color],
-    ["Interaction", e.interaction],
+    ["Visual", e.visual],
   ];
   return (
     <section id="design-notes" className="ex-notes" aria-labelledby="notes-title">
@@ -34,8 +33,8 @@ export function DesignNotes({ slug }: { slug: string }) {
         <span className="ex-notes-kicker">Built with Glyph</span>
         <h2 id="notes-title">Design notes</h2>
         <p className="ex-notes-lede">
-          The decisions behind this page, following the Glyph workflow. The
-          product, data and people are fictional.
+          The decisions behind this page, following the Glyph workflow and its
+          visual craft baseline. The product, data and people are fictional.
         </p>
         <dl>
           {rows.map(([k, v]) => (

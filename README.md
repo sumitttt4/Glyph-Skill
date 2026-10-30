@@ -31,7 +31,7 @@ Example brief: “Use Glyph to build an operations dashboard for dispatchers. Th
 
 ## Bundle
 
-[skills/glyph/SKILL.md](skills/glyph/SKILL.md) is the sole installable entry point. Fourteen focused references cover direction/assets, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. Load only relevant guidance. Root reference filenames remain compatibility pointers.
+[skills/glyph/SKILL.md](skills/glyph/SKILL.md) is the sole installable entry point. Sixteen focused references cover direction/assets, visual craft, landing composition, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. Load only relevant guidance. Root reference filenames remain compatibility pointers.
 
 Requirements protect correctness, accessibility and truthful claims. Patterns are adaptable starting points. Taste hypotheses are judgments to inspect, not high-confidence evidence. Categorical colors, expressive brands, Poppins, gradients and familiar layouts are allowed when considered. The website's own blue buttons and fonts are not universal skill rules.
 

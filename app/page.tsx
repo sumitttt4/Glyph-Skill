@@ -19,7 +19,7 @@ import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
 const facts = [
   ["1", "entry point", "SKILL.md routes the work"],
-  ["14", "focused references", "loaded only when relevant"],
+  ["16", "focused references", "loaded only when relevant"],
   ["4", "request modes", "design, audit, vibe, prompt"],
   ["0", "API keys or services", "plain Markdown files"],
 ];
@@ -29,13 +29,13 @@ const stages = [
     Icon: Compass,
     title: "Understand & choose",
     text: "Inspect the existing UI, find the primary task and compare meaningfully different compositions.",
-    files: ["direction-composition-assets", "landing-page-research"],
+    files: ["direction-composition-assets", "landing-composition", "landing-page-research"],
   },
   {
     Icon: LayoutGrid,
     title: "Compose & express",
     text: "Resolve hierarchy, density and type with real content. Decide what carries the personality.",
-    files: ["layout-rules", "typography-rules", "core-color-rules", "background-rules"],
+    files: ["visual-craft", "layout-rules", "typography-rules", "core-color-rules"],
   },
   {
     Icon: Hammer,
@@ -280,7 +280,7 @@ export default function Home() {
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
                 <code>references/</code>
-                <span>14 files</span>
+                <span>16 files</span>
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />

@@ -26,7 +26,7 @@ export function Header({
       <header className={`site-header ${docs ? "docs-header" : ""}`}>
         <Brand />
         <nav aria-label="Main">
-          <Link href="/#walkthrough" className="how-link">
+          <Link href="/#workflow" className="how-link">
             How it works
           </Link>
           <Link href="/docs" aria-current={docs ? "page" : undefined}>

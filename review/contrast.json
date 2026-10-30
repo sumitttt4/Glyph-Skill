@@ -33,6 +33,22 @@
   },
   {
     "theme": "light",
+    "fg": "#1f49d6",
+    "bg": "#ffffff",
+    "ratio": 7.04,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
+    "fg": "#1f49d6",
+    "bg": "#f6f6f6",
+    "ratio": 6.52,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "light",
     "fg": "#244d7a",
     "bg": "#e7f1ff",
     "ratio": 7.62,
@@ -132,6 +148,22 @@
     "fg": "#c2dcff",
     "bg": "#15253a",
     "ratio": 11.03,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#8fb4ff",
+    "bg": "#0b0c0e",
+    "ratio": 9.45,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "dark",
+    "fg": "#8fb4ff",
+    "bg": "#1a1d22",
+    "ratio": 8.16,
     "threshold": 4.5,
     "pass": true
   },

@@ -1,0 +1,126 @@
+/* Shared frame for example pages; each example owns everything else. */
+.ex-bar {
+  position: relative;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 40px;
+  padding: 6px 20px;
+  background: #0b0b0c;
+  color: #c9cbd1;
+  font: 12.5px/1.4 var(--sans);
+}
+.ex-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ex-bar a:hover {
+  text-decoration: underline;
+}
+.ex-bar span {
+  flex: 1;
+  text-align: center;
+}
+.ex-bar b {
+  color: #fff;
+  font-weight: 500;
+}
+.ex-notes {
+  background: #f4f4f1;
+  color: #16171a;
+  padding: 88px 24px;
+  font-family: var(--sans);
+  border-top: 1px solid #e2e2dd;
+}
+.ex-notes-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ex-notes-kicker {
+  font: 500 12px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f49d6;
+}
+.ex-notes h2 {
+  margin: 14px 0 10px;
+  font: 500 2.4rem/1.05 var(--sans);
+  letter-spacing: -0.04em;
+}
+.ex-notes-lede {
+  color: #55585f;
+  margin: 0 0 36px;
+}
+.ex-notes dl {
+  margin: 0;
+  border-top: 1px solid #16171a;
+}
+.ex-notes dl > div {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #deded8;
+}
+.ex-notes dt {
+  font: 500 12px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #55585f;
+}
+.ex-notes dd {
+  margin: 0;
+  font-size: 0.98rem;
+}
+.ex-notes ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ex-notes li + li {
+  margin-top: 6px;
+}
+.ex-notes-files {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ex-notes-files code {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: #e6ebf7;
+  color: #1c2f5c;
+}
+.ex-notes-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 28px;
+  font-weight: 500;
+  color: #1f49d6;
+}
+@media (max-width: 700px) {
+  .ex-bar span {
+    display: none;
+  }
+  .ex-bar {
+    justify-content: space-between;
+  }
+  .ex-notes {
+    padding: 64px 18px;
+  }
+  .ex-notes h2 {
+    font-size: 2rem;
+  }
+  .ex-notes dl > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

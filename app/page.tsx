@@ -14,6 +14,7 @@ import { CopyCode } from "./components/controls";
 import { Walkthrough } from "./components/walkthrough";
 import { HeroSession } from "./components/hero-session";
 import { CtaShader, HeroShader, StageShader } from "./components/shaders";
+import { examples } from "./examples/data";
 import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
 const facts = [
@@ -125,6 +126,54 @@ export default function Home() {
             </div>
           ))}
         </dl>
+        <section id="examples" className="block wrap">
+          <div className="block-head">
+            <Tag>Built with Glyph</Tag>
+            <h2>Three briefs. Three very different pages.</h2>
+            <p>
+              Each example followed the Glyph workflow from brief to verified
+              page. Open one to see the decisions behind it.
+            </p>
+          </div>
+          <div className="showcase">
+            {examples.map((e, i) => (
+              <article key={e.slug} className="show-card">
+                <Link className="show-shot" href={`/examples/${e.slug}`} tabIndex={-1} aria-hidden="true">
+                  <span className="show-chrome">
+                    <i />
+                    <i />
+                    <i />
+                    <span>{e.name.toLowerCase().replace(/ /g, "")}.example</span>
+                  </span>
+                  <img
+                    src={`/examples/${e.slug}${i === 0 ? "-tall" : ""}.webp`}
+                    alt=""
+                    width={i === 0 ? 1000 : 1200}
+                    height={i === 0 ? 1094 : 800}
+                    loading="lazy"
+                  />
+                </Link>
+                <div className="show-body">
+                  <span className="show-kind">{e.kind}</span>
+                  <h3>
+                    <Link href={`/examples/${e.slug}`}>{e.name}</Link>
+                  </h3>
+                  <p>{e.chosen}</p>
+                  <div className="show-links">
+                    <Link href={`/examples/${e.slug}`}>
+                      Open example <ArrowUpRight size={14} />
+                    </Link>
+                    <Link href={`/examples/${e.slug}#design-notes`}>Design notes</Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="fineprint">
+            Fictional products and sample data, designed and built with the Glyph
+            skill for this site.
+          </p>
+        </section>
         <section id="workflow" className="block wrap">
           <div className="block-head">
             <Tag>Workflow</Tag>

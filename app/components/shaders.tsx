@@ -7,7 +7,7 @@ import {
 } from "@paper-design/shaders-react";
 // Shaders take literal colors, so they follow the theme and motion
 // preference from the document instead of CSS variables.
-function useScene() {
+export function useScene() {
   const [dark, setDark] = useState(false);
   const [still, setStill] = useState(false);
   useEffect(() => {
@@ -36,7 +36,7 @@ export function HeroShader() {
       style={fill}
       colors={
         dark
-          ? ["#0d1830", "#2b4f95", "#4a3590", "#1d6450", "#7a4f22"]
+          ? ["#000000", "#21417f", "#3d2c7c", "#174f40", "#6a441c"]
           : ["#8fb4ff", "#c4b0f5", "#9fe0c8", "#f6c88e", "#5f8df2"]
       }
       distortion={0.85}
@@ -58,7 +58,7 @@ export function StageShader({ index }: { index: number }) {
     <Dithering
       className="shader"
       style={fill}
-      colorBack={dark ? "#121418" : "#ffffff"}
+      colorBack={dark ? "#0b0b0c" : "#ffffff"}
       colorFront={stageInk[dark ? "dark" : "light"][index]}
       shape={stageShapes[index]}
       type="4x4"
@@ -74,7 +74,7 @@ export function CtaShader() {
     <GrainGradient
       className="shader"
       style={fill}
-      colorBack={dark ? "#070b14" : "#0f1d38"}
+      colorBack={dark ? "#000000" : "#0f1d38"}
       colors={["#5f8df2", "#b5d5ff", "#9d86d6", "#5fb39a", "#f0b46a"]}
       shape="corners"
       softness={0.6}

@@ -29,6 +29,9 @@ export function Header({
           <Link href="/#workflow" className="how-link">
             How it works
           </Link>
+          <Link href="/#examples" className="how-link">
+            Examples
+          </Link>
           <Link href="/docs" aria-current={docs ? "page" : undefined}>
             Docs
           </Link>

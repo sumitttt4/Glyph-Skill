@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/plus-jakarta-sans/wght.css";
-import "@fontsource-variable/plus-jakarta-sans/wght-italic.css";
 import "./globals.css";
 export const metadata: Metadata = {
   title: {

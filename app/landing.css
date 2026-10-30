@@ -1,16 +1,36 @@
 /* Landing page: an airy, centered composition with the product framed in a scene. */
 body:has(.landing) .site-header {
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom-color: transparent;
+}
+body:has(.landing) .site-header nav {
+  margin-inline: auto;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+body:has(.landing) .site-header nav a {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  transition:
+    background-color 140ms ease-out,
+    color 140ms ease-out;
+}
+body:has(.landing) .site-header nav a:hover {
+  background: var(--raised);
+  color: var(--ink);
+}
+body:has(.landing) .theme-toggle {
+  border-left: 0;
 }
 .landing {
-  --scene-tint: #00000000;
-  --cta-shade: #0a1a3a99;
+  --cta-shade: #08132bcc;
   overflow-x: clip;
-}
-:root[data-theme="dark"] .landing {
-  --scene-tint: #05080fa6;
-  --cta-shade: #05080fcc;
 }
 .wrap {
   width: min(1180px, calc(100% - 80px));
@@ -19,7 +39,7 @@ body:has(.landing) .site-header {
 .landing h1,
 .landing h2,
 .landing h3 {
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: var(--sans);
 }
 .pill,
 .tag {
@@ -30,7 +50,7 @@ body:has(.landing) .site-header {
   border-radius: 999px;
   background: var(--surface);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 450;
   color: var(--muted);
 }
 .pill {
@@ -43,7 +63,7 @@ body:has(.landing) .site-header {
   background: var(--brand);
   color: var(--brand-ink);
   font-size: 0.74rem;
-  font-weight: 600;
+  font-weight: 550;
 }
 .tag {
   padding: 5px 14px;
@@ -60,39 +80,58 @@ body:has(.landing) .site-header {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 48px;
-  padding: 12px 24px;
+  min-height: 46px;
+  padding: 0 20px;
   border-radius: 999px;
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   text-decoration: none;
   transition:
-    transform 140ms ease-out,
-    background-color 140ms ease-out;
+    transform 160ms ease-out,
+    background-color 160ms ease-out,
+    border-color 160ms ease-out;
 }
 .btn:active {
-  transform: translateY(1px);
+  transform: scale(0.98);
 }
 .btn-solid {
+  padding: 0 6px 0 20px;
+  gap: 14px;
   background: var(--ink);
   color: var(--bg);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--bg) 22%, transparent),
+    0 8px 20px -10px color-mix(in srgb, var(--ink) 60%, transparent);
 }
-.btn-solid:hover {
-  background: color-mix(in srgb, var(--ink) 86%, var(--signal));
+.btn-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--brand-ink);
+  transition: transform 160ms ease-out;
+}
+.btn-solid:hover .btn-icon {
+  transform: translateX(2px) rotate(-8deg);
 }
 .btn-line {
   border: 1px solid var(--line);
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  color: var(--ink);
 }
 .btn-line:hover {
-  background: var(--raised);
+  border-color: var(--strong-line);
 }
-.btn svg {
-  transition: transform 140ms ease-out;
+.btn-line svg {
+  color: var(--muted);
+  transition: transform 160ms ease-out;
 }
-.btn:hover svg {
-  transform: translateX(2px);
+.btn-line:hover svg {
+  transform: translate(1px, -1px);
 }
 
 /* Hero */
@@ -106,21 +145,22 @@ body:has(.landing) .site-header {
   text-align: center;
 }
 .hero h1 {
-  margin: 26px 0 22px;
-  font-size: clamp(2.9rem, 6vw, 5.4rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  margin: 28px 0 24px;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.05em;
 }
 .hero h1 em {
   display: block;
-  font: 400 1em/1.04 var(--display);
-  letter-spacing: -0.04em;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   color: var(--signal);
 }
 .hero-copy > p {
   max-width: 50ch;
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   line-height: 1.6;
   color: var(--muted);
   margin: 0;
@@ -147,11 +187,18 @@ body:has(.landing) .site-header {
 }
 .scene {
   position: relative;
-  border-radius: 22px;
+  isolation: isolate;
+  border-radius: 24px;
   overflow: hidden;
-  background:
-    linear-gradient(var(--scene-tint), var(--scene-tint)),
-    url("/landscape-bg.jpg") center 75% / cover var(--brand);
+  background: var(--example);
+}
+.scene-art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.shader {
+  display: block;
 }
 .hero-scene {
   display: grid;
@@ -161,7 +208,6 @@ body:has(.landing) .site-header {
 }
 .chip {
   position: absolute;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -171,7 +217,7 @@ body:has(.landing) .site-header {
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px -12px #0a1a3a66;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 450;
   white-space: nowrap;
 }
 .chip i {
@@ -202,6 +248,7 @@ body:has(.landing) .site-header {
   background: var(--step-3);
 }
 .hero-scene .session {
+  position: relative;
   max-width: 580px;
   box-shadow: 0 40px 80px -30px #0a1a3a99;
 }
@@ -330,7 +377,7 @@ body:has(.landing) .site-header {
 }
 .session-output-head strong {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 550;
   letter-spacing: -0.02em;
 }
 .session-output-head span {
@@ -393,8 +440,8 @@ body:has(.landing) .site-header {
   border-left: 1px solid var(--line);
 }
 .facts dt {
-  font-size: 2.8rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 300;
   letter-spacing: -0.05em;
   line-height: 1;
 }
@@ -429,8 +476,8 @@ body:has(.landing) .site-header {
   margin-bottom: 52px;
 }
 .block-head h2 {
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 500;
   line-height: 1.04;
   letter-spacing: -0.045em;
   max-width: 18ch;
@@ -461,21 +508,11 @@ body:has(.landing) .site-header {
   background: var(--surface);
   overflow: hidden;
 }
-.stage::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
-  background: var(--step-1);
-}
-.s2::before {
-  background: var(--step-2);
-}
-.s3::before {
-  background: var(--step-3);
-}
-.s4::before {
-  background: var(--step-4);
+.stage-art {
+  height: 104px;
+  margin: -24px -24px 22px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 .stage-top {
   display: flex;
@@ -484,23 +521,24 @@ body:has(.landing) .site-header {
   color: var(--muted);
 }
 .stage-n {
-  font: 600 1.5rem/1 "DM Sans", sans-serif;
+  font: 400 1.4rem/1 var(--sans);
   letter-spacing: -0.04em;
   color: var(--ink);
 }
 .stage h3 {
-  margin: 28px 0 10px;
-  font-size: 1.15rem;
-  font-weight: 600;
+  margin: 20px 0 8px;
+  font-size: 1.12rem;
+  font-weight: 550;
   letter-spacing: -0.025em;
 }
 .stage > p {
   font-size: 0.88rem;
   color: var(--muted);
+  min-height: 6.6em;
 }
 .stage ul {
   list-style: none;
-  margin: auto 0 0;
+  margin: 0;
   padding: 14px 0 0;
   border-top: 1px dashed var(--line);
   display: grid;
@@ -696,7 +734,7 @@ body:has(.landing) .site-header {
   border-radius: 0;
 }
 .example-portfolio h3 {
-  font: 600 2rem/1.05 "DM Sans", sans-serif;
+  font: 500 2rem/1.05 var(--sans);
   letter-spacing: -0.05em;
   max-width: 12ch;
 }
@@ -792,7 +830,7 @@ body:has(.landing) .site-header {
 }
 .requests code {
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--signal);
 }
 .requests span {
@@ -866,12 +904,15 @@ body:has(.landing) .site-header {
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
-  padding: 80px 64px 120px;
-  background:
-    linear-gradient(100deg, var(--cta-shade), #00000000 75%),
-    linear-gradient(var(--scene-tint), var(--scene-tint)),
-    url("/landscape-bg.jpg") center 80% / cover var(--brand-ink);
+  padding: 88px 64px;
+  background: #0f1d38;
   color: #fff;
+}
+.cta .scene-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--cta-shade), #00000000 70%);
 }
 .cta .tag {
   background: #ffffff1f;
@@ -883,12 +924,11 @@ body:has(.landing) .site-header {
 }
 .cta h2 {
   margin: 20px 0 16px;
-  font-size: clamp(2.4rem, 4.6vw, 4rem);
-  font-weight: 600;
-  line-height: 1;
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.02;
   letter-spacing: -0.05em;
   max-width: 13ch;
-  text-shadow: 0 2px 20px #0a1a3a40;
 }
 .cta p {
   color: #f1f5fb;
@@ -905,7 +945,7 @@ body:has(.landing) .site-header {
   gap: 8px;
   min-height: 44px;
   margin-top: 16px;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
 }
 .cta-link:hover {
@@ -975,11 +1015,10 @@ body:has(.landing) .site-header {
   .cta-inner {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 48px 24px 140px;
-    background:
-      linear-gradient(var(--cta-shade), #00000000 80%),
-      linear-gradient(var(--scene-tint), var(--scene-tint)),
-      url("/landscape-bg.jpg") 70% 100% / cover var(--brand-ink);
+    padding: 48px 24px;
+  }
+  .cta .scene-art::after {
+    background: linear-gradient(var(--cta-shade), #08132b66);
   }
 }
 @media (max-width: 700px) {
@@ -996,7 +1035,13 @@ body:has(.landing) .site-header {
     width: 100%;
   }
   .hero-actions .btn {
-    flex: 1 1 140px;
+    flex: 1 1 150px;
+  }
+  body:has(.landing) .site-header nav {
+    margin-inline: auto 0;
+    border: 0;
+    background: none;
+    padding: 0;
   }
   .hero-install pre {
     font-size: 0.74rem;
@@ -1035,6 +1080,9 @@ body:has(.landing) .site-header {
   }
   .stage h3 {
     margin-top: 18px;
+  }
+  .stage > p {
+    min-height: 0;
   }
   .workbench-bar {
     padding: 11px 14px;

@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 100 1000;
-  font-display: swap;
-  src: url("/fonts/dm-sans.ttf") format("truetype");
-}
-@font-face {
   font-family: "Source Serif 4";
   font-style: normal;
   font-weight: 400;
@@ -45,6 +38,7 @@
   --step-2: #b4a0e2;
   --step-3: #84c5b2;
   --step-4: #e3af73;
+  --sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", system-ui, sans-serif;
   --display: "Source Serif 4", Georgia, serif;
 }
 :root[data-theme="dark"] {
@@ -95,9 +89,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font:
-    16px/1.6 "DM Sans",
-    Arial,
-    sans-serif;
+    15.5px/1.65 var(--sans);
 }
 button,
 input,
@@ -144,8 +136,8 @@ h2,
 h3 {
   margin: 0;
   line-height: 1.12;
-  font-family: var(--display);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-weight: 500;
   font-style: normal;
   letter-spacing: -0.025em;
   text-wrap: balance;
@@ -499,8 +491,7 @@ td code {
 }
 .docs-intro h1 {
   font:
-    500 2.2rem/1.2 "DM Sans",
-    sans-serif;
+    500 2.2rem/1.2 var(--sans);
   letter-spacing: -0.04em;
 }
 .docs-intro p {
@@ -516,8 +507,7 @@ td code {
 }
 .doc-section h2 {
   font:
-    500 1.25rem/1.4 "DM Sans",
-    sans-serif;
+    500 1.25rem/1.4 var(--sans);
   letter-spacing: -0.025em;
   border-bottom: 1px solid var(--line);
   padding-bottom: 12px;

@@ -13,6 +13,7 @@ import { Header, Footer } from "./components/shell";
 import { CopyCode } from "./components/controls";
 import { Walkthrough } from "./components/walkthrough";
 import { HeroSession } from "./components/hero-session";
+import { CtaShader, HeroShader, StageShader } from "./components/shaders";
 import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
 const facts = [
@@ -84,10 +85,13 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" href="#install">
-                Install Glyph <ArrowRight size={16} />
+                Install Glyph
+                <span className="btn-icon">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
               <Link className="btn btn-line" href="/docs">
-                Read the docs <ArrowUpRight size={16} />
+                Read the docs <ArrowUpRight size={15} />
               </Link>
             </div>
             <div className="hero-install">
@@ -95,6 +99,9 @@ export default function Home() {
             </div>
           </div>
           <div className="scene hero-scene">
+            <div className="scene-art" aria-hidden="true">
+              <HeroShader />
+            </div>
             <span className="chip chip-a" aria-hidden="true">
               <i /> SKILL.md loaded
             </span>
@@ -131,6 +138,9 @@ export default function Home() {
           <ol className="stages">
             {stages.map(({ Icon, title, text, files }, i) => (
               <li key={title} className={`stage s${i + 1}`}>
+                <div className="stage-art" aria-hidden="true">
+                  <StageShader index={i} />
+                </div>
                 <div className="stage-top">
                   <span className="stage-n">.0{i + 1}</span>
                   <Icon size={20} aria-hidden="true" />
@@ -235,6 +245,9 @@ export default function Home() {
         </section>
         <section id="install" className="cta wrap">
           <div className="scene cta-inner">
+            <div className="scene-art" aria-hidden="true">
+              <CtaShader />
+            </div>
             <div>
               <Tag>Install</Tag>
               <h2>Bring Glyph to your next build.</h2>

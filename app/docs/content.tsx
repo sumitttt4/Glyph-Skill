@@ -508,9 +508,10 @@ export function DocContent({ slug }: { slug: string }) {
               dependencies or affiliations. No library artwork is bundled.
             </p>
             <p>
-              The website uses DM Sans and Source Serif 4 under the SIL Open
-              Font License. Their notices accompany the self-hosted fonts. The
-              logo is original vector artwork created for this project.
+              The website uses Plus Jakarta Sans and Source Serif 4, and the
+              social image uses DM Sans, all under the SIL Open Font License.
+              Visuals are rendered with Paper Shaders (Apache 2.0). The logo is
+              original vector artwork created for this project.
             </p>
           </Section>
           <Section id="license" title="MIT license">

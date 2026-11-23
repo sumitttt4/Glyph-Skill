@@ -12,8 +12,8 @@
     "check:references": "python3 scripts/check-references.py",
     "prebuild:cloudflare": "node scripts/prepare-docs.mjs",
     "build:cloudflare": "STATIC_EXPORT=1 next build",
-    "preview:cloudflare": "npm run build:cloudflare && wrangler dev",
-    "deploy:cloudflare": "npm run build:cloudflare && wrangler deploy"
+    "preview:cloudflare": "wrangler dev",
+    "deploy:cloudflare": "wrangler deploy"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",

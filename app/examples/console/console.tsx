@@ -104,6 +104,17 @@ export function Console() {
     return () => clearTimeout(t);
   }, [toast]);
 
+  // Return focus to the menu button once the drawer has closed and the
+  // top bar is no longer inert.
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (drawer) wasOpen.current = true;
+    else if (wasOpen.current) {
+      wasOpen.current = false;
+      menuButton.current?.focus();
+    }
+  }, [drawer]);
+
   useEffect(() => {
     if (!drawer) return;
     const first = sidebar.current?.querySelector<HTMLElement>("a, button");
@@ -111,7 +122,21 @@ export function Console() {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
         setDrawer(false);
-        menuButton.current?.focus();
+        return;
+      }
+      // Trap Tab inside the open drawer; content behind it is also inert.
+      if (e.key !== "Tab" || !sidebar.current) return;
+      const items = [...sidebar.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")];
+      if (!items.length) return;
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+      const inside = sidebar.current.contains(document.activeElement);
+      if (e.shiftKey && (document.activeElement === firstItem || !inside)) {
+        e.preventDefault();
+        lastItem.focus();
+      } else if (!e.shiftKey && (document.activeElement === lastItem || !inside)) {
+        e.preventDefault();
+        firstItem.focus();
       }
     }
     addEventListener("keydown", onKey);
@@ -163,7 +188,7 @@ export function Console() {
         </a>
       </nav>
       {drawer && <div className="relay-scrim" onClick={() => setDrawer(false)} aria-hidden="true" />}
-      <header className="g-topbar">
+      <header className="g-topbar" inert={drawer}>
         <button
           ref={menuButton}
           className="g-btn g-btn-ghost relay-menu"
@@ -192,7 +217,7 @@ export function Console() {
           </button>
         </div>
       </header>
-      <main className="g-main" id="queue">
+      <main className="g-main" id="queue" inert={drawer}>
         <div className="g-page-head">
           <div>
             <h1>{attention ? `${attention} deliveries need attention` : "Everything is on time"}</h1>
@@ -311,7 +336,7 @@ export function Console() {
           )}
         </div>
       </main>
-      <div aria-live="polite">
+      <div aria-live="polite" inert={drawer}>
         {toast && (
           <div className="g-toast">
             {toast.text}

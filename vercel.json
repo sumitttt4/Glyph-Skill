@@ -2,10 +2,5 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "git": {
-    "deploymentEnabled": {
-      "glyph-design-docs": false
-    }
-  }
+  "installCommand": "npm ci --ignore-scripts"
 }

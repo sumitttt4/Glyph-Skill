@@ -31,7 +31,7 @@ Example brief: “Use Glyph to build an operations dashboard for dispatchers. Th
 
 ## Bundle
 
-[skills/glyph/SKILL.md](skills/glyph/SKILL.md) is the sole installable entry point. Nineteen focused references cover a category playbook, style directions, visual craft, a starter kit, landing composition, direction/assets, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. `assets/starter.css` is a plain-CSS starter kit implementing the craft baseline with thirteen style-direction presets. Load only relevant guidance. Root reference filenames remain compatibility pointers.
+[skills/glyph/SKILL.md](skills/glyph/SKILL.md) is the sole installable entry point. Nineteen focused references cover a category playbook, style directions, visual craft, a starter kit, landing composition, direction/assets, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. `assets/starter.css` is a plain-CSS starter kit implementing the craft baseline with presets for twelve style directions (the thirteenth, Clean product, is the default). Load only relevant guidance. Root reference filenames remain compatibility pointers.
 
 Requirements protect correctness, accessibility and truthful claims. Patterns are adaptable starting points. Taste hypotheses are judgments to inspect, not high-confidence evidence. Categorical colors, expressive brands, Poppins, gradients and familiar layouts are allowed when considered. The website's own blue buttons and fonts are not universal skill rules.
 
@@ -55,6 +55,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [MIT license](LICENSE), [migration](MIGR
 
 Portfolio: https://sumit-pfp.vercel.app/ · X: https://x.com/sumitthq
 
-## Review branch
-
-The `glyph-design-docs` branch contains the proposed skill, landing, docs and logo changes. The default GitHub install command continues to resolve the default branch until this review branch is merged. For this candidate, use a local checkout of the review branch and the documented local installer. No release tag is created.

@@ -16,7 +16,7 @@ Ten routes: introduction, installation, workflow, commands, guidance, files, cus
 
 ## Release status
 
-No release tag, announcement or deliberate deployment. Push is authorized to review branch glyph-design-docs; Vercel auto-deploy for that branch is disabled in its versioned config. Main remains unchanged. The Vercel build command now calls npm run build so canonical skill source is regenerated before production builds.
+No release tag or announcement. The former `glyph-design-docs` review branch has been merged into `main` and removed. The Vercel build command calls npm run build so canonical skill source is regenerated before production builds, and installs with `npm ci` against the lockfile.
 
 ## Remaining limits
 

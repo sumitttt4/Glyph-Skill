@@ -1,0 +1,610 @@
+/*
+ * Design Skill product kit · app shell, forms, tables and feedback as plain CSS.
+ * Load after starter.css; it reuses the same --g-* tokens, so direction presets apply.
+ * Use: <div class="g g-app" data-density="default|compact|comfortable">.
+ * Dark mode: add data-theme="dark" to .g or an ancestor.
+ * See references/starter-kit.md and references/product-ui.md. Licence: MIT, as part of Design Skill.
+ */
+.g {
+  --g-success: #067647;
+  --g-success-subtle: #ecfdf3;
+  --g-warning: #93370d;
+  --g-warning-subtle: #fffaeb;
+  --g-danger: #b42318;
+  --g-danger-subtle: #fef3f2;
+  --g-info: #175cd3;
+  --g-info-subtle: #eff8ff;
+  --g-control: 36px;
+  --g-row: 44px;
+  --g-pad: 16px;
+  --g-text: 14px;
+}
+.g[data-density="compact"] {
+  --g-control: 30px;
+  --g-row: 34px;
+  --g-pad: 12px;
+  --g-text: 13px;
+}
+.g[data-density="comfortable"] {
+  --g-control: 40px;
+  --g-row: 52px;
+  --g-pad: 24px;
+  --g-text: 15px;
+}
+[data-theme="dark"] .g:not([data-direction]),
+.g[data-theme="dark"]:not([data-direction]) {
+  --g-bg: #0a0a0a;
+  --g-fg: #fafafa;
+  --g-muted: #a1a1aa;
+  --g-raised: #141416;
+  --g-card: #111113;
+  --g-line: rgba(255, 255, 255, 0.09);
+  --g-accent: #fafafa;
+  --g-on-accent: #0a0a0a;
+  --g-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 50px -20px rgba(0, 0, 0, 0.8);
+  color-scheme: dark;
+}
+[data-theme="dark"] .g,
+.g[data-theme="dark"] {
+  --g-success: #75e0a7;
+  --g-success-subtle: #0b2a1c;
+  --g-warning: #fec84b;
+  --g-warning-subtle: #2b1d06;
+  --g-danger: #fda29b;
+  --g-danger-subtle: #2e1110;
+  --g-info: #84caff;
+  --g-info-subtle: #0b2140;
+}
+
+/* App shell */
+.g-app {
+  display: grid;
+  grid-template-columns: 256px minmax(0, 1fr);
+  grid-template-rows: 56px minmax(0, 1fr);
+  grid-template-areas: "side top" "side main";
+  height: 100dvh;
+  font-size: var(--g-text);
+  line-height: 1.5;
+}
+.g-sidebar {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border-right: 1px solid var(--g-line);
+  background: var(--g-raised);
+  overflow-y: auto;
+}
+.g-sidebar-label {
+  margin: 16px 8px 4px;
+  color: var(--g-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.g-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--g-control);
+  padding: 0 10px;
+  border-radius: 8px;
+  color: var(--g-muted);
+  font-weight: 500;
+  text-decoration: none;
+}
+.g-nav-item:hover {
+  background: color-mix(in srgb, var(--g-fg) 5%, transparent);
+  color: var(--g-fg);
+}
+.g-nav-item[aria-current="page"] {
+  background: color-mix(in srgb, var(--g-fg) 8%, transparent);
+  color: var(--g-fg);
+}
+.g-nav-item svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.g-topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--g-line);
+  background: var(--g-bg);
+}
+.g-topbar-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.g-topbar-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.g-main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: calc(var(--g-pad) * 1.5);
+}
+.g-page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--g-pad);
+}
+.g-page-head h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.g-page-head p {
+  color: var(--g-muted);
+}
+@media (max-width: 768px) {
+  .g-app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "top" "main";
+  }
+  .g-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1300;
+    width: min(300px, 86vw);
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition:
+      transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      visibility 0s 200ms;
+  }
+  .g-sidebar[data-open="true"] {
+    visibility: visible;
+    transform: none;
+    box-shadow: var(--g-shadow);
+    transition-delay: 0s;
+  }
+  .g-main {
+    padding: var(--g-pad);
+  }
+}
+
+/* Panels and KPIs */
+.g-panel {
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: var(--g-card);
+}
+.g-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px var(--g-pad);
+  border-bottom: 1px solid var(--g-line);
+  font-weight: 600;
+}
+.g-panel-body {
+  padding: var(--g-pad);
+}
+.g-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  /* Keep KPIs to one compact row so the primary list stays above the fold. */
+  .g-kpis {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(148px, 1fr);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .g-kpi {
+    padding: 12px;
+  }
+  .g-kpi-value {
+    font-size: 22px;
+  }
+}
+.g-kpi {
+  padding: var(--g-pad);
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: var(--g-card);
+}
+.g-kpi-label {
+  color: var(--g-muted);
+  font-size: 13px;
+}
+.g-kpi-value {
+  margin-top: 4px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.g-delta {
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.g-delta[data-trend="good"] {
+  color: var(--g-success);
+}
+.g-delta[data-trend="bad"] {
+  color: var(--g-danger);
+}
+
+/* Forms */
+.g-field {
+  display: grid;
+  gap: 6px;
+}
+.g-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+.g-hint {
+  color: var(--g-muted);
+  font-size: 13px;
+}
+.g-error {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--g-danger);
+  font-size: 13px;
+  font-weight: 500;
+}
+.g-app .g-input,
+.g-select,
+.g-textarea {
+  width: 100%;
+  height: var(--g-control);
+  padding: 0 10px;
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  background: var(--g-card);
+  color: var(--g-fg);
+  font: 400 var(--g-text) var(--g-font);
+}
+.g-textarea {
+  min-height: 96px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+.g-input:hover,
+.g-select:hover,
+.g-textarea:hover {
+  border-color: color-mix(in srgb, var(--g-fg) 24%, transparent);
+}
+.g-input[aria-invalid="true"],
+.g-select[aria-invalid="true"],
+.g-textarea[aria-invalid="true"] {
+  border-color: var(--g-danger);
+}
+.g-app .g-btn {
+  height: var(--g-control);
+  padding: 0 12px;
+  font-size: var(--g-text);
+}
+.g-btn-danger {
+  background: var(--g-danger);
+  color: var(--g-bg);
+}
+.g-btn-ghost {
+  background: transparent;
+  color: var(--g-fg);
+}
+.g-btn-ghost:hover {
+  background: color-mix(in srgb, var(--g-fg) 6%, transparent);
+}
+.g-btn-ghost[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--g-fg) 10%, transparent);
+}
+.g-btn[aria-busy="true"] {
+  cursor: progress;
+  opacity: 0.8;
+}
+.g-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.g-switch {
+  appearance: none;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--g-fg) 22%, transparent);
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+.g-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--g-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 150ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.g-switch:checked {
+  background: var(--g-accent);
+}
+.g-switch:checked::after {
+  transform: translateX(16px);
+}
+.g .g-switch:focus-visible,
+.g .g-tab:focus-visible,
+.g .g-select:focus-visible,
+.g .g-textarea:focus-visible {
+  outline: 2px solid var(--g-accent);
+  outline-offset: 2px;
+}
+
+/* Tables */
+.g-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: var(--g-card);
+}
+.g-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--g-text);
+}
+.g-table th {
+  position: sticky;
+  top: 0;
+  height: var(--g-control);
+  padding: 0 var(--g-pad);
+  border-bottom: 1px solid var(--g-line);
+  background: var(--g-raised);
+  color: var(--g-muted);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+.g-table td {
+  height: var(--g-row);
+  padding: 0 var(--g-pad);
+  border-bottom: 1px solid var(--g-line);
+}
+.g-table tr:last-child td {
+  border-bottom: 0;
+}
+.g-table tbody tr:hover {
+  background: color-mix(in srgb, var(--g-fg) 3%, transparent);
+}
+.g-table tr[aria-selected="true"] {
+  background: color-mix(in srgb, var(--g-accent) 8%, transparent);
+}
+.g-table .g-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mobile: opt-in stacked rows. Add data-stack to .g-table and data-label to cells.
+   First cell is the row title, second sits beside it (status), the rest flow in two columns. */
+@media (max-width: 640px) {
+  .g-table[data-stack] thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .g-table[data-stack] tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+    padding: 12px var(--g-pad);
+    border-bottom: 1px solid var(--g-line);
+  }
+  .g-table[data-stack] tr:last-child {
+    border-bottom: 0;
+  }
+  .g-table[data-stack] td {
+    display: block;
+    height: auto;
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+  .g-table[data-stack] td:nth-child(2) {
+    justify-self: end;
+  }
+  .g-table[data-stack] td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--g-muted);
+    font-size: 12px;
+  }
+  .g-table[data-stack] td:nth-child(-n + 2)[data-label]::before {
+    display: none;
+  }
+}
+
+/* Status */
+.g-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--g-fg) 7%, transparent);
+  color: var(--g-fg);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.g-badge[data-tone="success"] {
+  background: var(--g-success-subtle);
+  color: var(--g-success);
+}
+.g-badge[data-tone="warning"] {
+  background: var(--g-warning-subtle);
+  color: var(--g-warning);
+}
+.g-badge[data-tone="danger"] {
+  background: var(--g-danger-subtle);
+  color: var(--g-danger);
+}
+.g-badge[data-tone="info"] {
+  background: var(--g-info-subtle);
+  color: var(--g-info);
+}
+.g-alert {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 10px;
+  background: var(--g-info-subtle);
+  color: var(--g-info);
+}
+.g-alert[data-tone="success"] {
+  background: var(--g-success-subtle);
+  color: var(--g-success);
+}
+.g-alert[data-tone="warning"] {
+  background: var(--g-warning-subtle);
+  color: var(--g-warning);
+}
+.g-alert[data-tone="danger"] {
+  background: var(--g-danger-subtle);
+  color: var(--g-danger);
+}
+.g-alert strong {
+  font-weight: 600;
+}
+.g-empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 48px var(--g-pad);
+  text-align: center;
+}
+.g-empty p {
+  max-width: 40ch;
+  color: var(--g-muted);
+}
+
+/* Tabs, kbd, skeleton */
+.g-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--g-line);
+}
+.g-tab {
+  height: var(--g-control);
+  padding: 0 12px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--g-muted);
+  font: 500 var(--g-text) var(--g-font);
+  cursor: pointer;
+}
+.g-tab[aria-selected="true"],
+.g-tab[aria-pressed="true"] {
+  border-bottom-color: var(--g-fg);
+  color: var(--g-fg);
+}
+.g-kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--g-line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--g-card);
+  color: var(--g-muted);
+  font: 500 11px var(--g-mono);
+}
+.g-skeleton {
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--g-fg) 6%, transparent) 25%,
+    color-mix(in srgb, var(--g-fg) 11%, transparent) 50%,
+    color-mix(in srgb, var(--g-fg) 6%, transparent) 75%
+  );
+  background-size: 200% 100%;
+  animation: g-shimmer 1.4s linear infinite;
+}
+@keyframes g-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Overlays */
+.g-dialog {
+  width: min(480px, calc(100vw - 32px));
+  padding: 0;
+  border: 1px solid var(--g-line);
+  border-radius: 14px;
+  background: var(--g-card);
+  color: var(--g-fg);
+  box-shadow: var(--g-shadow);
+}
+.g-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+.g-dialog-body {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+.g-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--g-line);
+}
+.g-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--g-fg);
+  color: var(--g-bg);
+  box-shadow: var(--g-shadow);
+  font-size: 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .g-skeleton {
+    animation: none;
+  }
+  .g-sidebar,
+  .g-switch,
+  .g-switch::after {
+    transition: none;
+  }
+}

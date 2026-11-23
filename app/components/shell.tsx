@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { ThemeControl } from "./controls";
 export function Brand() {
   return (
-    <Link className="brand" href="/" aria-label="Glyph Skill home">
-      <img src="/glyph-mark.svg" width="30" height="30" alt="" />
+    <Link className="brand" href="/" aria-label="Design Skill home">
+      <img src="/mark.svg" width="30" height="30" alt="" />
       <strong>
-        Glyph <span>Skill</span>
+        Design <span>Skill</span>
       </strong>
     </Link>
   );
@@ -61,6 +61,9 @@ export function Footer() {
         </a>
         <a href="https://x.com/sumitthq">
           @sumitthq <ArrowUpRight size={13} />
+        </a>
+        <a href="https://glazeui.xyz">
+          Glaze UI components <ArrowUpRight size={13} />
         </a>
         <Link href="/docs">Documentation</Link>
         <small>Open source · MIT</small>

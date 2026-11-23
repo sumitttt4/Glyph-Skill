@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { DocContent } from "../content";
-import { docPages } from "../navigation";
+import { guidePages as docPages } from "../navigation";
 export function generateStaticParams() {
   return docPages.filter((x) => x.slug).map((x) => ({ slug: x.slug }));
 }

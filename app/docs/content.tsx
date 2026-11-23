@@ -37,20 +37,20 @@ export function DocContent({ slug }: { slug: string }) {
     case "":
       return (
         <>
-          <Section id="overview" title="What is Glyph?">
+          <Section id="overview" title="What is Design Skill?">
             <p>
-              Glyph is a frontend design skill for coding assistants. It helps
+              Design Skill is a frontend design skill for coding assistants. It helps
               an assistant understand a product, choose a visual direction,
               compose the important screen, implement the interface and inspect
               what it built.
             </p>
             <p>
               Install one Markdown entry point with focused references. There is
-              no Glyph API key or background service. Your assistant reads the
+              no Design Skill API key or background service. Your assistant reads the
               guidance relevant to the task.
             </p>
             <Note>
-              Glyph guides judgment. It does not prescribe the same font,
+              Design Skill guides judgment. It does not prescribe the same font,
               palette, hero or component grid for every product.
             </Note>
           </Section>
@@ -90,7 +90,7 @@ export function DocContent({ slug }: { slug: string }) {
             <div className="doc-link-grid">
               <Link href="/docs/installation">
                 <Download size={19} />
-                <strong>Install Glyph</strong>
+                <strong>Install Design Skill</strong>
                 <span>Add the skill to your assistant.</span>
                 <ArrowRight size={16} />
               </Link>
@@ -114,14 +114,14 @@ export function DocContent({ slug }: { slug: string }) {
             </p>
             <CopyCode text="npx skills add sumitttt4/Glyph-Skill" />
             <p>
-              Choose the <code>glyph</code> skill. Agent support and
+              Choose the <code>design-skill</code> skill. Agent support and
               installation locations are determined by the version of the skills
               installer you use, not by a blanket compatibility guarantee from
-              Glyph.
+              Design Skill.
             </p>
             <Note>
               Review the package and source before running an installer. No
-              additional design skill is required by Glyph.
+              additional design skill is required by Design Skill.
             </Note>
           </Section>
           <Section id="local" title="Install from a local checkout">
@@ -132,11 +132,11 @@ export function DocContent({ slug }: { slug: string }) {
             <CopyCode
               label="Local checkout"
               text={
-                "git clone https://github.com/sumitttt4/Glyph-Skill.git\ncd Glyph-Skill\nnpx skills add . --skill glyph"
+                "git clone https://github.com/sumitttt4/Glyph-Skill.git\ncd Glyph-Skill\nnpx skills add . --skill design-skill"
               }
             />
             <p>
-              For manual setup, copy the complete <code>skills/glyph</code>{" "}
+              For manual setup, copy the complete <code>skills/design-skill</code>{" "}
               directory into your assistant’s supported skills location. Keep{" "}
               <code>SKILL.md</code>, <code>references/</code>, the license and
               notices together.
@@ -146,7 +146,7 @@ export function DocContent({ slug }: { slug: string }) {
             <ol className="doc-steps">
               <li>
                 <strong>Check discovery.</strong> Confirm the installer reports
-                the skill name <code>glyph</code>.
+                the skill name <code>design-skill</code>.
               </li>
               <li>
                 <strong>Check the files.</strong> Open the installed entry point
@@ -154,13 +154,13 @@ export function DocContent({ slug }: { slug: string }) {
               </li>
               <li>
                 <strong>Try a specific brief.</strong> Ask the assistant to use
-                Glyph for a small screen with real content, then inspect the
+                Design Skill for a small screen with real content, then inspect the
                 result.
               </li>
             </ol>
             <CopyCode
               label="Try this prompt"
-              text="Use Glyph to improve this settings screen. Inspect the existing UI first, preserve the brand, and verify keyboard navigation and small-screen behavior."
+              text="Use Design Skill to improve this settings screen. Inspect the existing UI first, preserve the brand, and verify keyboard navigation and small-screen behavior."
             />
           </Section>
         </>
@@ -241,19 +241,19 @@ export function DocContent({ slug }: { slug: string }) {
                 <tbody>
                   {[
                     [
-                      "/glyph design",
+                      "/design-skill design",
                       "Understand the brief, compare fitting directions and produce implementation-ready decisions.",
                     ],
                     [
-                      "/glyph audit",
+                      "/design-skill audit",
                       "Inspect rendered UI and source; report observed problems and concrete fixes.",
                     ],
                     [
-                      "/glyph vibe",
+                      "/design-skill vibe",
                       "Create a usable implementation prompt with composition, assets, states and verification.",
                     ],
                     [
-                      "/glyph prompt",
+                      "/design-skill prompt",
                       "Turn chosen decisions into concise, reusable project instructions.",
                     ],
                   ].map(([a, b]) => (
@@ -272,7 +272,7 @@ export function DocContent({ slug }: { slug: string }) {
             <CopyCode
               label="Design brief"
               text={
-                "Use Glyph for a delivery operations dashboard.\nAudience: a three-person dispatch team.\nPrimary task: identify the next delivery requiring attention.\nUse the supplied queue data and preserve our existing brand.\nCompare compositions, choose with reasons, implement the key states,\nand inspect desktop and mobile renders."
+                "Use Design Skill for a delivery operations dashboard.\nAudience: a three-person dispatch team.\nPrimary task: identify the next delivery requiring attention.\nUse the supplied queue data and preserve our existing brand.\nCompare compositions, choose with reasons, implement the key states,\nand inspect desktop and mobile renders."
               }
             />
             <p>
@@ -336,7 +336,7 @@ export function DocContent({ slug }: { slug: string }) {
               limits.
             </p>
             <p>
-              Glyph does not bundle a paid library integration. Public
+              Design Skill does not bundle a paid library integration. Public
               screenshots do not grant permission to redistribute assets or copy
               artwork and code. Build an original composition suited to the
               product.
@@ -395,16 +395,34 @@ export function DocContent({ slug }: { slug: string }) {
               and purpose of a constraint so it can be applied with judgment.
             </p>
           </Section>
+          <Section id="components" title="Pair with Glaze components">
+            <p>
+              Design Skill decides what to build; it does not ship a component
+              library. If your project has none, <a href="https://glazeui.xyz">Glaze</a>{" "}
+              is a free shadcn/ui registry from the same author: refined UI
+              components, AI and voice components, animated icons and blocks, in
+              solid or glass materials. It is optional, and an existing design
+              system always comes first.
+            </p>
+            <CopyCode
+              label="Add Glaze theme and materials"
+              text="npx shadcn@latest add sumitttt4/glazeui/glaze#main"
+            />
+            <CopyCode
+              label="Tell your assistant"
+              text={"Use Design Skill for design decisions and Glaze (https://glazeui.xyz/llms.txt) for components.\nKeep our existing tokens; map them onto Glaze's theme variables."}
+            />
+          </Section>
         </>
       );
     case "troubleshooting":
       return (
         <>
-          <Section id="discovery" title="The assistant cannot find Glyph">
+          <Section id="discovery" title="The assistant cannot find Design Skill">
             <p>
               Confirm the complete skill is installed in a location your agent
               supports. The entry point must be named <code>SKILL.md</code> with
-              valid frontmatter and the skill name <code>glyph</code>.
+              valid frontmatter and the skill name <code>design-skill</code>.
             </p>
             <p>
               Restart or reload skill discovery if your assistant requires it.
@@ -516,7 +534,7 @@ export function DocContent({ slug }: { slug: string }) {
           </Section>
           <Section id="license" title="MIT license">
             <p>
-              Glyph is distributed under the repository’s MIT license. Retain
+              Design Skill is distributed under the repository’s MIT license. Retain
               the license and required third-party notices when redistributing
               or adapting the skill.
             </p>

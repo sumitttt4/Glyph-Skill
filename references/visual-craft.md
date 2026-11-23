@@ -1,3 +1,3 @@
 # Visual craft baseline
 
-Canonical guidance: [skills/glyph/references/visual-craft.md](../skills/glyph/references/visual-craft.md).
+Canonical guidance: [skills/design-skill/references/visual-craft.md](../skills/design-skill/references/visual-craft.md).

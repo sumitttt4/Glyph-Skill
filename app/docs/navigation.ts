@@ -1,11 +1,19 @@
-export const docPages = [
+import libraryNav from "../generated/library-nav.json";
+export type DocPage = {
+  slug: string;
+  title: string;
+  group: string;
+  description: string;
+  sections: ReadonlyArray<readonly [string, string]>;
+};
+export const guidePages = [
   {
     slug: "",
     title: "Introduction",
     group: "Get started",
-    description: "What Glyph does and when to use it.",
+    description: "What Design Skill does and when to use it.",
     sections: [
-      ["overview", "What is Glyph?"],
+      ["overview", "What is Design Skill?"],
       ["principles", "How to think about it"],
       ["next-steps", "Start building"],
     ],
@@ -14,7 +22,7 @@ export const docPages = [
     slug: "installation",
     title: "Installation",
     group: "Get started",
-    description: "Add Glyph to your coding assistant.",
+    description: "Add Design Skill to your coding assistant.",
     sections: [
       ["install", "Install with the skills CLI"],
       ["local", "Install from a local checkout"],
@@ -24,7 +32,7 @@ export const docPages = [
   {
     slug: "workflow",
     title: "Design workflow",
-    group: "Use Glyph",
+    group: "Use Design Skill",
     description: "From understanding the product to inspecting the result.",
     sections: [
       ["understand", "Understand and choose"],
@@ -36,8 +44,8 @@ export const docPages = [
   {
     slug: "commands",
     title: "Commands & prompts",
-    group: "Use Glyph",
-    description: "Ways to ask your assistant to use Glyph.",
+    group: "Use Design Skill",
+    description: "Ways to ask your assistant to use Design Skill.",
     sections: [
       ["commands", "Request conventions"],
       ["example", "An example brief"],
@@ -46,7 +54,7 @@ export const docPages = [
   {
     slug: "guidance",
     title: "Guidance & exceptions",
-    group: "Use Glyph",
+    group: "Use Design Skill",
     description: "Understand requirements, patterns and design judgment.",
     sections: [
       ["rules", "Instruction roles"],
@@ -68,10 +76,11 @@ export const docPages = [
     slug: "customize",
     title: "Customization",
     group: "Reference",
-    description: "Adapt Glyph to your brand and project.",
+    description: "Adapt Design Skill to your brand and project.",
     sections: [
       ["customize", "Bring your own direction"],
       ["constraints", "Write useful constraints"],
+      ["components", "Pair with Glaze components"],
     ],
   },
   {
@@ -80,7 +89,7 @@ export const docPages = [
     group: "Reference",
     description: "Resolve installation, discovery and output issues.",
     sections: [
-      ["discovery", "The assistant cannot find Glyph"],
+      ["discovery", "The assistant cannot find Design Skill"],
       ["output", "The result feels generic"],
       ["copy", "Copy or theme is unavailable"],
     ],
@@ -107,6 +116,23 @@ export const docPages = [
     ],
   },
 ] as const;
+export const groupId = (group: string) =>
+  group.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const libraryPages = libraryNav as unknown as (DocPage & { file: string })[];
+export const libraryGroups = Array.from(new Set(libraryPages.map((x) => x.group)));
+export const libraryIndex: DocPage = {
+  slug: "library",
+  title: "Skill library",
+  group: "Reference",
+  description:
+    "Every file in the skill, rendered from the same Markdown and CSS your assistant reads.",
+  sections: libraryGroups.map((g) => [groupId(g), g] as const),
+};
+// The library index sits with the other Reference guides; library files follow.
+const guides: DocPage[] = [...guidePages];
+const at = guides.findIndex((p) => p.slug === "files") + 1;
+guides.splice(at, 0, libraryIndex);
+export const docPages: DocPage[] = [...guides, ...libraryPages];
 export const hrefFor = (slug: string) => (slug ? `/docs/${slug}` : "/docs");
 export const legacyAnchors: Record<string, string> = {
   "how-it-thinks": "/docs/workflow#understand",

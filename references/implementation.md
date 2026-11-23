@@ -1,3 +1,3 @@
 # Implementation
 
-Canonical guidance: [skills/glyph/references/implementation.md](../skills/glyph/references/implementation.md).
+Canonical guidance: [skills/design-skill/references/implementation.md](../skills/design-skill/references/implementation.md).

@@ -1,3 +1,3 @@
 # Direction Composition Assets
 
-Canonical guidance: [skills/glyph/references/direction-composition-assets.md](../skills/glyph/references/direction-composition-assets.md).
+Canonical guidance: [skills/design-skill/references/direction-composition-assets.md](../skills/design-skill/references/direction-composition-assets.md).

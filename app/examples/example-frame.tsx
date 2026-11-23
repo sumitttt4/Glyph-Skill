@@ -7,10 +7,10 @@ export function ExampleBar({ slug }: { slug: string }) {
   return (
     <div className="ex-bar">
       <Link href="/#examples">
-        <ArrowLeft size={14} /> Glyph
+        <ArrowLeft size={14} /> Design Skill
       </Link>
       <span>
-        Example built with Glyph · <b>{e.name}</b> is a fictional product
+        Example built with Design Skill · <b>{e.name}</b> is a fictional product
       </span>
       <a href="#design-notes">Design notes</a>
     </div>
@@ -30,10 +30,10 @@ export function DesignNotes({ slug }: { slug: string }) {
   return (
     <section id="design-notes" className="ex-notes" aria-labelledby="notes-title">
       <div className="ex-notes-inner">
-        <span className="ex-notes-kicker">Built with Glyph</span>
+        <span className="ex-notes-kicker">Built with Design Skill</span>
         <h2 id="notes-title">Design notes</h2>
         <p className="ex-notes-lede">
-          The decisions behind this page, following the Glyph workflow and its
+          The decisions behind this page, following the Design Skill workflow and its
           visual craft baseline. The product, data and people are fictional.
         </p>
         <dl>
@@ -73,7 +73,7 @@ export function DesignNotes({ slug }: { slug: string }) {
           </div>
         </dl>
         <Link className="ex-notes-back" href="/#examples">
-          <ArrowLeft size={15} /> Back to Glyph
+          <ArrowLeft size={15} /> Back to Design Skill
         </Link>
       </div>
     </section>

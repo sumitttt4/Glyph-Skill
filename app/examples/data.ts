@@ -1,4 +1,4 @@
-// Each example records the Glyph workflow behind it: the brief, the
+// Each example records the Design Skill workflow behind it: the brief, the
 // directions compared, the hero pattern and craft baseline applied, and checks.
 export type Example = {
   slug: string;
@@ -84,4 +84,30 @@ export const examples: Example[] = [
     references: [...baseRefs, "typography-rules.md"],
   },
 ];
-export const getExample = (slug: string) => examples.find((e) => e.slug === slug)!;
+// Product-kit example: an app screen rather than a landing page. Kept out of
+// the landing showcase grid, linked separately.
+export const productExample: Example = {
+  slug: "console",
+  name: "Relay",
+  kind: "Delivery operations console",
+  brief: "Help dispatchers at a regional courier keep same-day deliveries on time.",
+  task: "Spot the deliveries that need attention and reassign them in one or two actions.",
+  chosen: "Lead with the exception queue; KPIs are a compact strip, not the headline.",
+  rejected: [
+    "Map-first view: looks impressive, but hides which stop is late and why.",
+    "Eight-tile KPI dashboard: answers 'how are we doing' instead of 'what do I do next'.",
+  ],
+  pattern: "Product shell · sidebar, top bar, KPI strip, filterable table with inline actions.",
+  type: "Inter only. 14px UI, 13px compact; tabular figures for times and counts.",
+  color: "Neutral shell, black primary action; red, amber and green only for delivery status, always with a word.",
+  visual: "No hero visual: the queue is the product. Status badges, deltas and an Undo toast carry feedback.",
+  checks: [
+    "Filters, density and theme switch work by keyboard",
+    "Reassign gives instant feedback with Undo",
+    "Sidebar becomes a drawer at 390px; Escape closes it",
+    "Status pairs pass contrast in light and dark",
+  ],
+  references: ["product-ui.md", "data-visualization.md", "ux-writing.md", "starter-kit.md"],
+};
+const allExamples = [...examples, productExample];
+export const getExample = (slug: string) => allExamples.find((e) => e.slug === slug)!;

@@ -1,6 +1,6 @@
 ---
 name: "🐛 Bug Report"
-about: Report an issue where a Glyph rule is ignored, installation fails, or unexpected behavior occurs.
+about: Report an issue where a Design Skill rule is ignored, installation fails, or unexpected behavior occurs.
 title: "Bug: [brief description]"
 labels: "bug"
 assignees: ""
@@ -12,14 +12,14 @@ assignees: ""
 
 ## Steps to Reproduce
 
-1. Installed Glyph using: `npx skills add sumitttt4/Glyph-Skill`
+1. Installed Design Skill using: `npx skills add sumitttt4/Glyph-Skill`
 2. Opened [agent name] (e.g., Claude Code, Cursor, Codex)
 3. Used this prompt: 
 4. Observed: 
 
 ## Expected Behavior
 
-<!-- What should have happened based on the Glyph rules? Reference the specific rule if possible. -->
+<!-- What should have happened based on the Design Skill rules? Reference the specific rule if possible. -->
 
 ## Actual Behavior
 
@@ -29,7 +29,7 @@ assignees: ""
 
 - **AI Agent**: (e.g., Claude Code, Cursor, Codex, Gemini CLI)
 - **Agent Version**: 
-- **Glyph Version**: (e.g., v1.0.0 or `main`)
+- **Design Skill Version**: (e.g., v1.0.0 or `main`)
 - **OS**: 
 - **Framework** (if relevant): (e.g., Next.js 15, Vite, plain HTML)
 

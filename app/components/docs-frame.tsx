@@ -228,7 +228,7 @@ export function DocsFrame({ children }: { children: React.ReactNode }) {
               Let the task lead.
             </p>
             <Link href="/docs/customize">
-              Customize Glyph <ArrowRight size={13} />
+              Customize Design Skill <ArrowRight size={13} />
             </Link>
           </div>
         </aside>

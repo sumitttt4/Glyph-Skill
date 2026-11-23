@@ -224,6 +224,110 @@
     "pass": true
   },
   {
+    "theme": "product-kit-light",
+    "fg": "#067647",
+    "bg": "#ecfdf3",
+    "ratio": 5.4,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-light",
+    "fg": "#93370d",
+    "bg": "#fffaeb",
+    "ratio": 7.21,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-light",
+    "fg": "#b42318",
+    "bg": "#fef3f2",
+    "ratio": 6.05,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-light",
+    "fg": "#175cd3",
+    "bg": "#eff8ff",
+    "ratio": 5.57,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-light",
+    "fg": "#5f6368",
+    "bg": "#ffffff",
+    "ratio": 6.05,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-light",
+    "fg": "#5f6368",
+    "bg": "#f6f6f5",
+    "ratio": 5.59,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#75e0a7",
+    "bg": "#0b2a1c",
+    "ratio": 9.53,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#fec84b",
+    "bg": "#2b1d06",
+    "ratio": 10.6,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#fda29b",
+    "bg": "#2e1110",
+    "ratio": 8.99,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#84caff",
+    "bg": "#0b2140",
+    "ratio": 9.09,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#a1a1aa",
+    "bg": "#141416",
+    "ratio": 7.18,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#a1a1aa",
+    "bg": "#0a0a0a",
+    "ratio": 7.72,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "theme": "product-kit-dark",
+    "fg": "#0a0a0a",
+    "bg": "#fda29b",
+    "ratio": 10.2,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
     "theme": "fixture",
     "fg": "#49291f",
     "bg": "#f1e5d5",

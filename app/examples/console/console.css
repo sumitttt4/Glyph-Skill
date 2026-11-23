@@ -1,0 +1,138 @@
+/* Relay example: only what the product kit does not provide. */
+.relay.g-app {
+  height: calc(100dvh - 40px);
+  min-height: 560px;
+  --g-font: "Inter Variable", "Inter", system-ui, sans-serif;
+}
+.relay-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 8px;
+  font-weight: 600;
+}
+.relay-brand > span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: var(--g-fg);
+  color: var(--g-bg);
+  font-size: 13px;
+}
+.relay-brand small {
+  margin-left: auto;
+  color: var(--g-muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+.relay-count {
+  margin-left: auto;
+  height: 20px;
+  padding: 0 7px;
+}
+.relay-menu {
+  display: none;
+  width: var(--g-control);
+  padding: 0;
+}
+.relay-kpis {
+  margin-bottom: 20px;
+}
+.relay-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.relay-toolbar .g-tabs {
+  flex: 1 1 320px;
+}
+.relay-search {
+  position: relative;
+  flex: 0 1 280px;
+}
+.relay-search svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: var(--g-muted);
+  transform: translateY(-50%);
+}
+.relay-search .g-input {
+  padding-left: 32px;
+}
+.relay-stop {
+  display: grid;
+  padding-block: 6px;
+}
+.relay-stop strong {
+  font-weight: 500;
+}
+.relay-stop span {
+  color: var(--g-muted);
+  font-size: 12px;
+}
+.relay[data-density="compact"] .relay-stop {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.relay-driver {
+  width: auto;
+  min-width: 130px;
+}
+.relay-undo {
+  margin-left: auto;
+  padding: 2px 4px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: 600 14px var(--g-font);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.relay-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.relay-scrim {
+  display: none;
+}
+@media (max-width: 768px) {
+  .relay-menu {
+    display: inline-flex;
+  }
+  .relay-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: block;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .relay-search {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .relay-driver-cell {
+    grid-column: 1 / -1;
+  }
+  .relay-driver {
+    width: 100%;
+  }
+  .relay-toolbar .g-tabs {
+    flex-basis: 100%;
+    overflow-x: auto;
+  }
+  .relay-toolbar .g-tab {
+    flex: none;
+  }
+}

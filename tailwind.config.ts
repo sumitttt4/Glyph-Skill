@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        glyph: {
+        brand: {
           orange: "#1a1a17",
           soft: "#dfdad0",
           text: "#171714",

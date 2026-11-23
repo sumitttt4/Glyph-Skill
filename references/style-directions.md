@@ -1,3 +1,3 @@
 # Style directions
 
-Canonical guidance: [skills/glyph/references/style-directions.md](../skills/glyph/references/style-directions.md).
+Canonical guidance: [skills/design-skill/references/style-directions.md](../skills/design-skill/references/style-directions.md).

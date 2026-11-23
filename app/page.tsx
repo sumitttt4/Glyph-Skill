@@ -15,11 +15,14 @@ import { Walkthrough } from "./components/walkthrough";
 import { HeroSession } from "./components/hero-session";
 import { CtaShader, HeroShader, StageShader } from "./components/shaders";
 import { examples } from "./examples/data";
+import libraryNav from "./generated/library-nav.json";
 import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
+const referenceCount = libraryNav.filter((x) => x.file.includes("/references/")).length;
+const kitCount = libraryNav.filter((x) => x.file.endsWith(".css")).length;
 const facts = [
   ["1", "entry point", "SKILL.md routes the work"],
-  ["19", "focused references", "loaded only when relevant"],
+  [String(referenceCount), "focused references", "loaded only when relevant"],
   ["4", "request modes", "design, audit, vibe, prompt"],
   ["0", "API keys or services", "plain Markdown files"],
 ];
@@ -29,25 +32,25 @@ const stages = [
     Icon: Compass,
     title: "Understand & choose",
     text: "Inspect the existing UI, find the primary task and compare meaningfully different compositions.",
-    files: ["category-playbook", "style-directions", "landing-composition"],
+    files: ["category-playbook", "style-directions", "landing-composition", "product-ui"],
   },
   {
     Icon: LayoutGrid,
     title: "Compose & express",
     text: "Resolve hierarchy, density and type with real content. Decide what carries the personality.",
-    files: ["visual-craft", "starter-kit", "layout-rules", "typography-rules"],
+    files: ["ux-writing", "visual-craft", "starter-kit", "design-tokens", "typography-rules"],
   },
   {
     Icon: Hammer,
     title: "Build & interact",
     text: "Use the project's actual stack. Implement every state, then add motion only where it explains.",
-    files: ["implementation", "framework-rules", "component-rules", "motion-rules"],
+    files: ["implementation", "forms", "data-visualization", "component-rules", "motion-rules"],
   },
   {
     Icon: ScanSearch,
     title: "Verify & revise",
     text: "Inspect real renders, keyboard and small screens. Report what passed and what is still a risk.",
-    files: ["accessibility-rules", "responsive-rules", "anti-slop-rules", "verification"],
+    files: ["accessibility-rules", "responsive-rules", "performance", "verification", "audit-rubric"],
   },
 ];
 const defaults = [
@@ -58,10 +61,10 @@ const defaults = [
   ["Done", "It builds, so it ships", "Renders checked at 320px, keyboard and failure states"],
 ];
 const requests = [
-  ["/glyph design", "Compare directions and return implementation-ready decisions."],
-  ["/glyph audit", "Inspect the rendered UI and report concrete, observed fixes."],
-  ["/glyph vibe", "Write one complete implementation prompt for the build."],
-  ["/glyph prompt", "Turn approved decisions into reusable project rules."],
+  ["/design-skill design", "Compare directions and return implementation-ready decisions."],
+  ["/design-skill audit", "Inspect the rendered UI and report concrete, observed fixes."],
+  ["/design-skill vibe", "Write one complete implementation prompt for the build."],
+  ["/design-skill prompt", "Turn approved decisions into reusable project rules."],
 ];
 function Tag({ children }: { children: React.ReactNode }) {
   return <span className="tag">{children}</span>;
@@ -80,13 +83,13 @@ export default function Home() {
               Give the design <em>a little more thought.</em>
             </h1>
             <p>
-              Glyph teaches your coding assistant to understand the product,
+              Design Skill teaches your coding assistant to understand the product,
               choose a direction, build the interface and check what it actually
               rendered.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" href="#install">
-                Install Glyph
+                Install Design Skill
                 <span className="btn-icon">
                   <ArrowRight size={14} />
                 </span>
@@ -128,10 +131,10 @@ export default function Home() {
         </dl>
         <section id="examples" className="block wrap">
           <div className="block-head">
-            <Tag>Built with Glyph</Tag>
+            <Tag>Built with Design Skill</Tag>
             <h2>Three products. One craft baseline.</h2>
             <p>
-              Each page followed the Glyph workflow and its visual craft
+              Each page followed the Design Skill workflow and its visual craft
               reference, from brief to verified render. Open one to see the
               decisions behind it.
             </p>
@@ -177,9 +180,16 @@ export default function Home() {
             </span>
             <ArrowRight size={16} />
           </Link>
+          <Link className="show-more" href="/examples/console">
+            <span>
+              <b>Not just landing pages.</b> Relay, a dispatch console built with the
+              product kit: shell, queue, filters, density, dark mode and Undo.
+            </span>
+            <ArrowRight size={16} />
+          </Link>
           <p className="fineprint">
-            Fictional products and sample data, designed and built with the Glyph
-            skill for this site.
+            Fictional products and sample data, designed and built with Design Skill
+            for this site.
           </p>
         </section>
         <section id="workflow" className="block wrap">
@@ -207,7 +217,9 @@ export default function Home() {
                 <ul aria-label={`${title} references`}>
                   {files.map((f) => (
                     <li key={f}>
-                      <code>{f}.md</code>
+                      <Link href={`/docs/library/${f}`}>
+                        <code>{f}.md</code>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -233,15 +245,15 @@ export default function Home() {
             <Tag>Defaults vs decisions</Tag>
             <h2>Less autopilot. More intention.</h2>
             <p>
-              Familiar patterns are allowed. Glyph asks the assistant to choose
+              Familiar patterns are allowed. Design Skill asks the assistant to choose
               them on purpose.
             </p>
           </div>
-          <div className="compare" role="table" aria-label="Defaults compared with Glyph decisions">
+          <div className="compare" role="table" aria-label="Defaults compared with Design Skill decisions">
             <div className="compare-row compare-head" role="row">
               <span role="columnheader">Area</span>
               <span role="columnheader">Unconsidered default</span>
-              <span role="columnheader">With a Glyph pass</span>
+              <span role="columnheader">With a Design Skill pass</span>
             </div>
             {defaults.map(([area, before, after]) => (
               <div className="compare-row" role="row" key={area}>
@@ -279,7 +291,7 @@ export default function Home() {
             </ul>
             <div className="tree">
               <div className="tree-root">
-                <Folder size={16} aria-hidden="true" /> skills/glyph/
+                <Folder size={16} aria-hidden="true" /> skills/design-skill/
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />
@@ -288,18 +300,18 @@ export default function Home() {
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
                 <code>references/</code>
-                <span>19 files</span>
+                <span>{referenceCount} files</span>
               </div>
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
-                <code>assets/starter.css</code>
-                <span>13 directions</span>
+                <code>assets/</code>
+                <span>{kitCount} CSS kits · 13 directions</span>
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />
                 <code>LICENSE · THIRD_PARTY_NOTICES.md</code>
               </div>
-              <Link className="tree-link" href="/docs/skill-files">
+              <Link className="tree-link" href="/docs/library">
                 Read every file in the docs <ArrowRight size={15} />
               </Link>
             </div>
@@ -312,10 +324,10 @@ export default function Home() {
             </div>
             <div>
               <Tag>Install</Tag>
-              <h2>Bring Glyph to your next build.</h2>
+              <h2>Bring Design Skill to your next build.</h2>
               <p>
                 One command from your project directory. Choose{" "}
-                <code>glyph</code> when the installer asks. Agent support depends
+                <code>design-skill</code> when the installer asks. Agent support depends
                 on your installer.
               </p>
               <Link className="cta-link" href="/docs/installation">
@@ -326,7 +338,11 @@ export default function Home() {
               <CopyCode label="Terminal" text={install} />
               <p>
                 Prefer to read first? Clone the repo and run{" "}
-                <code>npx skills add . --skill glyph</code>.
+                <code>npx skills add . --skill design-skill</code>.
+              </p>
+              <p>
+                Need components too? <a href="https://glazeui.xyz">Glaze</a> is our
+                free shadcn/ui registry, built to the same craft baseline.
               </p>
             </div>
           </div>

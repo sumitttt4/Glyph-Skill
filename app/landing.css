@@ -722,6 +722,14 @@ body:has(.landing) .theme-toggle {
   color: var(--muted);
   overflow-wrap: anywhere;
 }
+.stage ul a {
+  text-decoration: none;
+}
+.stage ul a:hover code,
+.stage ul a:focus-visible code {
+  color: var(--ink);
+  text-decoration: underline;
+}
 
 /* Walkthrough */
 .workbench {
@@ -1321,4 +1329,12 @@ body:has(.landing) .theme-toggle {
   .cta-command pre {
     font-size: 0.74rem;
   }
+}
+.cta-command p a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cta-command p a:hover {
+  color: #fff;
 }

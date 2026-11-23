@@ -9,7 +9,7 @@ import "../kit.css";
 import "./lumen.css";
 export const metadata: Metadata = {
   title: "Lumen example",
-  description: "A fictional savings app waitlist, designed with the Glyph skill.",
+  description: "A fictional savings app waitlist, designed with Design Skill.",
 };
 const field = ["#faf9f6", "#f6dcc4", "#d7ead9", "#f3e9d8", "#faf9f6"];
 const goals = [

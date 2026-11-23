@@ -1,3 +1,3 @@
 # Framework Rules
 
-Canonical guidance: [skills/glyph/references/framework-rules.md](../skills/glyph/references/framework-rules.md).
+Canonical guidance: [skills/design-skill/references/framework-rules.md](../skills/design-skill/references/framework-rules.md).

@@ -1,9 +1,9 @@
 from pathlib import Path
 import json,re,tempfile,shutil
-root=Path(__file__).resolve().parents[1];bundle=root/'skills/glyph'
+root=Path(__file__).resolve().parents[1];bundle=root/'skills/design-skill'
 errors=[];count=0
-with tempfile.TemporaryDirectory(prefix='glyph-bundle-') as d:
- copied=Path(d)/'glyph';shutil.copytree(bundle,copied)
+with tempfile.TemporaryDirectory(prefix='design-skill-bundle-') as d:
+ copied=Path(d)/'design-skill';shutil.copytree(bundle,copied)
  for base in [bundle,copied]:
   for p in base.rglob('*.md'):
    for target in re.findall(r'\]\(([^)]+)\)',p.read_text()):

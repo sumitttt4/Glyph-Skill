@@ -1,3 +1,3 @@
 # Background Rules
 
-Canonical guidance: [skills/glyph/references/background-rules.md](../skills/glyph/references/background-rules.md).
+Canonical guidance: [skills/design-skill/references/background-rules.md](../skills/design-skill/references/background-rules.md).

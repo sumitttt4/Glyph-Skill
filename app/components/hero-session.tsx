@@ -33,7 +33,7 @@ export function HeroSession() {
   }, [run]);
   const done = shown > steps.length;
   return (
-    <figure className="session" aria-label="Illustrative Glyph session">
+    <figure className="session" aria-label="Illustrative Design Skill session">
       <div className="session-bar">
         <span className="session-dots" aria-hidden="true">
           <i />
@@ -52,7 +52,7 @@ export function HeroSession() {
       </div>
       <div className="session-body">
         <p className="session-prompt">
-          <span aria-hidden="true">›</span> Use Glyph to design a dispatch
+          <span aria-hidden="true">›</span> Use Design Skill to design a dispatch
           dashboard. The team needs to find the next delivery that needs
           attention.
         </p>

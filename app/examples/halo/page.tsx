@@ -8,7 +8,7 @@ import "../kit.css";
 import "./halo.css";
 export const metadata: Metadata = {
   title: "Halo example",
-  description: "A fictional AI meeting-notes app, designed with the Glyph skill.",
+  description: "A fictional AI meeting-notes app, designed with Design Skill.",
 };
 const field = ["#000000", "#1b1640", "#3b2a8c", "#0b1d3a", "#000000"];
 function Mark() {
@@ -283,7 +283,7 @@ export default function Halo() {
             <span className="k-logo">
               <Mark /> Halo
             </span>
-            <span>A fictional product · Designed with Glyph</span>
+            <span>A fictional product · Designed with Design Skill</span>
           </div>
         </div>
       </footer>

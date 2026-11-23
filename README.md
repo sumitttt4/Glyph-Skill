@@ -1,6 +1,8 @@
-# Glyph Skill
+# Design Skill
 
-A self-contained frontend design skill for coding assistants. Understand the product, choose a direction, compose the important screen, build functioning UI, add purposeful interaction, and verify actual renders. Glyph supports judgment; it does not enforce a fixed aesthetic.
+A self-contained frontend design skill for coding assistants. Understand the product, choose a direction, compose the important screen, build functioning UI, add purposeful interaction, and verify actual renders. Design Skill supports judgment; it does not enforce a fixed aesthetic.
+
+Website and docs: https://designskill.site
 
 ## Install
 
@@ -8,7 +10,7 @@ A self-contained frontend design skill for coding assistants. Understand the pro
 npx skills add sumitttt4/Glyph-Skill
 ```
 
-Select `glyph` if the installer asks. Agent support and installation location depend on the installer and host agent; inspect the current installer help rather than assuming blanket compatibility.
+Select `design-skill` if the installer asks. The project was previously named Glyph; the skill is now `design-skill` and its request conventions start with `/design-skill`. Agent support and installation location depend on the installer and host agent; inspect the current installer help rather than assuming blanket compatibility.
 
 For a local checkout:
 
@@ -16,22 +18,31 @@ For a local checkout:
 npx skills add /absolute/path/to/Glyph-Skill
 ```
 
-Alternatively copy the complete `skills/glyph/` directory into your agent's documented skills location. Keep the entry, references, LICENSE and notices together. Ask the agent to load Glyph and inspect a reference to confirm access. No Glyph API key or background service is required. Do not execute unreviewed dependency scripts blindly.
+Alternatively copy the complete `skills/design-skill/` directory into your agent's documented skills location. Keep the entry, references, LICENSE and notices together. Ask the agent to load Design Skill and inspect a reference to confirm access. No Design Skill API key or background service is required. Do not execute unreviewed dependency scripts blindly.
 
 ## Use it
 
-- `/glyph design`: design decisions and implementation-ready composition.
-- `/glyph audit`: observed UI issues and concrete fixes.
-- `/glyph vibe`: a complete implementation prompt.
-- `/glyph prompt`: reusable instructions from approved decisions.
+- `/design-skill design`: design decisions and implementation-ready composition.
+- `/design-skill audit`: observed UI issues and concrete fixes.
+- `/design-skill vibe`: a complete implementation prompt.
+- `/design-skill prompt`: reusable instructions from approved decisions.
 
 These are assistant request conventions, not registered CLI or native slash commands. Natural language works too.
 
-Example brief: “Use Glyph to build an operations dashboard for dispatchers. The primary task is identifying the next delivery that needs attention. Preserve our existing brand, use the supplied queue data, and verify keyboard and mobile behavior.” This is an example prompt, not a measured quality result.
+Example brief: “Use Design Skill to build an operations dashboard for dispatchers. The primary task is identifying the next delivery that needs attention. Preserve our existing brand, use the supplied queue data, and verify keyboard and mobile behavior.” This is an example prompt, not a measured quality result.
 
 ## Bundle
 
-[skills/glyph/SKILL.md](skills/glyph/SKILL.md) is the sole installable entry point. Nineteen focused references cover a category playbook, style directions, visual craft, a starter kit, landing composition, direction/assets, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. `assets/starter.css` is a plain-CSS starter kit implementing the craft baseline with thirteen style-direction presets. Load only relevant guidance. Root reference filenames remain compatibility pointers.
+[skills/design-skill/SKILL.md](skills/design-skill/SKILL.md) is the sole installable entry point. Twenty-seven focused references cover the whole frontend job:
+
+- **Direction and composition**: category playbook, style directions, landing composition, landing-page research, direction/assets, layout.
+- **Visual craft**: visual craft baseline, starter kit, typography, color, design tokens and dark mode, icons and imagery, background.
+- **Product UI**: apps, dashboards, tables and settings; forms and validation; data visualization; components.
+- **Content**: UX writing, microcopy and internationalisation.
+- **Build and behavior**: implementation, frameworks, motion, responsive, accessibility, performance.
+- **Quality**: anti-slop tells, verification and a scored audit rubric.
+
+Two plain-CSS kits ship in `assets/`: `starter.css` (landing pages, with presets for twelve style directions; the thirteenth, Clean product, is the default) and `product.css` (app shell, forms, tables, status, dialogs, density modes and dark tokens). Load only relevant guidance. Root reference filenames remain compatibility pointers.
 
 Requirements protect correctness, accessibility and truthful claims. Patterns are adaptable starting points. Taste hypotheses are judgments to inspect, not high-confidence evidence. Categorical colors, expressive brands, Poppins, gradients and familiar layouts are allowed when considered. The website's own blue buttons and fonts are not universal skill rules.
 
@@ -47,7 +58,19 @@ npm run dev
 npm run build
 ```
 
-The website is separate from the installable bundle. `scripts/prepare-docs.mjs` creates docs explorer content from the canonical Markdown files. Run it before a standalone docs-source check, or use the prebuild/predev hooks configured by the website.
+### Deploy to Cloudflare (designskill.site)
+
+The site is fully static. `npm run build:cloudflare` writes a Next.js static export to `out/`, and [wrangler.jsonc](wrangler.jsonc) serves it from Cloudflare Workers static assets on the `designskill.site` custom domain. `public/_headers` sets long-lived caching for hashed assets and baseline security headers.
+
+```bash
+npx wrangler login
+npm run preview:cloudflare
+npm run deploy:cloudflare
+```
+
+For a www→apex redirect, add a Redirect Rule in the Cloudflare dashboard; Workers `_redirects` cannot match on hostname. Vercel deployment (`vercel.json`) still works unchanged.
+
+The website is separate from the installable bundle. `scripts/prepare-docs.mjs` renders the canonical Markdown and CSS into the docs explorer and one `/docs/library` page per skill file. Run it before a standalone docs-source check, or use the prebuild/predev hooks configured by the website.
 
 ## Contributing and license
 
@@ -55,6 +78,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md), [MIT license](LICENSE), [migration](MIGR
 
 Portfolio: https://sumit-pfp.vercel.app/ · X: https://x.com/sumitthq
 
-## Review branch
-
-The `glyph-design-docs` branch contains the proposed skill, landing, docs and logo changes. The default GitHub install command continues to resolve the default branch until this review branch is merged. For this candidate, use a local checkout of the review branch and the documented local installer. No release tag is created.

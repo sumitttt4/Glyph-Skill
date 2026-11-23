@@ -16,7 +16,7 @@ Ten routes: introduction, installation, workflow, commands, guidance, files, cus
 
 ## Release status
 
-No release tag, announcement or deliberate deployment. Push is authorized to review branch glyph-design-docs; Vercel auto-deploy for that branch is disabled in its versioned config. Main remains unchanged. The Vercel build command now calls npm run build so canonical skill source is regenerated before production builds.
+No release tag or announcement. The former `glyph-design-docs` review branch has been merged into `main` and removed. The Vercel build command calls npm run build so canonical skill source is regenerated before production builds, and installs with `npm ci` against the lockfile.
 
 ## Remaining limits
 
@@ -28,7 +28,7 @@ The full controlled three-brief skill comparison is unperformed. Full assistive-
 - 818 local exported link/anchor/asset/font-path checks passed; no duplicate IDs.
 - 29 opaque text/focus color pairs passed their applicable 4.5:1 / 3:1 thresholds.
 - Canonical frontmatter validation and 44 relative-reference checks across source and disposable copy passed; generated explorer text matches canonical Markdown.
-- Reviewed skills@1.7.4 package metadata/entry/discovery/copy/telemetry logic, then tested a local-source copy in a disposable project with telemetry and lifecycle scripts disabled. Found one glyph skill; no website/dependencies copied; installed references resolve. Root compatibility pointer emits an expected missing-frontmatter skip warning before canonical discovery.
+- Reviewed skills@1.7.4 package metadata/entry/discovery/copy/telemetry logic, then tested a local-source copy in a disposable project with telemetry and lifecycle scripts disabled. Found one design-skill skill; no website/dependencies copied; installed references resolve. Root compatibility pointer emits an expected missing-frontmatter skip warning before canonical discovery.
 - Actual desktop light/dark landing and installation docs renders inspected. Search filtered files and navigated to the real file page. Ctrl+K opened the dialog, Escape closed it and restored trigger focus.
 - Mobile 390/320px framed docs inspected, no page horizontal overflow at 320 frame (310px inner viewport including native scrollbar). Mobile nav closed after selection; outline anchors clear sticky bars. Long source filename complete and not truncated.
 - Desktop local anchor top ~100px; active outline matched the section. Legacy /docs#rule-files redirected to /docs/files#skill-files. Theme preference persisted across docs routes.

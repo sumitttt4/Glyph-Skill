@@ -1,6 +1,6 @@
 # Third-party notices
 
-See the canonical [required notices](skills/glyph/THIRD_PARTY_NOTICES.md).
+See the canonical [required notices](skills/design-skill/THIRD_PARTY_NOTICES.md).
 
 ## Website dependencies
 

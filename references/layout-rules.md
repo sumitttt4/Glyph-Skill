@@ -1,3 +1,3 @@
 # Layout Rules
 
-Canonical guidance: [skills/glyph/references/layout-rules.md](../skills/glyph/references/layout-rules.md).
+Canonical guidance: [skills/design-skill/references/layout-rules.md](../skills/design-skill/references/layout-rules.md).

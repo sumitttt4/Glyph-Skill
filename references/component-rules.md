@@ -1,3 +1,3 @@
 # Component Rules
 
-Canonical guidance: [skills/glyph/references/component-rules.md](../skills/glyph/references/component-rules.md).
+Canonical guidance: [skills/design-skill/references/component-rules.md](../skills/design-skill/references/component-rules.md).

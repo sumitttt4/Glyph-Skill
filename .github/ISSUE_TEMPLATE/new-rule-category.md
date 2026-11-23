@@ -1,6 +1,6 @@
 ---
 name: "🆕 New Rule Category"
-about: Propose a new design rule category for the Glyph skill bundle.
+about: Propose a new design rule category for the Design Skill bundle.
 title: "Add rules for [CATEGORY NAME]"
 labels: "new-rules, discussion"
 assignees: ""

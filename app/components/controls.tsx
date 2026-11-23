@@ -11,7 +11,7 @@ export function ThemeControl() {
     setDark(next);
     document.documentElement.dataset.theme = next ? "dark" : "light";
     try {
-      localStorage.setItem("glyph-theme", next ? "dark" : "light");
+      localStorage.setItem("ds-theme", next ? "dark" : "light");
     } catch {}
   }
   return (

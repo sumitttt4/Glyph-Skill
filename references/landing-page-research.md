@@ -1,3 +1,3 @@
 # Landing Page Research
 
-Canonical guidance: [skills/glyph/references/landing-page-research.md](../skills/glyph/references/landing-page-research.md).
+Canonical guidance: [skills/design-skill/references/landing-page-research.md](../skills/design-skill/references/landing-page-research.md).

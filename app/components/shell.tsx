@@ -62,6 +62,9 @@ export function Footer() {
         <a href="https://x.com/sumitthq">
           @sumitthq <ArrowUpRight size={13} />
         </a>
+        <a href="https://glazeui.xyz">
+          Glaze UI components <ArrowUpRight size={13} />
+        </a>
         <Link href="/docs">Documentation</Link>
         <small>Open source · MIT</small>
       </div>

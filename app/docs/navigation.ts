@@ -80,6 +80,7 @@ export const guidePages = [
     sections: [
       ["customize", "Bring your own direction"],
       ["constraints", "Write useful constraints"],
+      ["components", "Pair with Glaze components"],
     ],
   },
   {

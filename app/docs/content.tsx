@@ -395,6 +395,24 @@ export function DocContent({ slug }: { slug: string }) {
               and purpose of a constraint so it can be applied with judgment.
             </p>
           </Section>
+          <Section id="components" title="Pair with Glaze components">
+            <p>
+              Design Skill decides what to build; it does not ship a component
+              library. If your project has none, <a href="https://glazeui.xyz">Glaze</a>{" "}
+              is a free shadcn/ui registry from the same author: refined UI
+              components, AI and voice components, animated icons and blocks, in
+              solid or glass materials. It is optional, and an existing design
+              system always comes first.
+            </p>
+            <CopyCode
+              label="Add Glaze theme and materials"
+              text="npx shadcn@latest add sumitttt4/glazeui/glaze#main"
+            />
+            <CopyCode
+              label="Tell your assistant"
+              text={"Use Design Skill for design decisions and Glaze (https://glazeui.xyz/llms.txt) for components.\nKeep our existing tokens; map them onto Glaze's theme variables."}
+            />
+          </Section>
         </>
       );
     case "troubleshooting":

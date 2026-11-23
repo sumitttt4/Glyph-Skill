@@ -1330,3 +1330,11 @@ body:has(.landing) .theme-toggle {
     font-size: 0.74rem;
   }
 }
+.cta-command p a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cta-command p a:hover {
+  color: #fff;
+}

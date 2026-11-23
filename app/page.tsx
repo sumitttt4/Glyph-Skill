@@ -340,6 +340,10 @@ export default function Home() {
                 Prefer to read first? Clone the repo and run{" "}
                 <code>npx skills add . --skill design-skill</code>.
               </p>
+              <p>
+                Need components too? <a href="https://glazeui.xyz">Glaze</a> is our
+                free shadcn/ui registry, built to the same craft baseline.
+              </p>
             </div>
           </div>
         </section>

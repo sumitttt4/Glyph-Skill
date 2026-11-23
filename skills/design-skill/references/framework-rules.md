@@ -1,6 +1,6 @@
 # Conditional stack guidance
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when the work touches a specific stack such as React, Next.js, Vue, Svelte, Tailwind or shadcn/ui. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Use the actual project
 * **Confidence Level**: Requirement

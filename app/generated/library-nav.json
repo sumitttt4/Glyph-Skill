@@ -1,0 +1,812 @@
+[
+  {
+    "slug": "library/entry-point",
+    "title": "SKILL.md",
+    "group": "Start here",
+    "description": "The entry point: workflow, instruction roles, what to load when and the four request modes.",
+    "file": "skills/design-skill/SKILL.md",
+    "sections": [
+      [
+        "instruction-roles",
+        "Instruction roles"
+      ],
+      [
+        "workflow",
+        "Workflow"
+      ],
+      [
+        "load-selectively",
+        "Load selectively"
+      ],
+      [
+        "commands-assistant-request-conventions",
+        "Commands (assistant request conventions)"
+      ],
+      [
+        "coherence-without-sameness",
+        "Coherence without sameness"
+      ]
+    ]
+  },
+  {
+    "slug": "library/category-playbook",
+    "title": "Category playbook",
+    "group": "Direction & composition",
+    "description": "Load at the start of any landing, marketing or brand page.",
+    "file": "skills/design-skill/references/category-playbook.md",
+    "sections": [
+      [
+        "technical-products",
+        "Technical products"
+      ],
+      [
+        "consumer-apps-and-services",
+        "Consumer apps and services"
+      ],
+      [
+        "commerce",
+        "Commerce"
+      ],
+      [
+        "local-businesses-and-services",
+        "Local businesses and services"
+      ],
+      [
+        "creative-work-and-people",
+        "Creative work and people"
+      ],
+      [
+        "events-community-and-causes",
+        "Events, community and causes"
+      ],
+      [
+        "combining-rows",
+        "Combining rows"
+      ]
+    ]
+  },
+  {
+    "slug": "library/style-directions",
+    "title": "Style directions",
+    "group": "Direction & composition",
+    "description": "Load after the category playbook suggests directions, or whenever a page needs a defined look.",
+    "file": "skills/design-skill/references/style-directions.md",
+    "sections": [
+      [
+        "1-clean-product",
+        "1. Clean product"
+      ],
+      [
+        "2-dark-technical",
+        "2. Dark technical"
+      ],
+      [
+        "3-luminous-ai",
+        "3. Luminous AI"
+      ],
+      [
+        "4-editorial",
+        "4. Editorial"
+      ],
+      [
+        "5-warm-organic",
+        "5. Warm organic"
+      ],
+      [
+        "6-luxury-refined",
+        "6. Luxury refined"
+      ],
+      [
+        "7-bold-expressive",
+        "7. Bold expressive"
+      ],
+      [
+        "8-playful",
+        "8. Playful"
+      ],
+      [
+        "9-brutalist-raw",
+        "9. Brutalist raw"
+      ],
+      [
+        "10-retro-nostalgic",
+        "10. Retro nostalgic"
+      ],
+      [
+        "11-trust-and-clarity",
+        "11. Trust and clarity"
+      ],
+      [
+        "12-cinematic-immersive",
+        "12. Cinematic immersive"
+      ],
+      [
+        "13-commerce-catalog",
+        "13. Commerce catalog"
+      ]
+    ]
+  },
+  {
+    "slug": "library/landing-composition",
+    "title": "Landing page composition",
+    "group": "Direction & composition",
+    "description": "Load when building or redesigning a landing, marketing, launch or waitlist page.",
+    "file": "skills/design-skill/references/landing-composition.md",
+    "sections": [
+      [
+        "pick-one-hero-pattern",
+        "Pick one hero pattern"
+      ],
+      [
+        "hero-anatomy",
+        "Hero anatomy"
+      ],
+      [
+        "section-library",
+        "Section library"
+      ],
+      [
+        "bento-grids",
+        "Bento grids"
+      ],
+      [
+        "keep-it-honest",
+        "Keep it honest"
+      ]
+    ]
+  },
+  {
+    "slug": "library/landing-page-research",
+    "title": "Landing-page reference research",
+    "group": "Direction & composition",
+    "description": "Load when exploring reference libraries or real landing pages to inform a composition.",
+    "file": "skills/design-skill/references/landing-page-research.md",
+    "sections": [
+      [
+        "research-the-question-not-the-trend",
+        "Research the question, not the trend"
+      ],
+      [
+        "translate-observation-into-a-decision",
+        "Translate observation into a decision"
+      ],
+      [
+        "compose-around-evidence",
+        "Compose around evidence"
+      ],
+      [
+        "keep-rights-separate-from-inspiration",
+        "Keep rights separate from inspiration"
+      ],
+      [
+        "optional-research-sources",
+        "Optional research sources"
+      ]
+    ]
+  },
+  {
+    "slug": "library/direction-composition-assets",
+    "title": "Direction, composition and assets",
+    "group": "Direction & composition",
+    "description": "Load when choosing a visual direction, comparing compositions or sourcing images, fonts and other assets.",
+    "file": "skills/design-skill/references/direction-composition-assets.md",
+    "sections": [
+      [
+        "compare-meaningful-directions",
+        "Compare meaningful directions"
+      ],
+      [
+        "choose-a-personality-carrier",
+        "Choose a personality carrier"
+      ],
+      [
+        "use-references-responsibly",
+        "Use references responsibly"
+      ]
+    ]
+  },
+  {
+    "slug": "library/layout-rules",
+    "title": "Composition and layout",
+    "group": "Direction & composition",
+    "description": "Load when setting hierarchy, proportions, density and depth on any screen.",
+    "file": "skills/design-skill/references/layout-rules.md",
+    "sections": [
+      [
+        "compose-before-polishing",
+        "Compose before polishing"
+      ],
+      [
+        "coherent-roles-varied-screens",
+        "Coherent roles, varied screens"
+      ],
+      [
+        "depth-must-preserve-usability",
+        "Depth must preserve usability"
+      ]
+    ]
+  },
+  {
+    "slug": "library/visual-craft",
+    "title": "Visual craft baseline",
+    "group": "Visual craft",
+    "description": "Load for any marketing page, landing page, portfolio or product screen where visual quality matters, and whenever the project has no established design system.",
+    "file": "skills/design-skill/references/visual-craft.md",
+    "sections": [
+      [
+        "1-typography",
+        "1. Typography"
+      ],
+      [
+        "2-space-and-layout",
+        "2. Space and layout"
+      ],
+      [
+        "3-surfaces",
+        "3. Surfaces"
+      ],
+      [
+        "4-colour",
+        "4. Colour"
+      ],
+      [
+        "5-controls",
+        "5. Controls"
+      ],
+      [
+        "6-the-visual",
+        "6. The visual"
+      ],
+      [
+        "7-motion-detail",
+        "7. Motion detail"
+      ],
+      [
+        "8-craft-checklist-before-shipping",
+        "8. Craft checklist before shipping"
+      ]
+    ]
+  },
+  {
+    "slug": "library/starter-kit",
+    "title": "Starter kit",
+    "group": "Visual craft",
+    "description": "Load when building a landing page, marketing page or product screen without an existing design system.",
+    "file": "skills/design-skill/references/starter-kit.md",
+    "sections": [
+      [
+        "tokens",
+        "Tokens"
+      ],
+      [
+        "components",
+        "Components"
+      ],
+      [
+        "hero-markup",
+        "Hero markup"
+      ],
+      [
+        "sections",
+        "Sections"
+      ],
+      [
+        "product-kit",
+        "Product kit"
+      ],
+      [
+        "tailwind-mapping",
+        "Tailwind mapping"
+      ],
+      [
+        "after-building",
+        "After building"
+      ]
+    ]
+  },
+  {
+    "slug": "library/typography-rules",
+    "title": "Typography",
+    "group": "Visual craft",
+    "description": "Load when choosing typefaces, setting type hierarchy and rhythm, or loading fonts.",
+    "file": "skills/design-skill/references/typography-rules.md",
+    "sections": [
+      [
+        "choose-for-actual-content",
+        "Choose for actual content"
+      ],
+      [
+        "set-hierarchy-and-rhythm",
+        "Set hierarchy and rhythm"
+      ],
+      [
+        "load-fonts-responsibly",
+        "Load fonts responsibly"
+      ]
+    ]
+  },
+  {
+    "slug": "library/core-color-rules",
+    "title": "Color roles and contrast",
+    "group": "Visual craft",
+    "description": "Load when defining colour roles, palettes, contrast or light and dark themes.",
+    "file": "skills/design-skill/references/core-color-rules.md",
+    "sections": [
+      [
+        "choose-roles-before-counts",
+        "Choose roles before counts"
+      ],
+      [
+        "measure-contrast-in-context",
+        "Measure contrast in context"
+      ],
+      [
+        "deliberate-themes",
+        "Deliberate themes"
+      ],
+      [
+        "build-palettes-systematically",
+        "Build palettes systematically"
+      ]
+    ]
+  },
+  {
+    "slug": "library/design-tokens",
+    "title": "Design tokens, theming and dark mode",
+    "group": "Visual craft",
+    "description": "Load when setting up or extending a design system, adding dark mode or themes, mapping a design into Tailwind/shadcn/CSS variables, or auditing hard-coded values.",
+    "file": "skills/design-skill/references/design-tokens.md",
+    "sections": [
+      [
+        "1-token-architecture",
+        "1. Token architecture"
+      ],
+      [
+        "2-colour-scales",
+        "2. Colour scales"
+      ],
+      [
+        "3-dark-mode",
+        "3. Dark mode"
+      ],
+      [
+        "4-mapping-tokens-into-common-stacks",
+        "4. Mapping tokens into common stacks"
+      ],
+      [
+        "5-tokens-checklist",
+        "5. Tokens checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/iconography-imagery",
+    "title": "Icons, images and media",
+    "group": "Visual craft",
+    "description": "Load when choosing icons, placing photography, screenshots, logos, avatars, video or illustration, and when optimising media.",
+    "file": "skills/design-skill/references/iconography-imagery.md",
+    "sections": [
+      [
+        "1-icons",
+        "1. Icons"
+      ],
+      [
+        "2-images-and-photography",
+        "2. Images and photography"
+      ],
+      [
+        "3-logos-avatars-and-brand-marks",
+        "3. Logos, avatars and brand marks"
+      ],
+      [
+        "4-delivering-media",
+        "4. Delivering media"
+      ],
+      [
+        "5-media-checklist",
+        "5. Media checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/background-rules",
+    "title": "Backgrounds and surfaces",
+    "group": "Visual craft",
+    "description": "Load when choosing page surfaces, background imagery, gradients or textures.",
+    "file": "skills/design-skill/references/background-rules.md",
+    "sections": [
+      [
+        "choose-from-the-content",
+        "Choose from the content"
+      ],
+      [
+        "layer-without-obscuring",
+        "Layer without obscuring"
+      ]
+    ]
+  },
+  {
+    "slug": "library/product-ui",
+    "title": "Product UI: apps, dashboards and tools",
+    "group": "Product UI",
+    "description": "Load for any logged-in product surface: web apps, dashboards, admin panels, internal tools, settings, editors, developer tools and data-heavy screens.",
+    "file": "skills/design-skill/references/product-ui.md",
+    "sections": [
+      [
+        "1-start-from-the-job",
+        "1. Start from the job"
+      ],
+      [
+        "2-the-app-shell",
+        "2. The app shell"
+      ],
+      [
+        "3-common-screens",
+        "3. Common screens"
+      ],
+      [
+        "4-feedback-and-system-status",
+        "4. Feedback and system status"
+      ],
+      [
+        "5-product-craft-checklist",
+        "5. Product craft checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/forms",
+    "title": "Forms, input and validation",
+    "group": "Product UI",
+    "description": "Load for sign-up, checkout, settings, onboarding, search, filters, multi-step flows and any screen where people type or choose.",
+    "file": "skills/design-skill/references/forms.md",
+    "sections": [
+      [
+        "1-fields",
+        "1. Fields"
+      ],
+      [
+        "2-validation",
+        "2. Validation"
+      ],
+      [
+        "3-structure-and-flow",
+        "3. Structure and flow"
+      ],
+      [
+        "4-special-inputs",
+        "4. Special inputs"
+      ],
+      [
+        "5-forms-checklist",
+        "5. Forms checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/data-visualization",
+    "title": "Data visualization",
+    "group": "Product UI",
+    "description": "Load for charts, KPI tiles, sparklines, maps, reports and any screen that turns numbers into a judgment.",
+    "file": "skills/design-skill/references/data-visualization.md",
+    "sections": [
+      [
+        "1-choose-the-form-from-the-question",
+        "1. Choose the form from the question"
+      ],
+      [
+        "2-encoding-and-honesty",
+        "2. Encoding and honesty"
+      ],
+      [
+        "3-colour-for-data",
+        "3. Colour for data"
+      ],
+      [
+        "4-numbers-and-labels",
+        "4. Numbers and labels"
+      ],
+      [
+        "5-interaction-and-access",
+        "5. Interaction and access"
+      ],
+      [
+        "6-data-visualization-checklist",
+        "6. Data visualization checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/component-rules",
+    "title": "Components and interaction states",
+    "group": "Product UI",
+    "description": "Load when designing or reviewing individual components and their interaction states.",
+    "file": "skills/design-skill/references/component-rules.md",
+    "sections": [
+      [
+        "choose-structure-from-the-task",
+        "Choose structure from the task"
+      ],
+      [
+        "state-behavior-is-part-of-design",
+        "State behavior is part of design"
+      ],
+      [
+        "focused-patterns-adapt-to-actual-content",
+        "Focused patterns (adapt to actual content)"
+      ]
+    ]
+  },
+  {
+    "slug": "library/ux-writing",
+    "title": "UX writing and content",
+    "group": "Product UI",
+    "description": "Load whenever the interface has words: headlines, buttons, labels, errors, empty states, notifications, onboarding, pricing and confirmation dialogs.",
+    "file": "skills/design-skill/references/ux-writing.md",
+    "sections": [
+      [
+        "1-real-words-first",
+        "1. Real words first"
+      ],
+      [
+        "2-interface-text",
+        "2. Interface text"
+      ],
+      [
+        "3-voice-tone-and-format",
+        "3. Voice, tone and format"
+      ],
+      [
+        "4-internationalisation-ready-copy",
+        "4. Internationalisation-ready copy"
+      ],
+      [
+        "5-ux-writing-checklist",
+        "5. UX writing checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/implementation",
+    "title": "Functioning implementation",
+    "group": "Build & behavior",
+    "description": "Load when building UI in code: states, data flow, persistence and project boundaries.",
+    "file": "skills/design-skill/references/implementation.md",
+    "sections": [
+      [
+        "build-the-whole-relevant-flow",
+        "Build the whole relevant flow"
+      ],
+      [
+        "keep-state-and-response-coherent",
+        "Keep state and response coherent"
+      ],
+      [
+        "respect-provenance-and-project-boundaries",
+        "Respect provenance and project boundaries"
+      ]
+    ]
+  },
+  {
+    "slug": "library/framework-rules",
+    "title": "Conditional stack guidance",
+    "group": "Build & behavior",
+    "description": "Load when the work touches a specific stack such as React, Next.js, Vue, Svelte, Tailwind or shadcn/ui.",
+    "file": "skills/design-skill/references/framework-rules.md",
+    "sections": [
+      [
+        "use-the-actual-project",
+        "Use the actual project"
+      ],
+      [
+        "framework-specific-implementation",
+        "Framework-specific implementation"
+      ]
+    ]
+  },
+  {
+    "slug": "library/motion-rules",
+    "title": "Interaction and motion",
+    "group": "Build & behavior",
+    "description": "Load when adding transitions, animation, gestures or any movement.",
+    "file": "skills/design-skill/references/motion-rules.md",
+    "sections": [
+      [
+        "decide-whether-to-animate",
+        "Decide whether to animate"
+      ],
+      [
+        "handle-interruption-and-origins",
+        "Handle interruption and origins"
+      ],
+      [
+        "gestures-and-reduced-motion",
+        "Gestures and reduced motion"
+      ],
+      [
+        "measure-animation-performance",
+        "Measure animation performance"
+      ]
+    ]
+  },
+  {
+    "slug": "library/responsive-rules",
+    "title": "Responsive behavior",
+    "group": "Build & behavior",
+    "description": "Load when making layouts work across widths, zoom levels, touch and long content.",
+    "file": "skills/design-skill/references/responsive-rules.md",
+    "sections": [
+      [
+        "break-at-content-pressure",
+        "Break at content pressure"
+      ],
+      [
+        "overflow-deliberately",
+        "Overflow deliberately"
+      ],
+      [
+        "mobile-navigation-and-touch",
+        "Mobile navigation and touch"
+      ]
+    ]
+  },
+  {
+    "slug": "library/accessibility-rules",
+    "title": "Accessibility",
+    "group": "Build & behavior",
+    "description": "Load for every interface: keyboard, focus, semantics, names, contrast, targets and user preferences.",
+    "file": "skills/design-skill/references/accessibility-rules.md",
+    "sections": [
+      [
+        "concrete-patterns",
+        "Concrete patterns"
+      ],
+      [
+        "accessibility-checklist",
+        "Accessibility checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/performance",
+    "title": "Frontend performance",
+    "group": "Build & behavior",
+    "description": "Load when building pages that must feel fast, adding fonts, images, video, shaders or heavy client code, or when an audit reports slowness.",
+    "file": "skills/design-skill/references/performance.md",
+    "sections": [
+      [
+        "1-targets",
+        "1. Targets"
+      ],
+      [
+        "2-loading-lcp",
+        "2. Loading (LCP)"
+      ],
+      [
+        "3-stability-cls",
+        "3. Stability (CLS)"
+      ],
+      [
+        "4-responsiveness-inp",
+        "4. Responsiveness (INP)"
+      ],
+      [
+        "5-weight-and-effects",
+        "5. Weight and effects"
+      ],
+      [
+        "6-performance-checklist",
+        "6. Performance checklist"
+      ]
+    ]
+  },
+  {
+    "slug": "library/anti-slop-rules",
+    "title": "Avoid unconsidered defaults",
+    "group": "Quality",
+    "description": "Load when output risks looking generic, or when reviewing for unconsidered defaults.",
+    "file": "skills/design-skill/references/anti-slop-rules.md",
+    "sections": [
+      [
+        "question-defaults-not-vocabularies",
+        "Question defaults, not vocabularies"
+      ],
+      [
+        "show-something-true",
+        "Show something true"
+      ],
+      [
+        "earn-the-decoration",
+        "Earn the decoration"
+      ],
+      [
+        "common-tells-of-unconsidered-output",
+        "Common tells of unconsidered output"
+      ]
+    ]
+  },
+  {
+    "slug": "library/verification",
+    "title": "Verify rendered results",
+    "group": "Quality",
+    "description": "Load before reporting work as done: rendered checks, measurement and honest evidence.",
+    "file": "skills/design-skill/references/verification.md",
+    "sections": [
+      [
+        "inspect-revise-repeat",
+        "Inspect, revise, repeat"
+      ],
+      [
+        "measure-and-qualify",
+        "Measure and qualify"
+      ],
+      [
+        "evaluate-the-skill-fairly",
+        "Evaluate the skill fairly"
+      ]
+    ]
+  },
+  {
+    "slug": "library/audit-rubric",
+    "title": "Audit rubric",
+    "group": "Quality",
+    "description": "Load for /design-skill audit, design reviews, pre-launch checks and \"why does this look off?\" questions.",
+    "file": "skills/design-skill/references/audit-rubric.md",
+    "sections": [
+      [
+        "1-how-to-audit",
+        "1. How to audit"
+      ],
+      [
+        "2-what-to-score",
+        "2. What to score"
+      ],
+      [
+        "3-severity",
+        "3. Severity"
+      ],
+      [
+        "4-report-format",
+        "4. Report format"
+      ],
+      [
+        "5-quick-triage-five-minute-pass",
+        "5. Quick triage (five-minute pass)"
+      ]
+    ]
+  },
+  {
+    "slug": "library/starter-css",
+    "title": "starter.css",
+    "group": "CSS kits",
+    "description": "Landing-page kit: tokens, header, hero, frames, bento, pricing, FAQ, footer and twelve direction presets.",
+    "file": "skills/design-skill/assets/starter.css",
+    "sections": [
+      [
+        "how-to-use",
+        "How to use"
+      ],
+      [
+        "source",
+        "Source"
+      ]
+    ]
+  },
+  {
+    "slug": "library/product-css",
+    "title": "product.css",
+    "group": "CSS kits",
+    "description": "Product kit: app shell, forms, tables, badges, alerts, tabs, dialogs, toasts, density modes and dark tokens.",
+    "file": "skills/design-skill/assets/product.css",
+    "sections": [
+      [
+        "how-to-use",
+        "How to use"
+      ],
+      [
+        "source",
+        "Source"
+      ]
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 # Responsive behavior
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when making layouts work across widths, zoom levels, touch and long content. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Break at content pressure
 * **Confidence Level**: Pattern

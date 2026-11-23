@@ -15,11 +15,14 @@ import { Walkthrough } from "./components/walkthrough";
 import { HeroSession } from "./components/hero-session";
 import { CtaShader, HeroShader, StageShader } from "./components/shaders";
 import { examples } from "./examples/data";
+import libraryNav from "./generated/library-nav.json";
 import "./landing.css";
 const install = "npx skills add sumitttt4/Glyph-Skill";
+const referenceCount = libraryNav.filter((x) => x.file.includes("/references/")).length;
+const kitCount = libraryNav.filter((x) => x.file.endsWith(".css")).length;
 const facts = [
   ["1", "entry point", "SKILL.md routes the work"],
-  ["19", "focused references", "loaded only when relevant"],
+  [String(referenceCount), "focused references", "loaded only when relevant"],
   ["4", "request modes", "design, audit, vibe, prompt"],
   ["0", "API keys or services", "plain Markdown files"],
 ];
@@ -29,25 +32,25 @@ const stages = [
     Icon: Compass,
     title: "Understand & choose",
     text: "Inspect the existing UI, find the primary task and compare meaningfully different compositions.",
-    files: ["category-playbook", "style-directions", "landing-composition"],
+    files: ["category-playbook", "style-directions", "landing-composition", "product-ui"],
   },
   {
     Icon: LayoutGrid,
     title: "Compose & express",
     text: "Resolve hierarchy, density and type with real content. Decide what carries the personality.",
-    files: ["visual-craft", "starter-kit", "layout-rules", "typography-rules"],
+    files: ["ux-writing", "visual-craft", "starter-kit", "design-tokens", "typography-rules"],
   },
   {
     Icon: Hammer,
     title: "Build & interact",
     text: "Use the project's actual stack. Implement every state, then add motion only where it explains.",
-    files: ["implementation", "framework-rules", "component-rules", "motion-rules"],
+    files: ["implementation", "forms", "data-visualization", "component-rules", "motion-rules"],
   },
   {
     Icon: ScanSearch,
     title: "Verify & revise",
     text: "Inspect real renders, keyboard and small screens. Report what passed and what is still a risk.",
-    files: ["accessibility-rules", "responsive-rules", "anti-slop-rules", "verification"],
+    files: ["accessibility-rules", "responsive-rules", "performance", "verification", "audit-rubric"],
   },
 ];
 const defaults = [
@@ -177,9 +180,16 @@ export default function Home() {
             </span>
             <ArrowRight size={16} />
           </Link>
+          <Link className="show-more" href="/examples/console">
+            <span>
+              <b>Not just landing pages.</b> Relay, a dispatch console built with the
+              product kit: shell, queue, filters, density, dark mode and Undo.
+            </span>
+            <ArrowRight size={16} />
+          </Link>
           <p className="fineprint">
-            Fictional products and sample data, designed and built with the Design Skill
-            skill for this site.
+            Fictional products and sample data, designed and built with Design Skill
+            for this site.
           </p>
         </section>
         <section id="workflow" className="block wrap">
@@ -207,7 +217,9 @@ export default function Home() {
                 <ul aria-label={`${title} references`}>
                   {files.map((f) => (
                     <li key={f}>
-                      <code>{f}.md</code>
+                      <Link href={`/docs/library/${f}`}>
+                        <code>{f}.md</code>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -288,18 +300,18 @@ export default function Home() {
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
                 <code>references/</code>
-                <span>19 files</span>
+                <span>{referenceCount} files</span>
               </div>
               <div className="tree-file">
                 <Folder size={15} aria-hidden="true" />
-                <code>assets/starter.css</code>
-                <span>13 directions</span>
+                <code>assets/</code>
+                <span>{kitCount} CSS kits · 13 directions</span>
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />
                 <code>LICENSE · THIRD_PARTY_NOTICES.md</code>
               </div>
-              <Link className="tree-link" href="/docs/skill-files">
+              <Link className="tree-link" href="/docs/library">
                 Read every file in the docs <ArrowRight size={15} />
               </Link>
             </div>

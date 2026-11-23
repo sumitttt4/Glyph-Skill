@@ -70,7 +70,7 @@ npm run deploy:cloudflare
 
 For a www→apex redirect, add a Redirect Rule in the Cloudflare dashboard; Workers `_redirects` cannot match on hostname. Vercel deployment (`vercel.json`) still works unchanged.
 
-The website is separate from the installable bundle. `scripts/prepare-docs.mjs` creates docs explorer content from the canonical Markdown files. Run it before a standalone docs-source check, or use the prebuild/predev hooks configured by the website.
+The website is separate from the installable bundle. `scripts/prepare-docs.mjs` renders the canonical Markdown and CSS into the docs explorer and one `/docs/library` page per skill file. Run it before a standalone docs-source check, or use the prebuild/predev hooks configured by the website.
 
 ## Contributing and license
 

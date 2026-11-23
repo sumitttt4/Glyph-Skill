@@ -1,6 +1,6 @@
 # Typography
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when choosing typefaces, setting type hierarchy and rhythm, or loading fonts. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Choose for actual content
 * **Confidence Level**: Taste hypothesis

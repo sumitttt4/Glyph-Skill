@@ -1,6 +1,6 @@
 # Composition and layout
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when setting hierarchy, proportions, density and depth on any screen. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Compose before polishing
 * **Confidence Level**: Taste hypothesis

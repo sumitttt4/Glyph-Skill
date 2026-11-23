@@ -1,6 +1,6 @@
 # Backgrounds and surfaces
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when choosing page surfaces, background imagery, gradients or textures. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Choose from the content
 * **Confidence Level**: Taste hypothesis

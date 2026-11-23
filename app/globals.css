@@ -992,9 +992,6 @@ td code {
     padding-inline: 18px;
     gap: 12px;
   }
-  .docs-header .brand span {
-    display: none;
-  }
   .docs-header nav {
     margin-left: auto;
   }
@@ -1170,5 +1167,108 @@ td code {
   .search-dialog-top button {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* Skill library: rendered Markdown and CSS from the skill bundle */
+.doc-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.doc-source-link:hover {
+  background: var(--raised);
+  color: var(--ink);
+}
+.doc-md h2,
+.doc-md h3 {
+  scroll-margin-top: 100px;
+}
+.doc-md h2 {
+  margin-top: 44px;
+}
+.doc-md h2:first-child {
+  margin-top: 0;
+}
+.doc-md h3 {
+  margin: 32px 0 10px;
+  font: 500 1.02rem/1.45 var(--sans);
+  letter-spacing: -0.015em;
+}
+.doc-md h2 a,
+.doc-md h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.doc-md h2 a span,
+.doc-md h3 a span {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 0.9em;
+  opacity: 0;
+}
+.doc-md h2 a:hover span,
+.doc-md h3 a:hover span,
+.doc-md h2 a:focus-visible span,
+.doc-md h3 a:focus-visible span {
+  opacity: 1;
+}
+.doc-md li a,
+.doc-md td a {
+  color: var(--accent-ink);
+}
+.doc-md ul ul {
+  margin-block: 4px;
+}
+.doc-md code {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--raised);
+  font: 0.82em/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+.doc-md pre {
+  max-height: 640px;
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--raised);
+}
+.doc-md pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  overflow-wrap: normal;
+  white-space: pre;
+}
+.doc-md .doc-table-wrap {
+  margin: 18px 0;
+}
+.doc-md .doc-table-wrap td,
+.doc-md .doc-table-wrap th {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  vertical-align: top;
+}
+.doc-md .doc-table-wrap td:first-child,
+.doc-md .doc-table-wrap td:last-child {
+  white-space: normal;
+}
+@media (max-width: 1100px) {
+  .doc-md h2,
+  .doc-md h3 {
+    scroll-margin-top: 140px;
   }
 }

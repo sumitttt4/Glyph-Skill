@@ -1,4 +1,12 @@
-export const docPages = [
+import libraryNav from "../generated/library-nav.json";
+export type DocPage = {
+  slug: string;
+  title: string;
+  group: string;
+  description: string;
+  sections: ReadonlyArray<readonly [string, string]>;
+};
+export const guidePages = [
   {
     slug: "",
     title: "Introduction",
@@ -107,6 +115,23 @@ export const docPages = [
     ],
   },
 ] as const;
+export const groupId = (group: string) =>
+  group.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+export const libraryPages = libraryNav as unknown as (DocPage & { file: string })[];
+export const libraryGroups = Array.from(new Set(libraryPages.map((x) => x.group)));
+export const libraryIndex: DocPage = {
+  slug: "library",
+  title: "Skill library",
+  group: "Reference",
+  description:
+    "Every file in the skill, rendered from the same Markdown and CSS your assistant reads.",
+  sections: libraryGroups.map((g) => [groupId(g), g] as const),
+};
+// The library index sits with the other Reference guides; library files follow.
+const guides: DocPage[] = [...guidePages];
+const at = guides.findIndex((p) => p.slug === "files") + 1;
+guides.splice(at, 0, libraryIndex);
+export const docPages: DocPage[] = [...guides, ...libraryPages];
 export const hrefFor = (slug: string) => (slug ? `/docs/${slug}` : "/docs");
 export const legacyAnchors: Record<string, string> = {
   "how-it-thinks": "/docs/workflow#understand",

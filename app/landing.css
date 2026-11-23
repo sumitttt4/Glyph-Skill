@@ -722,6 +722,14 @@ body:has(.landing) .theme-toggle {
   color: var(--muted);
   overflow-wrap: anywhere;
 }
+.stage ul a {
+  text-decoration: none;
+}
+.stage ul a:hover code,
+.stage ul a:focus-visible code {
+  color: var(--ink);
+  text-decoration: underline;
+}
 
 /* Walkthrough */
 .workbench {

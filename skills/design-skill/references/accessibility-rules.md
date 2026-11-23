@@ -1,6 +1,6 @@
 # Accessibility
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load for every interface: keyboard, focus, semantics, names, contrast, targets and user preferences. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Keyboard, focus and semantics
 * **Confidence Level**: Requirement

@@ -1,6 +1,6 @@
 # Verify rendered results
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load before reporting work as done: rendered checks, measurement and honest evidence. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Inspect, revise, repeat
 * **Confidence Level**: Requirement

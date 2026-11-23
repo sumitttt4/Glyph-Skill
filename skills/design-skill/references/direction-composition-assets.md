@@ -1,6 +1,6 @@
 # Direction, composition and assets
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when choosing a visual direction, comparing compositions or sourcing images, fonts and other assets. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Compare meaningful directions
 * **Confidence Level**: Taste hypothesis

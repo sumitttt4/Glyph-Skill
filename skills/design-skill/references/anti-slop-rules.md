@@ -1,6 +1,6 @@
 # Avoid unconsidered defaults
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when output risks looking generic, or when reviewing for unconsidered defaults. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Question defaults, not vocabularies
 * **Confidence Level**: Taste hypothesis

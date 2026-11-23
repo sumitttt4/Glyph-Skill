@@ -1,6 +1,6 @@
 # Functioning implementation
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when building UI in code: states, data flow, persistence and project boundaries. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Build the whole relevant flow
 * **Confidence Level**: Requirement

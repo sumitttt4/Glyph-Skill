@@ -1,6 +1,6 @@
 # Interaction and motion
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when adding transitions, animation, gestures or any movement. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Decide whether to animate
 * **Confidence Level**: Taste hypothesis

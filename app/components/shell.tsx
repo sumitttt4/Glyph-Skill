@@ -6,7 +6,7 @@ export function Brand() {
     <Link className="brand" href="/" aria-label="Design Skill home">
       <img src="/mark.svg" width="30" height="30" alt="" />
       <strong>
-        Design Skill <span>Skill</span>
+        Design <span>Skill</span>
       </strong>
     </Link>
   );

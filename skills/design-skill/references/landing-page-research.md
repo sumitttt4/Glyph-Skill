@@ -1,6 +1,6 @@
 # Landing-page reference research
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when exploring reference libraries or real landing pages to inform a composition. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Research the question, not the trend
 * **Confidence Level**: Pattern

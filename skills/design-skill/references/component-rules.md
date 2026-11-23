@@ -1,6 +1,6 @@
 # Components and interaction states
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when designing or reviewing individual components and their interaction states. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Choose structure from the task
 * **Confidence Level**: Pattern

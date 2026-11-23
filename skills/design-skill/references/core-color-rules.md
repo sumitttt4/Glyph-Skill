@@ -1,6 +1,6 @@
 # Color roles and contrast
 
-Load only when relevant. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when defining colour roles, palettes, contrast or light and dark themes. Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Choose roles before counts
 * **Confidence Level**: Pattern

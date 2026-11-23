@@ -18,7 +18,7 @@ text(64,260,'with better decisions.',65,serif=True)
 text(68,378,'A frontend design skill for AI coding assistants.',27,color='#545454')
 rect((68,470,545,520),'#e7f1ff',8)
 text(84,480,'Understand. Compose. Build. Verify.',22,color='#152e50')
-text(68,562,'glyph-skillfordesign.vercel.app',19,color='#545454')
+text(68,562,'designskill.site',19,color='#545454')
 # Three restrained composition studies: direction, hierarchy, and a considered action.
 for x,y,w,h in [(930,169,170,107),(870,300,230,117),(972,441,128,79)]:
     rect((x,y,x+w,y+h),'#f3f7fc',12)

@@ -9,7 +9,11 @@
     "lint": "tsc --noEmit",
     "prebuild": "node scripts/prepare-docs.mjs",
     "predev": "node scripts/prepare-docs.mjs",
-    "check:references": "python3 scripts/check-references.py"
+    "check:references": "python3 scripts/check-references.py",
+    "prebuild:cloudflare": "node scripts/prepare-docs.mjs",
+    "build:cloudflare": "STATIC_EXPORT=1 next build",
+    "preview:cloudflare": "npm run build:cloudflare && wrangler dev",
+    "deploy:cloudflare": "npm run build:cloudflare && wrangler deploy"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
@@ -27,7 +31,6 @@
     "@fontsource/instrument-serif": "^5.3.0",
     "@fontsource/space-mono": "^5.3.0",
     "@paper-design/shaders-react": "0.0.82",
-    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^1.16.0",
     "next": "^16.4.6",
     "react": "^19.2.6",
@@ -40,6 +43,7 @@
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^3.4.17",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.166.0"
   }
 }

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   },
   description:
     "One frontend design skill to help coding assistants understand, compose, build and verify product-specific interfaces.",
-  metadataBase: new URL("https://glyph-skillfordesign.vercel.app/"),
+  metadataBase: new URL("https://designskill.site/"),
   icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
   openGraph: {
     type: "website",

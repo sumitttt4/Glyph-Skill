@@ -1,0 +1,17 @@
+// Cloudflare Workers deployment for designskill.site.
+// The site is fully static: `npm run build:cloudflare` writes a Next.js static
+// export to ./out, which Workers serves as static assets (no server runtime).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "designskill-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "designskill.site", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

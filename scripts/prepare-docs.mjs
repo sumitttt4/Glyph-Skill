@@ -2,7 +2,7 @@ import { readdir, readFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const base = "skills/glyph";
+const base = "skills/design-skill";
 const refs = (await readdir(path.join(root, base, "references")))
   .filter((x) => x.endsWith(".md"))
   .sort();

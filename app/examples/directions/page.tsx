@@ -15,11 +15,11 @@ import "@fontsource-variable/space-grotesk";
 import "@fontsource/space-mono/400.css";
 import "@fontsource/dm-serif-display/400.css";
 import "@fontsource-variable/public-sans";
-import "../../../skills/glyph/assets/starter.css";
+import "../../../skills/design-skill/assets/starter.css";
 import "./directions.css";
 export const metadata: Metadata = {
   title: "Style directions",
-  description: "One Glyph starter kit rendered in thirteen style directions.",
+  description: "One Design Skill starter kit rendered in thirteen style directions.",
 };
 type Row = {
   dir: string;
@@ -54,15 +54,15 @@ export default function Directions() {
     <div className="dg">
       <header className="dg-top">
         <Link href="/#examples">
-          <ArrowLeft size={14} /> Glyph
+          <ArrowLeft size={14} /> Design Skill
         </Link>
-        <span>Glyph starter kit · one structure, thirteen style directions · fictional brands</span>
+        <span>Design Skill starter kit · one structure, thirteen style directions · fictional brands</span>
         <a href="#index">Index</a>
       </header>
       <section className="dg-intro" id="index">
         <h1>One kit, thirteen directions.</h1>
         <p>
-          The same <code>assets/starter.css</code> from the Glyph skill, switched with one{" "}
+          The same <code>assets/starter.css</code> from Design Skill, switched with one{" "}
           <code>data-direction</code> attribute and the fonts each direction names. Content follows
           the category playbook; imagery-led directions note what real assets they need.
         </p>

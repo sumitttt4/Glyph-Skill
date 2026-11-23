@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { ThemeControl } from "./controls";
 export function Brand() {
   return (
-    <Link className="brand" href="/" aria-label="Glyph Skill home">
-      <img src="/glyph-mark.svg" width="30" height="30" alt="" />
+    <Link className="brand" href="/" aria-label="Design Skill home">
+      <img src="/mark.svg" width="30" height="30" alt="" />
       <strong>
-        Glyph <span>Skill</span>
+        Design Skill <span>Skill</span>
       </strong>
     </Link>
   );

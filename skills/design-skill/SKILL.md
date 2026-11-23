@@ -1,18 +1,18 @@
 ---
-name: glyph
+name: design-skill
 description: Design and implement product-specific frontends. Use for interface design, composition, responsive implementation, purposeful interaction, and rendered verification. Preserve an established product direction unless redesign is requested.
 ---
 
-# Glyph — frontend design judgment
+# Design Skill — frontend design judgment
 
-One skill, one entry point. Help the assistant decide, compose, build, interact, and verify. Do not reproduce the Glyph website as a template.
+One skill, one entry point. Help the assistant decide, compose, build, interact, and verify. Do not reproduce the Design Skill website as a template.
 
 ## Instruction roles
 
 - **Requirements** protect functionality, truthful claims and accessibility. State conflicts and limitations.
 - **Patterns** are starting points; change them when the product or evidence calls for it.
 - **Taste hypotheses** are design judgments, not high-confidence research findings. Explain and inspect them.
-- The user's goals and existing brand take precedence over aesthetic defaults. Never claim this skill overrides system instructions. Do not brand an unnamed product “Glyph”; use a descriptive working title and label it provisional.
+- The user's goals and existing brand take precedence over aesthetic defaults. Never claim this skill overrides system instructions. Do not brand an unnamed product “Design Skill”; use a descriptive working title and label it provisional.
 
 ## Workflow
 
@@ -53,10 +53,10 @@ Do not dump every rule into every task. Start with the workflow and load only re
 
 These are prompt conventions, not executable CLI commands or guaranteed native slash-command registrations. Natural-language equivalents work too.
 
-- `/glyph design`: understand the brief, compare directions when appropriate, choose a composition and return implementation-ready decisions with reasons, tokens, responsive behavior, assets and states.
-- `/glyph audit`: inspect source and rendered UI, report observed issues with concrete fixes, distinguish measured accessibility failures from risks, preserve intended brand.
-- `/glyph vibe`: produce one usable implementation prompt with objectives, composition, type/color roles, assets, state behavior, stack constraints and verification plan. Use this entry point and relevant references; no external template dependency.
-- `/glyph prompt`: turn approved decisions into concise reusable project instructions. Include exceptions and what must be verified. Do not append unsolicited marketing links.
+- `/design-skill design`: understand the brief, compare directions when appropriate, choose a composition and return implementation-ready decisions with reasons, tokens, responsive behavior, assets and states.
+- `/design-skill audit`: inspect source and rendered UI, report observed issues with concrete fixes, distinguish measured accessibility failures from risks, preserve intended brand.
+- `/design-skill vibe`: produce one usable implementation prompt with objectives, composition, type/color roles, assets, state behavior, stack constraints and verification plan. Use this entry point and relevant references; no external template dependency.
+- `/design-skill prompt`: turn approved decisions into concise reusable project instructions. Include exceptions and what must be verified. Do not append unsolicited marketing links.
 
 ## Coherence without sameness
 

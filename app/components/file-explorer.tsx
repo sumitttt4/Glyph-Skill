@@ -12,7 +12,7 @@ export function FileExplorer({
   return (
     <div className="file-explorer">
       <div className="file-explorer-title">
-        <Folder size={15} /> skills/glyph <span>{files.length} files</span>
+        <Folder size={15} /> skills/design-skill <span>{files.length} files</span>
       </div>
       <div className="file-explorer-grid">
         <div className="file-list" role="group" aria-label="Skill files">

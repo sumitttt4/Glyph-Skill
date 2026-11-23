@@ -1,4 +1,4 @@
-// Each example records the Glyph workflow behind it: the brief, the
+// Each example records the Design Skill workflow behind it: the brief, the
 // directions compared, the hero pattern and craft baseline applied, and checks.
 export type Example = {
   slug: string;

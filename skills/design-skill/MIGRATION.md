@@ -1,4 +1,4 @@
-# Glyph migration and audit map
+# Design Skill migration and audit map
 
 ## Reconstruction note
 
@@ -8,7 +8,7 @@ Workspace maintenance removed the uncommitted local checkout. This bundle recons
 
 | Original area | Keep | Change | Remove |
 | --- | --- | --- | --- |
-| Entry point and install | One named `glyph` skill; design/audit/vibe/prompt conventions | Canonical bundle to `skills/glyph/`; root becomes compatibility pointer so installers avoid website source | Claims of native slash commands or automatic enforcement |
+| Entry point and install | One named `design-skill` skill; design/audit/vibe/prompt conventions | Canonical bundle to `skills/design-skill/`; root becomes compatibility pointer so installers avoid website source | Claims of native slash commands or automatic enforcement |
 | Color | Roles, semantic clarity, measured contrast | Meaningful categorical and expressive palettes allowed; deliberate themes | Single accent, exactly two text colors/one border color, hue bans |
 | Typography | Reading measure, hierarchy and font loading | Choose from content, language, brand, glyph support and license | Rigid personality lookup, tracking/weight caps, Poppins ban |
 | Layout | Alignment, rhythm and hierarchy | Compose important screen first; flexible widths, spacing and density | Compulsory max-width tiers, 4px lock, universal 120/80px padding |
@@ -16,7 +16,7 @@ Workspace maintenance removed the uncommitted local checkout. This bundle recons
 | Motion | Responsive feedback and interruption | Purpose/distance/frequency, gestures, origins and reduced motion | Universal duration caps, required pulse/fade/press, spring/bounce bans |
 | Accessibility | Keyboard, names, focus, contrast and semantics | Correctly qualify target sizes and large text; test real states | Fixed blue focus-ring recipe and hover-only exception |
 | Responsive | Reflow, navigation and scoped overflow | Break at content pressure; readable complete filenames | Fixed collapse thresholds and unconditional no-wrap tables |
-| Anti-slop | Product fit, truthful samples and considered details | Challenge defaults, retain personality and creative choices | Fixed monochrome skin, font/hue blacklist, compulsory Glyph branding |
+| Anti-slop | Product fit, truthful samples and considered details | Challenge defaults, retain personality and creative choices | Fixed monochrome skin, font/hue blacklist, compulsory Design Skill branding |
 | Framework | Stable state, semantic components and narrow boundaries | Actual stack/version and existing conventions | Framework replacement and Tailwind arbitrary-value bans |
 | Background | Readability and relevant surface hierarchy | White/black/tints/imagery chosen in context | Universal dark-first/warm-paper identities, fixed blur/opacity recipes |
 | Research | Attribution and original reasoning | Optional Mobbin/Lapa/library study with access limits | Copying source artwork or promising a paid integration |
@@ -24,7 +24,7 @@ Workspace maintenance removed the uncommitted local checkout. This bundle recons
 
 ## Install migration
 
-Install from repository using the supported skills installer, selecting `glyph` if prompted. For local review, use the local repository path. Existing root reference filenames remain ordinary Markdown pointers to canonical files. The canonical bundle contains its entry, references, license and required notices without depending on files outside its directory. No website theme or logo is imposed on generated work.
+Install from repository using the supported skills installer, selecting `design-skill` if prompted. For local review, use the local repository path. Existing root reference filenames remain ordinary Markdown pointers to canonical files. The canonical bundle contains its entry, references, license and required notices without depending on files outside its directory. No website theme or logo is imposed on generated work.
 
 ## Reference audit
 

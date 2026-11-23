@@ -1,3 +1,3 @@
 # Anti Slop Rules
 
-Canonical guidance: [skills/glyph/references/anti-slop-rules.md](../skills/glyph/references/anti-slop-rules.md).
+Canonical guidance: [skills/design-skill/references/anti-slop-rules.md](../skills/design-skill/references/anti-slop-rules.md).

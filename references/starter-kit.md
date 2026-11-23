@@ -1,3 +1,3 @@
 # Starter kit
 
-Canonical guidance: [skills/glyph/references/starter-kit.md](../skills/glyph/references/starter-kit.md).
+Canonical guidance: [skills/design-skill/references/starter-kit.md](../skills/design-skill/references/starter-kit.md).

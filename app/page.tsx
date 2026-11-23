@@ -58,10 +58,10 @@ const defaults = [
   ["Done", "It builds, so it ships", "Renders checked at 320px, keyboard and failure states"],
 ];
 const requests = [
-  ["/glyph design", "Compare directions and return implementation-ready decisions."],
-  ["/glyph audit", "Inspect the rendered UI and report concrete, observed fixes."],
-  ["/glyph vibe", "Write one complete implementation prompt for the build."],
-  ["/glyph prompt", "Turn approved decisions into reusable project rules."],
+  ["/design-skill design", "Compare directions and return implementation-ready decisions."],
+  ["/design-skill audit", "Inspect the rendered UI and report concrete, observed fixes."],
+  ["/design-skill vibe", "Write one complete implementation prompt for the build."],
+  ["/design-skill prompt", "Turn approved decisions into reusable project rules."],
 ];
 function Tag({ children }: { children: React.ReactNode }) {
   return <span className="tag">{children}</span>;
@@ -80,13 +80,13 @@ export default function Home() {
               Give the design <em>a little more thought.</em>
             </h1>
             <p>
-              Glyph teaches your coding assistant to understand the product,
+              Design Skill teaches your coding assistant to understand the product,
               choose a direction, build the interface and check what it actually
               rendered.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-solid" href="#install">
-                Install Glyph
+                Install Design Skill
                 <span className="btn-icon">
                   <ArrowRight size={14} />
                 </span>
@@ -128,10 +128,10 @@ export default function Home() {
         </dl>
         <section id="examples" className="block wrap">
           <div className="block-head">
-            <Tag>Built with Glyph</Tag>
+            <Tag>Built with Design Skill</Tag>
             <h2>Three products. One craft baseline.</h2>
             <p>
-              Each page followed the Glyph workflow and its visual craft
+              Each page followed the Design Skill workflow and its visual craft
               reference, from brief to verified render. Open one to see the
               decisions behind it.
             </p>
@@ -178,7 +178,7 @@ export default function Home() {
             <ArrowRight size={16} />
           </Link>
           <p className="fineprint">
-            Fictional products and sample data, designed and built with the Glyph
+            Fictional products and sample data, designed and built with the Design Skill
             skill for this site.
           </p>
         </section>
@@ -233,15 +233,15 @@ export default function Home() {
             <Tag>Defaults vs decisions</Tag>
             <h2>Less autopilot. More intention.</h2>
             <p>
-              Familiar patterns are allowed. Glyph asks the assistant to choose
+              Familiar patterns are allowed. Design Skill asks the assistant to choose
               them on purpose.
             </p>
           </div>
-          <div className="compare" role="table" aria-label="Defaults compared with Glyph decisions">
+          <div className="compare" role="table" aria-label="Defaults compared with Design Skill decisions">
             <div className="compare-row compare-head" role="row">
               <span role="columnheader">Area</span>
               <span role="columnheader">Unconsidered default</span>
-              <span role="columnheader">With a Glyph pass</span>
+              <span role="columnheader">With a Design Skill pass</span>
             </div>
             {defaults.map(([area, before, after]) => (
               <div className="compare-row" role="row" key={area}>
@@ -279,7 +279,7 @@ export default function Home() {
             </ul>
             <div className="tree">
               <div className="tree-root">
-                <Folder size={16} aria-hidden="true" /> skills/glyph/
+                <Folder size={16} aria-hidden="true" /> skills/design-skill/
               </div>
               <div className="tree-file">
                 <FileText size={15} aria-hidden="true" />
@@ -312,10 +312,10 @@ export default function Home() {
             </div>
             <div>
               <Tag>Install</Tag>
-              <h2>Bring Glyph to your next build.</h2>
+              <h2>Bring Design Skill to your next build.</h2>
               <p>
                 One command from your project directory. Choose{" "}
-                <code>glyph</code> when the installer asks. Agent support depends
+                <code>design-skill</code> when the installer asks. Agent support depends
                 on your installer.
               </p>
               <Link className="cta-link" href="/docs/installation">
@@ -326,7 +326,7 @@ export default function Home() {
               <CopyCode label="Terminal" text={install} />
               <p>
                 Prefer to read first? Clone the repo and run{" "}
-                <code>npx skills add . --skill glyph</code>.
+                <code>npx skills add . --skill design-skill</code>.
               </p>
             </div>
           </div>

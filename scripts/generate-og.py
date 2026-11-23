@@ -1,4 +1,4 @@
-"""Render the Glyph social card using the project's own fonts and mark geometry."""
+"""Render the Design Skill social card using the project's own fonts and mark geometry."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,7 +12,7 @@ def rect(box,fill,r=0): d.rounded_rectangle(tuple(v*S for v in box),radius=r*S,f
 rect((64,58,116,110),'#b5d5ff',13)
 d.polygon([(x*S,y*S) for x,y in [(76,70),(104,70),(104,78),(84,78),(84,98),(76,98)]], fill='#152e50')
 d.polygon([(x*S,y*S) for x,y in [(90,84),(104,84),(104,98),(90,98),(90,91),(97,91),(97,84)]], fill='#152e50')
-text(132,64,'Glyph Skill',29)
+text(132,64,'Design Skill',29)
 text(64,177,'Good interfaces start',65,serif=True)
 text(64,260,'with better decisions.',65,serif=True)
 text(68,378,'A frontend design skill for AI coding assistants.',27,color='#545454')
@@ -25,4 +25,4 @@ for x,y,w,h in [(930,169,170,107),(870,300,230,117),(972,441,128,79)]:
     rect((x+18,y+19,x+w-18,y+25),'#b5d5ff',3)
     rect((x+18,y+39,x+w-42,y+43),'#ced9e7',2)
     rect((x+18,y+h-30,x+65,y+h-15),'#b5d5ff',4)
-im.resize((1200,630),Image.Resampling.LANCZOS).save(ROOT/'public/og-glyph.png',optimize=True)
+im.resize((1200,630),Image.Resampling.LANCZOS).save(ROOT/'public/og.png',optimize=True)

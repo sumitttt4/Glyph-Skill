@@ -49,4 +49,4 @@ Load only when relevant. Requirement = correctness/accessibility obligation; Pat
 | [Mobbin](https://mobbin.com/) | App screens, flows and site references matched to a task | Access and integrations vary. Use an authorized connector when available; never claim gated screens were inspected. |
 | [Lapa Ninja](https://www.lapa.ninja/) | Landing compositions, section discovery and archived versions | Check archive dates; a screenshot may differ from the live product. |
 
-These are starting points, not endorsements, rankings, copied rules or bundled integrations. Other lawful libraries and supplied/live references may serve the task. Verify destinations and capabilities when used. No account, subscription or external template is required by Glyph.
+These are starting points, not endorsements, rankings, copied rules or bundled integrations. Other lawful libraries and supplied/live references may serve the task. Verify destinations and capabilities when used. No account, subscription or external template is required by Design Skill.

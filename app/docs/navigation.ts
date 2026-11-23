@@ -3,9 +3,9 @@ export const docPages = [
     slug: "",
     title: "Introduction",
     group: "Get started",
-    description: "What Glyph does and when to use it.",
+    description: "What Design Skill does and when to use it.",
     sections: [
-      ["overview", "What is Glyph?"],
+      ["overview", "What is Design Skill?"],
       ["principles", "How to think about it"],
       ["next-steps", "Start building"],
     ],
@@ -14,7 +14,7 @@ export const docPages = [
     slug: "installation",
     title: "Installation",
     group: "Get started",
-    description: "Add Glyph to your coding assistant.",
+    description: "Add Design Skill to your coding assistant.",
     sections: [
       ["install", "Install with the skills CLI"],
       ["local", "Install from a local checkout"],
@@ -24,7 +24,7 @@ export const docPages = [
   {
     slug: "workflow",
     title: "Design workflow",
-    group: "Use Glyph",
+    group: "Use Design Skill",
     description: "From understanding the product to inspecting the result.",
     sections: [
       ["understand", "Understand and choose"],
@@ -36,8 +36,8 @@ export const docPages = [
   {
     slug: "commands",
     title: "Commands & prompts",
-    group: "Use Glyph",
-    description: "Ways to ask your assistant to use Glyph.",
+    group: "Use Design Skill",
+    description: "Ways to ask your assistant to use Design Skill.",
     sections: [
       ["commands", "Request conventions"],
       ["example", "An example brief"],
@@ -46,7 +46,7 @@ export const docPages = [
   {
     slug: "guidance",
     title: "Guidance & exceptions",
-    group: "Use Glyph",
+    group: "Use Design Skill",
     description: "Understand requirements, patterns and design judgment.",
     sections: [
       ["rules", "Instruction roles"],
@@ -68,7 +68,7 @@ export const docPages = [
     slug: "customize",
     title: "Customization",
     group: "Reference",
-    description: "Adapt Glyph to your brand and project.",
+    description: "Adapt Design Skill to your brand and project.",
     sections: [
       ["customize", "Bring your own direction"],
       ["constraints", "Write useful constraints"],
@@ -80,7 +80,7 @@ export const docPages = [
     group: "Reference",
     description: "Resolve installation, discovery and output issues.",
     sections: [
-      ["discovery", "The assistant cannot find Glyph"],
+      ["discovery", "The assistant cannot find Design Skill"],
       ["output", "The result feels generic"],
       ["copy", "Copy or theme is unavailable"],
     ],

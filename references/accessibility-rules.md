@@ -1,3 +1,3 @@
 # Accessibility Rules
 
-Canonical guidance: [skills/glyph/references/accessibility-rules.md](../skills/glyph/references/accessibility-rules.md).
+Canonical guidance: [skills/design-skill/references/accessibility-rules.md](../skills/design-skill/references/accessibility-rules.md).

@@ -34,7 +34,7 @@ The owner describes a prior study of 42 images from public mirrors of Pankaj's p
 
 ## Reference libraries and website references
 
-The landing-page research guide is original workflow guidance. Mobbin and Lapa Ninja are optional links, not affiliations, integrations or asset licenses. No proprietary library screenshots, artwork, templates, code or text are bundled in this skill. DeadEnd Engineers, Proofline, shadcn/ui and Stripe inform website composition/typographic study only; their branding and artwork are not reusable Glyph skill defaults.
+The landing-page research guide is original workflow guidance. Mobbin and Lapa Ninja are optional links, not affiliations, integrations or asset licenses. No proprietary library screenshots, artwork, templates, code or text are bundled in this skill. DeadEnd Engineers, Proofline, shadcn/ui and Stripe inform website composition/typographic study only; their branding and artwork are not reusable Design Skill defaults.
 
 ## Website fonts
 

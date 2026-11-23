@@ -8,7 +8,7 @@ import "../kit.css";
 import "./ledgerline.css";
 export const metadata: Metadata = {
   title: "Ledgerline example",
-  description: "A fictional month-end close tool, designed with the Glyph skill.",
+  description: "A fictional month-end close tool, designed with Design Skill.",
 };
 const plans = [
   { name: "Starter", note: "One entity, monthly close", price: "$250", items: ["Bank and card feeds", "Rule-based matching", "Exceptions queue"] },
@@ -307,7 +307,7 @@ export default function Ledgerline() {
           </div>
           <div className="k-footer-legal">
             <span>© Ledgerline (example)</span>
-            <span>Designed with Glyph</span>
+            <span>Designed with Design Skill</span>
           </div>
         </div>
       </footer>

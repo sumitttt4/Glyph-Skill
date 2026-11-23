@@ -1,3 +1,3 @@
-# Glyph skill entry point
+# Design Skill entry point
 
-The installable entry point is [skills/glyph/SKILL.md](skills/glyph/SKILL.md). The complete self-contained bundle is in `skills/glyph/`; the website is not part of the skill installation.
+The installable entry point is [skills/design-skill/SKILL.md](skills/design-skill/SKILL.md). The complete self-contained bundle is in `skills/design-skill/`; the website is not part of the skill installation.

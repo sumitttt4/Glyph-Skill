@@ -1,3 +1,3 @@
 # Verification
 
-Canonical guidance: [skills/glyph/references/verification.md](../skills/glyph/references/verification.md).
+Canonical guidance: [skills/design-skill/references/verification.md](../skills/design-skill/references/verification.md).

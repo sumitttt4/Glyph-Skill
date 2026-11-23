@@ -33,7 +33,16 @@ Example brief: “Use Design Skill to build an operations dashboard for dispatch
 
 ## Bundle
 
-[skills/design-skill/SKILL.md](skills/design-skill/SKILL.md) is the sole installable entry point. Nineteen focused references cover a category playbook, style directions, visual craft, a starter kit, landing composition, direction/assets, library research, color, typography, layout, components, implementation, motion, accessibility, responsive behavior, anti-slop, framework, background and verification. `assets/starter.css` is a plain-CSS starter kit implementing the craft baseline with presets for twelve style directions (the thirteenth, Clean product, is the default). Load only relevant guidance. Root reference filenames remain compatibility pointers.
+[skills/design-skill/SKILL.md](skills/design-skill/SKILL.md) is the sole installable entry point. Twenty-seven focused references cover the whole frontend job:
+
+- **Direction and composition**: category playbook, style directions, landing composition, landing-page research, direction/assets, layout.
+- **Visual craft**: visual craft baseline, starter kit, typography, color, design tokens and dark mode, icons and imagery, background.
+- **Product UI**: apps, dashboards, tables and settings; forms and validation; data visualization; components.
+- **Content**: UX writing, microcopy and internationalisation.
+- **Build and behavior**: implementation, frameworks, motion, responsive, accessibility, performance.
+- **Quality**: anti-slop tells, verification and a scored audit rubric.
+
+Two plain-CSS kits ship in `assets/`: `starter.css` (landing pages, with presets for twelve style directions; the thirteenth, Clean product, is the default) and `product.css` (app shell, forms, tables, status, dialogs, density modes and dark tokens). Load only relevant guidance. Root reference filenames remain compatibility pointers.
 
 Requirements protect correctness, accessibility and truthful claims. Patterns are adaptable starting points. Taste hypotheses are judgments to inspect, not high-confidence evidence. Categorical colors, expressive brands, Poppins, gradients and familiar layouts are allowed when considered. The website's own blue buttons and fonts are not universal skill rules.
 

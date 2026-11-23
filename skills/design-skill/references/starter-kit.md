@@ -1,6 +1,6 @@
 # Starter kit
 
-Load when building a landing or marketing page without an existing design system. The kit at [assets/starter.css](../assets/starter.css) implements the [visual craft baseline](visual-craft.md) as plain CSS, with presets for the [style directions](style-directions.md). Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
+Load when building a landing page, marketing page or product screen without an existing design system. The kit at [assets/starter.css](../assets/starter.css) implements the [visual craft baseline](visual-craft.md) as plain CSS, with presets for the [style directions](style-directions.md). Requirement = correctness/accessibility obligation; Pattern = adaptable starting point; Taste hypothesis = design judgment to validate in context.
 
 ### Start from the kit, then make it specific
 * **Confidence Level**: Pattern
@@ -68,9 +68,36 @@ Pattern B, split: put copy and visual in `<div class="g-wrap g-split">` inside `
 
 Pricing, FAQ, CTA and footer follow the same pattern; see class names above. Use native `<details>` for FAQ.
 
+## Product kit
+
+For apps, dashboards, admin panels and settings, load [assets/product.css](../assets/product.css) after `starter.css`. It reuses the same tokens (so direction presets still apply), adds status tokens (`--g-success`, `--g-warning`, `--g-danger`, `--g-info`, each with `-subtle`), density modes via `data-density="compact|default|comfortable"` and dark tokens via `data-theme="dark"`. Guidance for these screens lives in [product UI](product-ui.md) and [forms](forms.md).
+
+Classes: shell `g-app`, `g-sidebar` (`data-open` on mobile), `g-sidebar-label`, `g-nav-item` (`aria-current="page"`), `g-topbar`, `g-topbar-title`, `g-topbar-actions`, `g-main`, `g-page-head`; panels `g-panel`, `g-panel-head`, `g-panel-body`, `g-kpis`, `g-kpi`, `g-kpi-label`, `g-kpi-value`, `g-delta` (`data-trend="good|bad"`); forms `g-field`, `g-label`, `g-hint`, `g-error`, `g-select`, `g-textarea`, `g-switch`, `g-btn-danger`, `g-btn-ghost`; data `g-table-wrap`, `g-table`, `g-num`; status `g-badge` and `g-alert` (`data-tone="success|warning|danger|info"`), `g-empty`; other `g-tabs`, `g-tab`, `g-kbd`, `g-skeleton`, `g-dialog` (native `<dialog>`), `g-toast`.
+
+```html
+<div class="g g-app" data-density="default">
+  <nav class="g-sidebar" aria-label="Main">
+    <a class="g-nav-item" href="/inbox" aria-current="page">Inbox</a>
+    <span class="g-sidebar-label">Workspace</span>
+    <a class="g-nav-item" href="/reports">Reports</a>
+  </nav>
+  <header class="g-topbar"><span class="g-topbar-title">Inbox</span>
+    <div class="g-topbar-actions"><button class="g-btn g-btn-primary">New invoice</button></div></header>
+  <main class="g-main">
+    <div class="g-page-head"><div><h1>Needs attention</h1><p>3 invoices are overdue.</p></div></div>
+    <div class="g-table-wrap"><table class="g-table">
+      <thead><tr><th scope="col">Customer</th><th scope="col">Status</th><th scope="col" class="g-num">Amount</th></tr></thead>
+      <tbody><tr><td>Northwind</td><td><span class="g-badge" data-tone="danger">Overdue</span></td><td class="g-num">$4,200.00</td></tr></tbody>
+    </table></div>
+  </main>
+</div>
+```
+
+The mobile sidebar needs a menu button in the top bar that toggles `data-open`, traps focus while open and closes on Escape; the kit provides the styles, not the script.
+
 ## Tailwind mapping
 
-Map tokens into the theme instead of hard-coding values: `colors.bg = var(--g-bg)`, `colors.fg`, `colors.muted`, `colors.accent`; `borderRadius.card = var(--g-radius)`; `fontFamily.display = var(--g-display)`. Keep the kit's numbers: container 1200px, section padding 120/80px, controls h-10, card padding 7, gaps 4.
+Map tokens into the theme instead of hard-coding values (full approach in [design tokens](design-tokens.md)): `colors.bg = var(--g-bg)`, `colors.fg`, `colors.muted`, `colors.accent`; `borderRadius.card = var(--g-radius)`; `fontFamily.display = var(--g-display)`. Keep the kit's numbers: container 1200px, section padding 120/80px, controls h-10, card padding 7, gaps 4.
 
 ## After building
 Run the craft checklist in [visual craft](visual-craft.md) on real renders at desktop and mobile widths, in every theme the page supports.

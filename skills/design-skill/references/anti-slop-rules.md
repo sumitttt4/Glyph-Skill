@@ -31,3 +31,23 @@ Load only when relevant. Requirement = correctness/accessibility obligation; Pat
   * **Bad**: Add a random hardware chip to a Markdown design skill.
   * **Good**: Show an original brief-to-decisions-to-interface demonstration.
 * **Exceptions**: Patterns may change when the product, user constraints or observed evidence justify it. Requirements remain.
+
+## Common tells of unconsidered output
+
+None of these is banned. Each is a default that appears when nobody decided. If one is on the page, be able to say why it serves this product; otherwise replace it.
+
+| Tell | Usually better |
+| --- | --- |
+| Purple-to-blue gradient on the headline, buttons and background at once | One accent for actions; colour and gradient in the visual, not the text |
+| Centred hero, three equal icon cards, logo strip, testimonial carousel, CTA band, in that order | A composition chosen from the [category playbook](category-playbook.md) and [landing composition](landing-composition.md) |
+| Emoji or generic icons in coloured circles as feature visuals | Small real product fragments ([visual craft](visual-craft.md) §6) |
+| "Unlock", "seamless", "revolutionize", "next-level", "all-in-one", "supercharge" | A specific claim with a number or example ([UX writing](ux-writing.md)) |
+| Glassmorphism, glow and noise on every surface | One surface treatment, used where layering means something |
+| `rounded-2xl` and `shadow-lg` on every element | One radius family and elevation only where something floats |
+| Inter at every size with weight 700 headings | The chosen direction's type recipe, weight 500 display, size contrast |
+| Fake logos, "10,000+ happy customers", five-star ratings without a source | Real proof, or none, or clearly labelled samples |
+| Dashboard of eight equal KPI tiles with sparklines | Lead with the exception or decision ([product UI](product-ui.md)) |
+| Animated everything on scroll, bouncing buttons, parallax text | Motion only where it explains or confirms ([motion](motion-rules.md)) |
+| Dark mode made by inverting light mode | Designed dark tokens ([design tokens](design-tokens.md)) |
+| Lorem ipsum, "Feature one", "John Doe" | Real copy and realistic sample data |
+| Hand-drawn SVG "illustrations" of real objects | Product UI, licensed photography or a generative field |

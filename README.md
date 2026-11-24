@@ -60,9 +60,18 @@ npm run build
 
 ### Deploy to Cloudflare (designskill.site)
 
-The site is fully static. [wrangler.jsonc](wrangler.jsonc) runs `npm run build:cloudflare` (a Next.js static export to `out/`) before every deploy and serves it from Cloudflare Workers static assets. `public/_headers` sets long-lived caching for hashed assets and baseline security headers.
+The site is fully static. `npm run build:cloudflare` writes a Next.js static export to `out/`, and [wrangler.jsonc](wrangler.jsonc) serves it from Cloudflare Workers static assets. `public/_headers` sets long-lived caching for hashed assets and baseline security headers.
 
-- **Git integration (Workers Builds):** the Worker connected in the dashboard must be named `glyph-skill`, matching `name` in `wrangler.jsonc`. Leave the build command empty or set it to `npm run build:cloudflare`; the deploy command is `npx wrangler deploy`.
+- **Git integration (Workers Builds):** Workers Builds does not run the `build.command` in `wrangler.jsonc` (that only runs for local `wrangler dev` and `wrangler deploy`), so set it in the dashboard under the Worker's Settings → Build:
+
+  | Setting | Value |
+  | --- | --- |
+  | Root directory | empty (repository root) |
+  | Build command | `npm run build:cloudflare` (required) |
+  | Deploy command | `npx wrangler deploy` |
+  | Preview command (non-production branches) | default, `npx wrangler preview` |
+
+  The Worker must be named `glyph-skill`, matching `name` in `wrangler.jsonc`.
 - **Custom domain:** add `designskill.site` under the Worker's Settings → Domains & Routes once the domain's zone is on the same Cloudflare account. Add a Redirect Rule for www → apex in the dashboard.
 - **From your machine:**
 

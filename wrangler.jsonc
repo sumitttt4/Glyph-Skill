@@ -1,7 +1,8 @@
 // Cloudflare Workers deployment for designskill.site.
-// The site is fully static: wrangler runs `npm run build:cloudflare` (a Next.js
-// static export to ./out) before every deploy or dev session, so the Workers
-// Builds Git integration works whatever build command the dashboard sets.
+// The site is fully static: `npm run build:cloudflare` writes a Next.js static
+// export to ./out. Locally, `build.command` runs it before `wrangler dev` and
+// `wrangler deploy`. Workers Builds ignores `build.command`, so its dashboard
+// Build command must be `npm run build:cloudflare` (see README).
 // `name` must match the Worker connected in the Cloudflare dashboard.
 // Attach designskill.site under Worker → Settings → Domains & Routes.
 {

@@ -1,17 +1,21 @@
 // Cloudflare Workers deployment for designskill.site.
 // The site is fully static: `npm run build:cloudflare` writes a Next.js static
-// export to ./out, which Workers serves as static assets (no server runtime).
+// export to ./out. Locally, `build.command` runs it before `wrangler dev` and
+// `wrangler deploy`. Workers Builds ignores `build.command`, so its dashboard
+// Build command must be `npm run build:cloudflare` (see README).
+// `name` must match the Worker connected in the Cloudflare dashboard.
+// Attach designskill.site under Worker → Settings → Domains & Routes.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "designskill-site",
+  "name": "glyph-skill",
   "compatibility_date": "2026-11-01",
+  "build": {
+    "command": "npm run build:cloudflare"
+  },
   "assets": {
     "directory": "./out",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
-  "routes": [
-    { "pattern": "designskill.site", "custom_domain": true }
-  ],
   "observability": { "enabled": true }
 }

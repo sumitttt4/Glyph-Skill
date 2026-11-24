@@ -60,7 +60,20 @@ npm run build
 
 ### Deploy to Cloudflare (designskill.site)
 
-The site is fully static. `npm run build:cloudflare` writes a Next.js static export to `out/`, and [wrangler.jsonc](wrangler.jsonc) serves it from Cloudflare Workers static assets on the `designskill.site` custom domain. `public/_headers` sets long-lived caching for hashed assets and baseline security headers.
+The site is fully static. `npm run build:cloudflare` writes a Next.js static export to `out/`, and [wrangler.jsonc](wrangler.jsonc) serves it from Cloudflare Workers static assets. `public/_headers` sets long-lived caching for hashed assets and baseline security headers.
+
+- **Git integration (Workers Builds):** Workers Builds does not run the `build.command` in `wrangler.jsonc` (that only runs for local `wrangler dev` and `wrangler deploy`), so set it in the dashboard under the Worker's Settings → Build:
+
+  | Setting | Value |
+  | --- | --- |
+  | Root directory | empty (repository root) |
+  | Build command | `npm run build:cloudflare` (required) |
+  | Deploy command | `npx wrangler deploy` |
+  | Preview command (non-production branches) | default, `npx wrangler preview` |
+
+  The Worker must be named `glyph-skill`, matching `name` in `wrangler.jsonc`.
+- **Custom domain:** add `designskill.site` under the Worker's Settings → Domains & Routes once the domain's zone is on the same Cloudflare account. Add a Redirect Rule for www → apex in the dashboard.
+- **From your machine:**
 
 ```bash
 npx wrangler login
@@ -68,7 +81,7 @@ npm run preview:cloudflare
 npm run deploy:cloudflare
 ```
 
-For a www→apex redirect, add a Redirect Rule in the Cloudflare dashboard; Workers `_redirects` cannot match on hostname. Vercel deployment (`vercel.json`) still works unchanged.
+Vercel deployment (`vercel.json`) still works unchanged.
 
 The website is separate from the installable bundle. `scripts/prepare-docs.mjs` renders the canonical Markdown and CSS into the docs explorer and one `/docs/library` page per skill file. Run it before a standalone docs-source check, or use the prebuild/predev hooks configured by the website.
 
